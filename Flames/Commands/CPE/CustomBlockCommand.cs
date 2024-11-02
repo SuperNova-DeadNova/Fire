@@ -699,6 +699,22 @@ namespace Flames.Commands.CPE
                     p.Message("Set inventory order for {0} to {1}", blockName,
                                    order == def.RawID ? "default" : order.ToString());
                     return true;
+                    
+                case "lavalight":
+                    int brightness = 0;
+                    if (!CommandParser.GetInt(p, value, "lava light", ref brightness, 0, 15)) {
+                        SendEditHelp(p, arg); return false;
+                    }
+                    def.SetBrightness(brightness, false);
+                    break;
+
+                case "lamplight":
+                    int sunBrightness = 0;
+                    if (!CommandParser.GetInt(p, value, "lamp light", ref sunBrightness, 0, 15)) {
+                        SendEditHelp(p, arg); return false;
+                    }
+                    def.SetBrightness(sunBrightness, true);
+                    break;
                 default:
                     p.Message("Unrecognised property: " + arg);
                     return false;
@@ -1055,6 +1071,14 @@ namespace Flames.Commands.CPE
             { "order", new string[] { "Enter the position/order of this block in the inventory.",
                     "The default position of a block is its ID.",
                     "A position of 0 hides the block from the inventory." }
+            },
+            { "lavalight", new string[] { "Type a number (0-15) for the lava brightness of the block.",
+                    "You need Fancy Lighting to see differences between 1 and 15.",
+                    "The block will glow using the \"lavalight\" env color" }
+            },
+            { "lamplight", new string[] { "Type a number (0-15) for the lamp brightness of the block.",
+                    "You need Fancy Lighting to see differences between 1 and 15.",
+                    "The block will glow using the \"lamplight\" env color" }
             },
         };
 
