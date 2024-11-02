@@ -51,7 +51,7 @@ namespace Flames.Core
             {
                 bool IsDrawingCmd = command.type.CaselessEq(CommandTypes.Building);
 
-                if (IsDrawingCmd && (lvl.IsMuseum || lvl.Config.Drawing))
+                if (IsDrawingCmd && (lvl.IsMuseum || !lvl.Config.Drawing))
                 {
                     p.Message("Drawing commands are turned off on this map.");
                     p.cancelcommand = true;
