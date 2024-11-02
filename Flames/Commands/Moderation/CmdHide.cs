@@ -19,7 +19,7 @@ using Flames.Events.PlayerEvents;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdHide : Command2
+    public class CmdHide : Command2
     {
         public override string name { get { return "Hide"; } }
         public override string type { get { return CommandTypes.Moderation; } }

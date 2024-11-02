@@ -1,7 +1,7 @@
 /*
     Copyright 2011 MCForge
         
-    Dual-licensed under the Educational Community License, Version 2.0 and
+    Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
@@ -18,15 +18,15 @@
 using System;
 using System.IO;
 using System.Threading;
-using Flames.Drawing;
 using Flames.Drawing.Ops;
+using Flames.Drawing;
 using Flames.Maths;
 using Flames.Network;
 using Flames.Util;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdImageprint : Command2
+    public class CmdImageprint : Command
     {
         public override string name { get { return "ImagePrint"; } }
         public override string shortcut { get { return "Img"; } }
@@ -38,13 +38,16 @@ namespace Flames.Commands.Building
         {
             get
             {
-                return new[] { new CommandAlias("ImgPrint"), new CommandAlias("PrintImg"),
+                return new[]
+                {
+                    new CommandAlias("ImgPrint"), new CommandAlias("PrintImg"),
                     new CommandAlias("ImgDraw"), new CommandAlias("DrawImg"),
-                    new CommandAlias("DrawImage"), new CommandAlias("PrintImage") };
+                    new CommandAlias("DrawImage"), new CommandAlias("PrintImage")
+                };
             }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!Directory.Exists("extra/images/"))
                 Directory.CreateDirectory("extra/images/");
@@ -55,10 +58,8 @@ namespace Flames.Commands.Building
             }
             string[] parts = message.SplitSpaces(5);
 
-            DrawArgs dArgs = new DrawArgs
-            {
-                Pal = ImagePalette.Find("color")
-            };
+            DrawArgs dArgs = new DrawArgs();
+            dArgs.Pal = ImagePalette.Find("color");
             if (dArgs.Pal == null) dArgs.Pal = ImagePalette.Palettes[0];
 
             if (parts.Length > 1)
@@ -154,11 +155,10 @@ namespace Flames.Commands.Building
                 return false;
             }
 
-            Thread thread = new Thread(() => DoDrawImage(p, m, (DrawArgs)state))
-            {
-                Name = "ImagePrint"
-            };
-            thread.Start();
+            Thread thread;
+            Server.StartThread(out thread, "ImagePrint",
+                               () => DoDrawImage(p, m, (DrawArgs)state));
+            Utils.SetBackgroundMode(thread);
             return false;
         }
 
@@ -216,7 +216,8 @@ namespace Flames.Commands.Building
 
             p.Message("&WImage is too large ({0}x{1}), resizing to ({2}x{3})",
                       width, height, resizedWidth, resizedHeight);
-            width = resizedWidth; height = resizedHeight;
+            width = resizedWidth; 
+            height = resizedHeight;
         }
 
         public static int LargestDelta(Level lvl, Vec3S32 point)
@@ -246,3 +247,4 @@ namespace Flames.Commands.Building
         }
     }
 }
+

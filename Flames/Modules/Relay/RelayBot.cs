@@ -248,7 +248,7 @@ namespace Flames.Modules.Relay
         {
             Server.StartThread(out worker, RelayName + "_RelayBot",
                                IOThread);
-            worker.IsBackground = true;
+            Utils.SetBackgroundMode(worker);
         }
 
         public abstract void DoConnect();
@@ -640,7 +640,7 @@ namespace Flames.Modules.Relay
             return Group.DefaultRank;
         }
 
-        public sealed class RelayPlayer : Player
+        public class RelayPlayer : Player
         {
             public string ChannelID;
             public RelayUser User;

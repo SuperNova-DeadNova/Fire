@@ -19,14 +19,14 @@ using System.Collections.Generic;
 
 namespace Flames.Commands.CPE
 {
-    public sealed class CmdCustomColors : Command2
+    public class CmdCustomColors : Command
     {
         public override string name { get { return "CustomColors"; } }
         public override string shortcut { get { return "ccols"; } }
         public override string type { get { return CommandTypes.Chat; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             if (message.Length == 0)
@@ -36,19 +36,19 @@ namespace Flames.Commands.CPE
             }
             string cmd = args[0];
 
-            if (IsCreateCommand(cmd))
+            if (IsCreateAction(cmd))
             {
                 AddHandler(p, args);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 RemoveHandler(p, args);
             }
-            else if (IsEditCommand(cmd))
+            else if (IsEditAction(cmd))
             {
                 EditHandler(p, args);
             }
-            else if (IsListCommand(cmd))
+            else if (IsListAction(cmd))
             {
                 string modifer = args.Length > 1 ? args[1] : "";
                 ListHandler(p, "ccols list", modifer);

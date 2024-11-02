@@ -18,7 +18,7 @@
 using Flames.NewScripting;
 namespace Flames.Commands.NewScripting
 {
-    public sealed class CmdNewPlugin : Command2
+    public class CmdNewPlugin : Command
     {
         public override string name { get { return "NewPlugin"; } }
         public override string type { get { return CommandTypes.Added; } }
@@ -32,10 +32,10 @@ namespace Flames.Commands.NewScripting
             }
         }
         public override bool MessageBlockRestricted { get { return true; } }
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(2);
-            if (IsListCommand(args[0]))
+            if (IsListAction(args[0]))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
 

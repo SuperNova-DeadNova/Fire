@@ -20,13 +20,13 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCenter : Command2
+    public class CmdCenter : Command
     {
         public override string name { get { return "Center"; } }
         public override string shortcut { get { return "Centre"; } }
         public override string type { get { return CommandTypes.Building; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.Message("Place or break two blocks to determine the edges.");
             p.MakeSelection(2, "Selecting region for &SCenter", null, DoCentre);

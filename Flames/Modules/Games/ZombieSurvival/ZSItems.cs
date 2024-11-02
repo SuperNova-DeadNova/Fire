@@ -22,11 +22,14 @@ using Flames.Eco;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class BlocksItem : SimpleItem
+    public class BlocksItem : SimpleItem
     {
         public BlocksItem()
         {
-            Aliases = new string[] { "blocks", "bl", "b" };
+            Aliases = new string[] 
+            { 
+                "blocks", "bl", "b" 
+            };
             Enabled = true;
             Price = 1;
         }
@@ -54,11 +57,14 @@ namespace Flames.Modules.Games.ZS
         }
     }
 
-    public sealed class QueueLevelItem : SimpleItem
+    public class QueueLevelItem : SimpleItem
     {
         public QueueLevelItem()
         {
-            Aliases = new string[] { "queuelevel", "queuelvl", "queue" };
+            Aliases = new string[] 
+            { 
+                "queuelevel", "queuelvl", "queue" 
+            };
             Enabled = true;
             Price = 150;
         }
@@ -93,11 +99,14 @@ namespace Flames.Modules.Games.ZS
         }
     }
 
-    public sealed class InfectMessageItem : SimpleItem
+    public class InfectMessageItem : SimpleItem
     {
         public InfectMessageItem()
         {
-            Aliases = new string[] { "infectmessage", "infectmsg" };
+            Aliases = new string[] 
+            { 
+                "infectmessage", "infectmsg" 
+            };
             Enabled = true;
             Price = 150;
         }
@@ -136,12 +145,16 @@ namespace Flames.Modules.Games.ZS
         }
     }
 
-    public sealed class InvisibilityItem : SimpleItem
+    public class InvisibilityItem : SimpleItem
     {
         public InvisibilityItem()
         {
             // old aliases for when invisibility and zombie invisibility were seperate
-            Aliases = new string[] { "invisibility", "invisible", "invis", "zinvisibility", "zinvisible", "zinvis" };
+            Aliases = new string[] 
+            { 
+                "invisibility", "invisible", "invis", 
+                "zinvisibility", "zinvisible", "zinvis" 
+            };
             Enabled = true;
             Price = 3;
         }
@@ -202,11 +215,14 @@ namespace Flames.Modules.Games.ZS
         }
     }
 
-    public sealed class ReviveItem : SimpleItem
+    public class ReviveItem : SimpleItem
     {
         public ReviveItem()
         {
-            Aliases = new string[] { "revive", "rev" };
+            Aliases = new string[] 
+            { 
+                "revive", "rev" 
+            };
             Enabled = true;
             Price = 7;
         }

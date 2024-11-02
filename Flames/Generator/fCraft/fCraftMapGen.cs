@@ -15,7 +15,7 @@ namespace Flames.Generator.fCraft
 
 
     /// <summary> Provides functionality for generating map files. </summary>
-    public sealed class fCraftMapGen
+    public class fCraftMapGen
     {
         public fCraftMapGenArgs args;
         public Random rand;

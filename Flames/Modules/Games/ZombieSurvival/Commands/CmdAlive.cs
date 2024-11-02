@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdAlive : Command2
+    public class CmdAlive : Command2
     {
         public override string name { get { return "Alive"; } }
         public override string type { get { return CommandTypes.Games; } }

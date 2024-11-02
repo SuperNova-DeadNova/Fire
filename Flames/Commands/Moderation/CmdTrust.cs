@@ -17,13 +17,13 @@
 */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdTrust : Command2
+    public class CmdTrust : Command2
     {
         public override string name { get { return "Trust"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0 || message.IndexOf(' ') != -1) 
             { 

@@ -19,7 +19,7 @@ using Flames.Generator;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdResizeLvl : Command2
+    public class CmdResizeLvl : Command2
     {
         public override string name { get { return "ResizeLvl"; } }
         public override string type { get { return CommandTypes.World; } }

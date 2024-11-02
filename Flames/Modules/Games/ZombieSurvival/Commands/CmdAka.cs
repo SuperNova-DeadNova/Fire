@@ -18,12 +18,12 @@
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdAka : Command2
+    public class CmdAka : Command
     {
         public override string name { get { return "AKA"; } }
         public override string type { get { return CommandTypes.Games; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             ZSData data_ = ZSGame.Get(p);
             data_.AkaMode = !data_.AkaMode;

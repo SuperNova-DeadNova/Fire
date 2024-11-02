@@ -22,7 +22,7 @@ using Flames.Tasks;
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdShutdownTrue : Command
+    public class CmdShutdownTrue : Command
     {
         public override string name { get { return "ShutdownTrue"; } }
         public override string type { get { return CommandTypes.Added; } }

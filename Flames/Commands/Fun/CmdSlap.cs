@@ -19,7 +19,7 @@ using Flames.Blocks;
 
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdSlap : Command2
+    public class CmdSlap : Command2
     {
         public override string name { get { return "Slap"; } }
         public override string type { get { return CommandTypes.Other; } }

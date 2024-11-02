@@ -22,7 +22,7 @@ using Flames.Maths;
 namespace Flames.Drawing
 {
     /// <summary> Represents a copied region/area of blocks plus some additional data </summary>
-    public sealed class CopyState
+    public class CopyState
     {
         public byte[] blocks;
         public byte[][] extBlocks;

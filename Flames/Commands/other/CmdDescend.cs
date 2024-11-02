@@ -19,14 +19,14 @@ using Flames.Blocks;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdDescend : Command2
+    public class CmdDescend : Command
     {
         public override string name { get { return "Descend"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!Hacks.CanUseHacks(p))
             {

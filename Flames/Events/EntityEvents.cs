@@ -22,7 +22,7 @@ namespace Flames.Events.EntityEvents
 
     public delegate void OnTabListEntryAdded(Entity e, ref string tabName, ref string tabGroup, Player dst);
     /// <summary> Called when a tab list entry is being sent to a user. </summary>
-    public sealed class OnTabListEntryAddedEvent : IEvent<OnTabListEntryAdded>
+    public class OnTabListEntryAddedEvent : IEvent<OnTabListEntryAdded>
     {
 
         public static void Call(Entity e, ref string tabName, ref string tabGroup, Player dst)
@@ -45,7 +45,7 @@ namespace Flames.Events.EntityEvents
 
     public delegate void OnTabListEntryRemoved(Entity e, Player dst);
     /// <summary> Called when a tab list entry is being removed from a user. </summary>
-    public sealed class OnTabListEntryRemovedEvent : IEvent<OnTabListEntryRemoved>
+    public class OnTabListEntryRemovedEvent : IEvent<OnTabListEntryRemoved>
     {
 
         public static void Call(Entity e, Player dst)
@@ -69,7 +69,7 @@ namespace Flames.Events.EntityEvents
 
     public delegate void OnEntitySpawned(Entity e, ref string name, ref string skin, ref string model, Player dst);
     /// <summary> Called when an entity is being spawned to someone. </summary>
-    public sealed class OnEntitySpawnedEvent : IEvent<OnEntitySpawned>
+    public class OnEntitySpawnedEvent : IEvent<OnEntitySpawned>
     {
 
         public static void Call(Entity e, ref string name, ref string skin, ref string model, Player dst)
@@ -92,7 +92,7 @@ namespace Flames.Events.EntityEvents
 
     public delegate void OnEntityDespawned(Entity e, Player dst);
     /// <summary> Called when an entity is being despawned from someone. </summary>
-    public sealed class OnEntityDespawnedEvent : IEvent<OnEntityDespawned>
+    public class OnEntityDespawnedEvent : IEvent<OnEntityDespawned>
     {
 
         public static void Call(Entity e, Player dst)
@@ -114,7 +114,7 @@ namespace Flames.Events.EntityEvents
 
     public delegate void OnSendingModel(Entity e, ref string model, Player dst);
     /// <summary> Called when model is being sent to a player. </summary>
-    public sealed class OnSendingModelEvent : IEvent<OnSendingModel>
+    public class OnSendingModelEvent : IEvent<OnSendingModel>
     {
 
         public static void Call(Entity e, ref string model, Player dst)
@@ -138,7 +138,7 @@ namespace Flames.Events.EntityEvents
     public delegate void OnGettingCanSeeEntity(Player p, ref bool canSee, Entity target);
     /// <summary> Called when checking if this player can see the given entity as an entity in the level. </summary>
     /// <remarks> e.g. You can use this event to make a player invisible during a game. </remarks>
-    public sealed class OnGettingCanSeeEntityEvent : IEvent<OnGettingCanSeeEntity>
+    public class OnGettingCanSeeEntityEvent : IEvent<OnGettingCanSeeEntity>
     {
 
         public static void Call(Player p, ref bool canSee, Entity target)

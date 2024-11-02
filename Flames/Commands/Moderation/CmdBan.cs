@@ -19,7 +19,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdBan : Command2
+    public class CmdBan : Command2
     {
         public override string name { get { return "Ban"; } }
         public override string type { get { return CommandTypes.Moderation; } }

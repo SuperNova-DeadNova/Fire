@@ -25,7 +25,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCopy : Command2
+    public class CmdCopy : Command
     {
         public override string name { get { return "Copy"; } }
         public override string shortcut { get { return "c"; } }
@@ -37,7 +37,7 @@ namespace Flames.Commands.Building
             get { return new CommandAlias[] { new CommandAlias("Cut", "cut") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             int offsetIndex = message.IndexOf('@');
             if (offsetIndex != -1)
@@ -68,7 +68,7 @@ namespace Flames.Commands.Building
 
                 LoadCopy(p, parts[1]);
             }
-            else if (IsDeleteCommand(opt))
+            else if (IsDeleteAction(opt))
             {
                 if (parts.Length != 2)
                 {
@@ -86,7 +86,7 @@ namespace Flames.Commands.Building
                 File.Delete(path);
                 p.Message("Deleted copy " + parts[1]);
             }
-            else if (IsListCommand(opt))
+            else if (IsListAction(opt))
             {
                 string dir = "extra/savecopy/" + p.name;
                 if (!Directory.Exists(dir))

@@ -19,12 +19,12 @@ using Flames.Games;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdWhere : Command2
+    public class CmdWhere : Command
     {
         public override string name { get { return "Where"; } }
         public override string type { get { return CommandTypes.Information; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) message = p.name;
             Player target = PlayerInfo.FindMatches(p, message);

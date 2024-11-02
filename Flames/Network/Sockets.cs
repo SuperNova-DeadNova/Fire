@@ -130,7 +130,7 @@ namespace Flames.Network
     }
 
     /// <summary> Abstracts sending to/receiving from a TCP socket </summary>
-    public sealed class TcpSocket : INetSocket
+    public class TcpSocket : INetSocket
     {
         public Socket socket;
         public byte[] recvBuffer = new byte[256];
@@ -358,7 +358,7 @@ namespace Flames.Network
     }
 
     /// <summary> Abstracts a WebSocket on top of a socket </summary>
-    public sealed class WebSocket : ServerWebSocket
+    public class WebSocket : ServerWebSocket
     {
         public INetSocket s;
         // websocket connection may be a proxied connection

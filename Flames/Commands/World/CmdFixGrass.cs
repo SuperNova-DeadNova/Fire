@@ -21,7 +21,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdFixGrass : Command2
+    public class CmdFixGrass : Command
     {
         public override string name { get { return "FixGrass"; } }
         public override string shortcut { get { return "fg"; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.World
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             FixGrassDrawOp op = new FixGrassDrawOp();
 

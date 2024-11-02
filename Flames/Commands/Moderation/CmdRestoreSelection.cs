@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdRestoreSelection : Command2
+    public class CmdRestoreSelection : Command
     {
         public override string name { get { return "RS"; } }
         public override string shortcut { get { return "RestoreSelection"; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Moderation
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

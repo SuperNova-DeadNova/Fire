@@ -38,7 +38,7 @@ namespace Flames.Network
     }
 
     /// <summary> Abstracts listening on a TCP socket </summary>
-    public sealed class TcpListen : INetListen
+    public class TcpListen : INetListen
     {
         public Socket socket;
 

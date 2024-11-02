@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.World
 {
-    public sealed class CmdSetspawn : Command2
+    public class CmdSetspawn : Command2
     {
         public override string name { get { return "SetSpawn"; } }
         public override string type { get { return CommandTypes.World; } }

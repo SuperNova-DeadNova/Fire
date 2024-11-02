@@ -24,7 +24,7 @@ using Flames.Generator;
 
 namespace Flames.Modules.Games.Countdown
 {
-    public sealed class CmdCountdown : RoundsGameCmd
+    public class CmdCountdown : RoundsGameCmd
     {
         public override string name { get { return "CountDown"; } }
         public override string shortcut { get { return "CD"; } }

@@ -20,7 +20,7 @@ using Flames.Blocks;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdBlockProperties : Command2
+    public class CmdBlockProperties : Command2
     {
         public override string name { get { return "BlockProperties"; } }
         public override string shortcut { get { return "BlockProps"; } }
@@ -43,7 +43,7 @@ namespace Flames.Commands.World
 
             BlockProps[] scope = GetScope(p, data, args[0]);
             if (scope == null) return;
-            if (IsListCommand(args[1]) && (args.Length == 2 || IsListModifier(args[2])))
+            if (IsListAction(args[1]) && (args.Length == 2 || IsListModifier(args[2])))
             {
                 ListProps(p, scope, args);
                 return;
@@ -62,7 +62,7 @@ namespace Flames.Commands.World
             {
                 CopyProps(p, scope, block, args);
             }
-            else if (opt.CaselessEq("reset") || IsDeleteCommand(opt))
+            else if (opt.CaselessEq("reset") || IsDeleteAction(opt))
             {
                 ResetProps(p, scope, block);
             }

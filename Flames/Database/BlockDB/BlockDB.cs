@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.DB
 {
-    public unsafe sealed class BlockDB
+    public unsafe class BlockDB
     {
         /// <summary> Dimensions used to pack coordinates into an index. </summary>
         /// <remarks> May be different from actual level's dimensions, such as when the level has been resized. </remarks>

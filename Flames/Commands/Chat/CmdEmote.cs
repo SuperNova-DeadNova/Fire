@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdEmote : Command2
+    public class CmdEmote : Command
     {
         public override string name { get { return "Emote"; } }
         public override string shortcut { get { return "<3"; } }
@@ -25,7 +25,7 @@ namespace Flames.Commands.Chatting
         public override bool SuperUseable { get { return false; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.parseEmotes = !p.parseEmotes;
             bool addToList = p.parseEmotes != Server.Config.ParseEmotes;

@@ -19,12 +19,13 @@ using Flames.Commands;
 
 namespace Flames.Drawing.Transforms
 {
-    public sealed class RotateTransformFactory : TransformFactory
+    public class RotateTransformFactory : TransformFactory
     {
         public override string Name { get { return "Rotate"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [angleX] [angleY] [angleZ]",
             "&HRotates the output of the draw operation around its bottom left corner",
             "&TArguments: [angleX] [angleY] [angleZ] centre",

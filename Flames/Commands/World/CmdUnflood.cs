@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdUnflood : Command2
+    public class CmdUnflood : Command2
     {
         public override string name { get { return "Unflood"; } }
         public override string type { get { return CommandTypes.World; } }

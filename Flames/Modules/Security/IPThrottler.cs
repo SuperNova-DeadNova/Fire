@@ -26,13 +26,13 @@ using Flames.Tasks;
 
 namespace Flames.Modules.Security
 {
-    public sealed class IPThrottler : Plugin
+    public class IPThrottler : Plugin
     {
         public override string name { get { return "IPThrottler"; } }
 
         public SchedulerTask clearTask;
-        public readonly Dictionary<string, IPThrottleEntry> ips = new Dictionary<string, IPThrottleEntry>();
-        public readonly object ipsLock = new object();
+        public Dictionary<string, IPThrottleEntry> ips = new Dictionary<string, IPThrottleEntry>();
+        public object ipsLock = new object();
 
         public override void Load(bool startup)
         {

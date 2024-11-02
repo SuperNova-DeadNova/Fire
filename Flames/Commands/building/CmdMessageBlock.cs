@@ -1,14 +1,14 @@
 /*
     Copyright 2011 MCForge
-        
+
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
-    
+
     https://opensource.org/license/ecl-2-0/
     https://www.gnu.org/licenses/gpl-3.0.html
-    
+
     Unless required by applicable law or agreed to in writing,
     software distributed under the Licenses are distributed on an "AS IS"
     BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
@@ -16,14 +16,14 @@
     permissions and limitations under the Licenses.
  */
 using System.Collections.Generic;
-using Flames.Blocks;
 using Flames.Blocks.Extended;
+using Flames.Blocks;
 using Flames.Maths;
 using Flames.Util;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdMessageBlock : Command2
+    public class CmdMessageBlock : Command2
     {
         public override string name { get { return "MB"; } }
         public override string shortcut { get { return "MessageBlock"; } }
@@ -38,10 +38,10 @@ namespace Flames.Commands.Building
 
         public override void Use(Player p, string message, CommandData data)
         {
-            if (message.Length == 0)
-            {
-                Help(p);
-                return;
+            if (message.Length == 0) 
+            { 
+                Help(p); 
+                return; 
             }
 
             bool allMessage = false;
@@ -59,7 +59,7 @@ namespace Flames.Commands.Building
             }
             else if (args.Length == 1)
             {
-                p.Message("You need to provide text to put in the messageblock.");
+                p.Message("You need to provide text to put in the messageblock."); 
                 return;
             }
             else
@@ -76,10 +76,10 @@ namespace Flames.Commands.Building
 
         public ushort GetBlock(Player p, string name, ref bool allMessage)
         {
-            if (name == "show")
-            {
-                ShowMessageBlocks(p);
-                return Block.Invalid;
+            if (name == "show") 
+            { 
+                ShowMessageBlocks(p); 
+                return Block.Invalid; 
             }
             ushort block = Block.Parse(p, name);
             if (block != Block.Invalid && p.level.Props[block].IsMessageBlock)
@@ -96,8 +96,14 @@ namespace Flames.Commands.Building
             allMessage = block == Block.MB_White && name != "white";
             if (p.level.Props[block].IsMessageBlock) return block;
 
-            Help(p);
+            Help(p); 
             return Block.Invalid;
+        }
+
+        public static bool IsMBBlock(Level lvl, Vec3U16 pos)
+        {
+            ushort block = lvl.GetBlock(pos.X, pos.Y, pos.Z);
+            return lvl.Props[block].IsMessageBlock;
         }
 
         public bool PlacedMark(Player p, Vec3S32[] marks, object state, ushort block)
@@ -111,6 +117,10 @@ namespace Flames.Commands.Building
                 p.level.UpdateBlock(p, x, y, z, args.Block);
                 UpdateDatabase(p, args, x, y, z);
                 p.Message("Message block created.");
+                if (!p.staticCommands)
+                {
+                    p.Message("To delete message blocks, toggle &T/delete &Smode.");
+                }
             }
             else
             {
@@ -130,10 +140,10 @@ namespace Flames.Commands.Building
             }
         }
 
-        public class MBArgs
-        {
-            public string Message;
-            public ushort Block;
+        public class MBArgs 
+        { 
+            public string Message; 
+            public ushort Block; 
         }
 
 
@@ -146,7 +156,8 @@ namespace Flames.Commands.Building
             {
                 if (p.showMBs)
                 {
-                    p.SendBlockchange(pos.X, pos.Y, pos.Z, Block.Green);
+                    ushort block = IsMBBlock(p.level, pos) ? Block.Green : Block.Black;
+                    p.SendBlockchange(pos.X, pos.Y, pos.Z, block);
                 }
                 else
                 {
@@ -192,7 +203,8 @@ namespace Flames.Commands.Building
             p.Message("&H  Supported blocks: &S{0}", names.Join());
             p.Message("&H  Use | to separate commands, e.g. /say 1 |/say 2");
             p.Message("&H  Note: \"@p\" is a placeholder for player who clicked.");
-            p.Message("&T/MB show &H- Shows or hides message blocks");
+            p.Message("&T/MB show &H- Shows or hides message blocks on the map");
+            p.Message("&H  (green = valid message block, black = queued for removal)");
         }
     }
 }

@@ -18,13 +18,13 @@
 
 namespace Flames.Modules.Awards
 {
-    public sealed class CmdAward : Command2
+    public class CmdAward : Command
     {
         public override string name { get { return "Award"; } }
         public override string type { get { return CommandTypes.Economy; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             bool take = false;
             if (message.CaselessStarts("give "))

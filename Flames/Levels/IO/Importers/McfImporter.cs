@@ -26,7 +26,7 @@ using Flames.Maths;
 
 namespace Flames.Levels.IO
 {
-    public sealed class McfImporter : IMapImporter
+    public class McfImporter : IMapImporter
     {
 
         public override string Extension { get { return ".mcf"; } }

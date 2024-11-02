@@ -25,7 +25,7 @@ using Flames.Events.GroupEvents;
 namespace Flames
 {
     /// <summary> This is the group object, where ranks and their data are stored </summary>
-    public sealed class Group
+    public class Group
     {
         public static Group BannedRank { get { return Find(LevelPermission.Banned); } }
         public static Group GuestRank { get { return Find(LevelPermission.Guest); } }
@@ -270,7 +270,7 @@ namespace Flames
             p.UpdateColor(PlayerInfo.DefaultColor(p));
         }
 
-        public static readonly object saveLock = new object();
+        public static object saveLock = new object();
         public static void SaveAll(List<Group> givenList)
         {
             lock (saveLock)

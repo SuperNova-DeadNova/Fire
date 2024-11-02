@@ -316,6 +316,7 @@ namespace Flames.Modules.Relay.Discord
 
         public void UpdateStatus()
         {
+            Server.UpTime = DateTime.UtcNow - Server.StartTime;
             JsonObject data = MakePresence();
             SendMessage(OPCODE_STATUS_UPDATE, data);
         }

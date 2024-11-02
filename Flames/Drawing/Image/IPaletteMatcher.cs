@@ -27,7 +27,7 @@ namespace Flames.Drawing
         ushort BestMatch(byte R, byte G, byte B, out bool backLayer);
     }
 
-    public sealed class RgbPaletteMatcher : IPaletteMatcher
+    public class RgbPaletteMatcher : IPaletteMatcher
     {
         public PaletteEntry[] front, back;
 
@@ -83,7 +83,7 @@ namespace Flames.Drawing
         }
     }
 
-    public sealed class LabPaletteMatcher : IPaletteMatcher
+    public class LabPaletteMatcher : IPaletteMatcher
     {
         public LabColor[] palette;
         public PaletteEntry[] front, back;

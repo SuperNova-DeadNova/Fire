@@ -23,7 +23,7 @@ using Flames.Maths;
 
 namespace Flames.Generator.Foliage
 {
-    public sealed class AshTree : Tree
+    public class AshTree : Tree
     {
 
         public int branchBaseHeight, branchAmount;

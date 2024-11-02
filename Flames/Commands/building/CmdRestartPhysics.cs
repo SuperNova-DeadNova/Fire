@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdRestartPhysics : Command2
+    public class CmdRestartPhysics : Command
     {
         public override string name { get { return "RestartPhysics"; } }
         public override string shortcut { get { return "rp"; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.Building
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             PhysicsArgs extraInfo = default;
             message = message.ToLower();

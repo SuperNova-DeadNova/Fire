@@ -21,7 +21,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdTorus : DrawCmd
+    public class CmdTorus : DrawCmd
     {
         public override string name { get { return "Torus"; } }
         public override string shortcut { get { return "tor"; } }

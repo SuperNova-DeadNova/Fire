@@ -18,7 +18,7 @@ using Flames.Events;
 
 namespace Flames
 {
-    public sealed class SpamChecker
+    public class SpamChecker
     {
 
         public SpamChecker(Player p)

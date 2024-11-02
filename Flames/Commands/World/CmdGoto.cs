@@ -21,7 +21,7 @@ using System.IO;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdGoto : Command2
+    public class CmdGoto : Command
     {
         public override string name { get { return "Goto"; } }
         public override string shortcut { get { return "g"; } }
@@ -36,7 +36,7 @@ namespace Flames.Commands.World
         }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

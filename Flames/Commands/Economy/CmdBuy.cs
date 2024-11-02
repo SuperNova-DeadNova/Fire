@@ -19,7 +19,7 @@ using Flames.Eco;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdBuy : Command2
+    public class CmdBuy : Command2
     {
         public override string name { get { return "Buy"; } }
         public override string shortcut { get { return "Purchase"; } }

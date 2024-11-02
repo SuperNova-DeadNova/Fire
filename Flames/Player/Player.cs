@@ -30,7 +30,7 @@ using Flames.SQL;
 
 namespace Flames
 {
-    public sealed class FlamePlayer : Player
+    public class FlamePlayer : Player
     {
         public FlamePlayer() : base("&S(&4F&cl&4a&cm&4e&cs&S)")
         {
@@ -51,10 +51,12 @@ namespace Flames
     }
 
 #if CORE
+    /// <summary> Work on backwards compatibility with other cores </summary>
+    public class GoldenPlayer : Player
+    {
         /// <summary> Work on backwards compatibility with other cores </summary>
-    public sealed class GoldenPlayer : Player {
-        /// <summary> Work on backwards compatibility with other cores </summary>
-        public GoldenPlayer() : base("&e(&6S&ep&6a&er&6k&ei&6e&e)") {
+        public GoldenPlayer() : base("&e(&6S&ep&6a&er&6k&ei&6e&e)")
+        {
             group = Group.GoldenRank;
             color = "&S";
             SuperName = "&6S&ep&6a&er&6k&ei&6e";
@@ -65,13 +67,16 @@ namespace Flames
         {
             get { return "&6S&ep&6a&er&6k&ei&6e [&6" + Server.Config.CoreState + "&S]"; }
         }
+        public override bool IsNull { get { return true; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
-        public override void Message(string message) {
+        public override void Message(string message)
+        {
             Logger.Log(LogType.GoldenSparksMessage, message);
         }
     }
-        /// <summary> Work on backwards compatibility with other cores </summary>
-        public sealed class NovaPlayer : Player {
+    /// <summary> Work on backwards compatibility with other cores </summary>
+    public class NovaPlayer : Player
+    {
         /// <summary> Work on backwards compatibility with other cores </summary>
         public NovaPlayer() : base("&7(&5N&do&5v&da&7)")
         {
@@ -84,6 +89,7 @@ namespace Flames
         {
             get { return "Nova [&a" + Server.Config.CoreState + "&S]"; }
         }
+        public override bool IsNull { get { return true; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public override void Message(string message)
         {
@@ -91,7 +97,7 @@ namespace Flames
         }
     }
     /// <summary> Work on backwards compatibility with other cores </summary>
-    public sealed class RandomPlayer : Player
+    public class RandomPlayer : Player
     {
         /// <summary> Work on backwards compatibility with other cores </summary>
         public RandomPlayer() : base("&7(&4Ran&5dom &6Str&0ang&8ers&7)")
@@ -105,6 +111,7 @@ namespace Flames
         {
             get { return "&4Ran&5dom &6Str&0ang&8ers [&a" + Server.Config.CoreState + "&S]"; }
         }
+        public override bool IsNull { get { return true; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public override void Message(string message)
         {
@@ -162,9 +169,9 @@ namespace Flames
         public override bool RestrictsScale { get { return true; } }
 
         /// <summary> Whether this player can see the given player. </summary>
-        public bool CanSee(Player target) 
-        { 
-            return CanSee(target, Rank); 
+        public bool CanSee(Player target)
+        {
+            return CanSee(target, Rank);
         }
         /// <summary> Whether this player can see the given player, as if they were the given rank. </summary>
         public bool CanSee(Player target, LevelPermission plRank)
@@ -284,9 +291,9 @@ namespace Flames
             ip = addr.ToString();
         }
 
-        public bool CanUse(Command cmd) 
-        { 
-            return cmd.Permissions.UsableBy(this); 
+        public bool CanUse(Command cmd)
+        {
+            return cmd.Permissions.UsableBy(this);
         }
         public bool CanUse(string cmdName)
         {
@@ -312,9 +319,9 @@ namespace Flames
 
         /// <summary> Disconnects the player from the server, 
         /// with their default logout message shown in chat. </summary>
-        public void Disconnect() 
-        { 
-            LeaveServer(PlayerInfo.GetLogoutMessage(this), "disconnected", false); 
+        public void Disconnect()
+        {
+            LeaveServer(PlayerInfo.GetLogoutMessage(this), "disconnected", false);
         }
 
         /// <summary> Kicks the player from the server,
@@ -326,9 +333,9 @@ namespace Flames
 
         /// <summary> Kicks the player from the server,
         /// with the given message shown in both chat and in the disconnect packet. </summary>
-        public void Kick(string discMsg) 
-        { 
-            Kick(discMsg, false); 
+        public void Kick(string discMsg)
+        {
+            Kick(discMsg, false);
         }
         public void Kick(string discMsg, bool sync = false)
         {
@@ -346,9 +353,9 @@ namespace Flames
 
         /// <summary> Disconnects the players from the server,
         /// with the same message shown in chat and in the disconnect packet. </summary>        
-        public void Leave(string msg) 
-        { 
-            Leave(msg, false); 
+        public void Leave(string msg)
+        {
+            Leave(msg, false);
         }
         public void Leave(string msg, bool sync = false)
         {
@@ -458,9 +465,9 @@ namespace Flames
 
         public const string USERNAME_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890._?";
 
-        public byte UserType() 
-        { 
-            return group.Blocks[Block.Bedrock] ? (byte)100 : (byte)0; 
+        public byte UserType()
+        {
+            return group.Blocks[Block.Bedrock] ? (byte)100 : (byte)0;
         }
 
         #endregion
@@ -474,10 +481,14 @@ namespace Flames
         public bool CheckCanSpeak(string action)
         {
             if (IsFire) return true;
-
+#if CORE
+            if (IsSparkie) return true;
+            if (IsRandom) return true;
+            if (IsNova) return true;
+#endif
             if (muted)
             {
-                Message("Cannot {0} &Swhile muted", action); 
+                Message("Cannot {0} &Swhile muted", action);
                 return false;
             }
             if (Server.chatmod && !voice)

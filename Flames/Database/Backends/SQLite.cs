@@ -23,7 +23,7 @@ using Flames.Platform;
 
 namespace Flames.SQL
 {
-    public sealed class SQLiteBackend : IDatabaseBackend
+    public class SQLiteBackend : IDatabaseBackend
     {
         public static IDatabaseBackend Instance = new SQLiteBackend();
         public SQLiteBackend()
@@ -64,7 +64,9 @@ namespace Flames.SQL
             }
         }
 
-        public override void CreateDatabase() { }
+        public override void CreateDatabase() 
+        { 
+        }
 
         public override bool TableExists(string table)
         {
@@ -155,7 +157,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class FSQLiteConnection : SQLiteConnection
+    public class FSQLiteConnection : SQLiteConnection
     {
         public override bool ConnectionPooling { get { return Server.Config.DatabasePooling; } }
         public override string DBPath { get { return "Flames.db"; } }

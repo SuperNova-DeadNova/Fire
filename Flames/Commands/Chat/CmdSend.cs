@@ -21,7 +21,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdSend : Command2
+    public class CmdSend : Command
     {
         public override string name { get { return "Send"; } }
         public override string type { get { return CommandTypes.Chat; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Chatting
         public override bool UseableWhenFrozen { get { return true; } }
         public override CommandParallelism Parallelism { get { return CommandParallelism.NoAndWarn; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] parts = message.SplitSpaces(2);
             if (parts.Length <= 1) 

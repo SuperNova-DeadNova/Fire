@@ -21,7 +21,7 @@ using Flames.Network;
 
 namespace Flames
 {
-    public sealed class EnvOption
+    public class EnvOption
     {
         public string Name, Help;
         public EnvOptions.OptionSetter SetFunc;
@@ -38,7 +38,8 @@ namespace Flames
     {
         public delegate void OptionSetter(Player p, string area, EnvConfig cfg, string value);
 
-        public static List<EnvOption> Options = new List<EnvOption>() {
+        public static List<EnvOption> Options = new List<EnvOption>() 
+        {
              new EnvOption("Weather",   SetWeather,   "&HSets the weather (sun, rain, snow)"),
              new EnvOption("SmoothFog", SetSmoothFog, "&HSets whether smoother fog is used"),
              new EnvOption("Horizon",   SetHorizon,   "&HSets the \"ocean\" block outside the map"),

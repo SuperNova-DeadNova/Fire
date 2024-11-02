@@ -17,13 +17,13 @@
  */
 namespace Flames.Commands.Info
 {
-    public sealed class CmdHasirc : Command2
+    public class CmdHasirc : Command
     {
         public override string name { get { return "HasIRC"; } }
         public override string shortcut { get { return "IRC"; } }
         public override string type { get { return CommandTypes.Information; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0) 
             { 

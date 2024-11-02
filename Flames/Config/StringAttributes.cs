@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Flames.Config
 {
-    public sealed class ConfigColorAttribute : ConfigAttribute
+    public class ConfigColorAttribute : ConfigAttribute
     {
         public string defCol;
 
@@ -44,7 +44,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigStringAttribute : ConfigAttribute
+    public class ConfigStringAttribute : ConfigAttribute
     {
         public bool allowEmpty;
         public string defValue, allowedChars;
@@ -103,7 +103,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigStringListAttribute : ConfigAttribute
+    public class ConfigStringListAttribute : ConfigAttribute
     {
         public ConfigStringListAttribute(string name, string section) : base(name, section) 
         { 

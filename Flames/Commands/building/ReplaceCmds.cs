@@ -49,7 +49,7 @@ namespace Flames.Commands.Building
         }
     }
 
-    public sealed class CmdReplaceNot : CmdReplace
+    public class CmdReplaceNot : CmdReplace
     {
         public override string name { get { return "ReplaceNot"; } }
         public override string shortcut { get { return "rn"; } }

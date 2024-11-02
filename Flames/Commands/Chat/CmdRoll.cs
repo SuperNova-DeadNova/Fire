@@ -19,13 +19,13 @@ using System;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdRoll : MessageCmd
+    public class CmdRoll : MessageCmd
     {
         public override string name { get { return "Roll"; } }
         public static volatile Random rng;
         public static object rngLock = new object();
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             int min = 1, max = 6;

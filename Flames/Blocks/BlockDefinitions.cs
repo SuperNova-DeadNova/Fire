@@ -22,7 +22,7 @@ using Flames.Network;
 
 namespace Flames
 {
-    public sealed class BlockDefinition
+    public class BlockDefinition
     {
 
         [ConfigUShort("BlockID", null)]

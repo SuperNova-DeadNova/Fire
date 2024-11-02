@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdLowlag : Command2
+    public class CmdLowlag : Command
     {
         public override string name { get { return "LowLag"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -33,7 +33,7 @@ namespace Flames.Commands.Maintenance
                 return "Positions now update every &b" + interval + " &Smilliseconds.";
             }
         }
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0 && Server.Config.PositionUpdateInterval > 1000)
             {

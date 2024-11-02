@@ -19,7 +19,7 @@ using System;
 
 namespace Flames.Undo
 {
-    public sealed class UndoDrawOpEntry
+    public class UndoDrawOpEntry
     {
         public string DrawOpName;
         public string LevelName;

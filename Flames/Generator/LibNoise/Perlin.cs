@@ -23,7 +23,7 @@
 
 namespace LibNoise
 {
-    public sealed class Perlin : IModule
+    public class Perlin : IModule
     {
         public double Persistence;
         public int OctaveCount;

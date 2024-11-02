@@ -49,7 +49,7 @@ namespace Flames
         Normal, ModifyOnly, NoModify 
     };
 
-    public sealed partial class Level : IDisposable
+    public partial class Level : IDisposable
     {
         public Level(string name, ushort width, ushort height, ushort length)
         {
@@ -61,7 +61,9 @@ namespace Flames
             this.blocks = blocks;
             Init(name, width, height, length);
         }
-        public Level() { }
+        public Level() 
+        { 
+        }
 
         public void Init(string name, ushort width, ushort height, ushort length)
         {
@@ -425,7 +427,7 @@ namespace Flames
             return false;
         }
 
-        public readonly object dbLock = new object();
+        public object dbLock = new object();
         public void SaveBlockDBChanges()
         {
             lock (dbLock) LevelDB.SaveBlockDB(this);

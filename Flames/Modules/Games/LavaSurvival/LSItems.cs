@@ -19,11 +19,14 @@ using Flames.Eco;
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class LifeItem : SimpleItem
+    public class LifeItem : SimpleItem
     {
         public LifeItem()
         {
-            Aliases = new string[] { "life", "lifes", "live", "lives" };
+            Aliases = new string[] 
+            { 
+                "life", "lifes", "live", "lives" 
+            };
             Enabled = true;
             Price = 20;
         }
@@ -47,11 +50,14 @@ namespace Flames.Modules.Games.LS
         }
     }
 
-    public sealed class SpongesItem : SimpleItem
+    public class SpongesItem : SimpleItem
     {
         public SpongesItem()
         {
-            Aliases = new string[] { "sponge", "sponges" };
+            Aliases = new string[] 
+            { 
+                "sponge", "sponges" 
+            };
             Enabled = true;
             Price = 2;
         }
@@ -76,11 +82,14 @@ namespace Flames.Modules.Games.LS
         }
     }
 
-    public sealed class WaterItem : SimpleItem
+    public class WaterItem : SimpleItem
     {
         public WaterItem()
         {
-            Aliases = new string[] { "water", "waters" };
+            Aliases = new string[] 
+            {
+                "water", "waters" 
+            };
             Enabled = true;
             Price = 2;
         }
@@ -105,11 +114,14 @@ namespace Flames.Modules.Games.LS
         }
     }
 
-    public sealed class DoorsItem : SimpleItem
+    public class DoorsItem : SimpleItem
     {
         public DoorsItem()
         {
-            Aliases = new string[] { "door", "doors" };
+            Aliases = new string[] 
+            { 
+                "door", "doors" 
+            };
             Enabled = true;
             Price = 2;
         }

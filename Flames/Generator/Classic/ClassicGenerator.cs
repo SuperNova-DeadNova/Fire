@@ -5,7 +5,7 @@ using Flames.Generator.Foliage;
 
 namespace Flames.Generator.Classic
 {
-    public sealed partial class ClassicGenerator
+    public partial class ClassicGenerator
     {
         public int waterLevel, oneY, Width, Length, Height;
         public byte[] blocks;

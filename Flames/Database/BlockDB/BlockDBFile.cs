@@ -235,7 +235,8 @@ namespace Flames.DB
                 int read = stream.Read(dst, offset + total, count - total);
                 if (read == 0) throw new EndOfStreamException();
                 total += read;
-            } while (total < count);
+            } 
+            while (total < count);
         }
     }
 }

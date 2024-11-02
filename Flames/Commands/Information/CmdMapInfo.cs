@@ -23,10 +23,11 @@ using Flames.DB;
 using Flames.Games;
 using Flames.Levels.IO;
 using Flames.Maths;
+using Flames.Network;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdMapInfo : Command2
+    public class CmdMapInfo : Command2
     {
         public override string name { get { return "MapInfo"; } }
         public override string shortcut { get { return "mi"; } }
@@ -177,6 +178,15 @@ namespace Flames.Commands.Info
             p.Message("Colors: &eFog {0}, &eSky {1}, &eClouds {2}, &eSunlight {3}, &eShadowlight {4}",
                       Color(cfg.FogColor), Color(cfg.SkyColor),
                       Color(cfg.CloudColor), Color(cfg.LightColor), Color(cfg.ShadowColor));
+            if (cfg.LavaLightColor != "" || cfg.LampLightColor != "")
+            {
+                p.Message("Fancy colors: &eLavaLight {0}, &eLampLight {1}",
+                          Color(cfg.LavaLightColor), Color(cfg.LampLightColor));
+            }
+            if (cfg.LightingMode != Packet.LightingMode.None)
+            {
+                p.Message("Lighting Mode: &b{0}{1}", cfg.LightingMode, cfg.LightingModeLocked ? "&c locked" : "");
+            }
             p.Message("Water level: &b{0}&S, Bedrock offset: &b{1}&S, Clouds height: &b{2}&S, Max fog distance: &b{3}",
                       data.Get(EnvProp.EdgeLevel), data.Get(EnvProp.SidesOffset),
                       data.Get(EnvProp.CloudsLevel), data.Get(EnvProp.MaxFog));

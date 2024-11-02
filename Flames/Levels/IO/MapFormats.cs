@@ -76,7 +76,8 @@ namespace Flames.Levels.IO
 
 
         /// <summary> List of all level format importers </summary>
-        public static List<IMapImporter> Formats = new List<IMapImporter>() {
+        public static List<IMapImporter> Formats = new List<IMapImporter>() 
+        {
             new LvlImporter(), new CwImporter(), new FcmImporter(), new McfImporter(),
             new DatImporter(), new McLevelImporter(),
         };
@@ -116,7 +117,8 @@ namespace Flames.Levels.IO
 
         public abstract void Write(Stream dst, Level lvl);
 
-        public static List<IMapExporter> Formats = new List<IMapExporter>() {
+        public static List<IMapExporter> Formats = new List<IMapExporter>() 
+        {
             new LvlExporter()
         };
     }

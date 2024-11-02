@@ -20,7 +20,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdUnbanip : Command2
+    public class CmdUnbanip : Command
     {
         public override string name { get { return "UnbanIP"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Moderation
             get { return new CommandAlias[] { new CommandAlias("UnIPBan") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

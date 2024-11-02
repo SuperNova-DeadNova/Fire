@@ -20,7 +20,7 @@
 namespace Flames.Commands.Misc
 {
 
-    public sealed class CmdSendCmd : Command2
+    public class CmdSendCmd : Command2
     {
         public override string name { get { return "SendCmd"; } }
         public override string type { get { return CommandTypes.Other; } }

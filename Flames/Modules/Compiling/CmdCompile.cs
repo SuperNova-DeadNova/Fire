@@ -20,7 +20,7 @@ using Flames.Scripting;
 
 namespace Flames.Modules.Compiling
 {
-    public class CmdCompile : Command2
+    public class CmdCompile : Command
     {
         public override string name { get { return "Compile"; } }
         public override string type { get { return CommandTypes.Other; } }
@@ -30,7 +30,7 @@ namespace Flames.Modules.Compiling
             get { return new[] { new CommandAlias("PCompile", "plugin") }; }
         }
         public override bool MessageBlockRestricted { get { return true; } }
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             bool plugin = args[0].CaselessEq("plugin");

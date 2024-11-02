@@ -21,7 +21,7 @@ namespace Flames.Network
     /// <summary> Helper class for efficiently sending many block changes. </summary>
     /// <remarks> Sends block changes as either a single CPE BulkBlockUpdate packet,
     /// or 256 SetBlock packets combined as a single byte array to reduce overhead. </remarks>
-    public sealed class BufferedBlockSender
+    public class BufferedBlockSender
     {
         public Level level;
         public Player player;

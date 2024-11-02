@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.CTF
 {
-    public sealed class CmdCTF : RoundsGameCmd
+    public class CmdCTF : RoundsGameCmd
     {
         public override string name { get { return "CTF"; } }
         public override string shortcut { get { return "CTFSetup"; } }

@@ -22,7 +22,7 @@ namespace Flames.Events.LevelEvents
 {
 
     public delegate void OnLevelLoaded(Level lvl);
-    public sealed class OnLevelLoadedEvent : IEvent<OnLevelLoaded>
+    public class OnLevelLoadedEvent : IEvent<OnLevelLoaded>
     {
         public static void Call(Level lvl)
         {
@@ -32,7 +32,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelLoad(string name, string path, ref bool cancel);
-    public sealed class OnLevelLoadEvent : IEvent<OnLevelLoad>
+    public class OnLevelLoadEvent : IEvent<OnLevelLoad>
     {
         public static void Call(string name, string path, ref bool cancel)
         {
@@ -52,7 +52,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelSave(Level lvl, ref bool cancel);
-    public sealed class OnLevelSaveEvent : IEvent<OnLevelSave>
+    public class OnLevelSaveEvent : IEvent<OnLevelSave>
     {
         public static void Call(Level lvl, ref bool cancel)
         {
@@ -72,7 +72,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelUnload(Level lvl, ref bool cancel);
-    public sealed class OnLevelUnloadEvent : IEvent<OnLevelUnload>
+    public class OnLevelUnloadEvent : IEvent<OnLevelUnload>
     {
         public static void Call(Level lvl, ref bool cancel)
         {
@@ -92,7 +92,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelAdded(Level lvl);
-    public sealed class OnLevelAddedEvent : IEvent<OnLevelAdded>
+    public class OnLevelAddedEvent : IEvent<OnLevelAdded>
     {
         public static void Call(Level lvl)
         {
@@ -102,7 +102,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelRemoved(Level lvl);
-    public sealed class OnLevelRemovedEvent : IEvent<OnLevelRemoved>
+    public class OnLevelRemovedEvent : IEvent<OnLevelRemoved>
     {
         public static void Call(Level lvl)
         {
@@ -112,7 +112,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnPhysicsStateChanged(Level lvl, PhysicsState state);
-    public sealed class OnPhysicsStateChangedEvent : IEvent<OnPhysicsStateChanged>
+    public class OnPhysicsStateChangedEvent : IEvent<OnPhysicsStateChanged>
     {
         public static void Call(Level lvl, PhysicsState state)
         {
@@ -122,7 +122,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnPhysicsLevelChanged(Level lvl, int level);
-    public sealed class OnPhysicsLevelChangedEvent : IEvent<OnPhysicsLevelChanged>
+    public class OnPhysicsLevelChangedEvent : IEvent<OnPhysicsLevelChanged>
     {
         public static void Call(Level lvl, int level)
         {
@@ -132,7 +132,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnPhysicsUpdate(ushort x, ushort y, ushort z, PhysicsArgs args, Level lvl);
-    public sealed class OnPhysicsUpdateEvent : IEvent<OnPhysicsUpdate>
+    public class OnPhysicsUpdateEvent : IEvent<OnPhysicsUpdate>
     {
         public static void Call(ushort x, ushort y, ushort z, PhysicsArgs extraInfo, Level l)
         {
@@ -142,7 +142,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelRenamed(string srcMap, string dstMap);
-    public sealed class OnLevelRenamedEvent : IEvent<OnLevelRenamed>
+    public class OnLevelRenamedEvent : IEvent<OnLevelRenamed>
     {
         public static void Call(string srcMap, string dstMap)
         {
@@ -152,7 +152,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelCopied(string srcMap, string dstMap);
-    public sealed class OnLevelCopiedEvent : IEvent<OnLevelCopied>
+    public class OnLevelCopiedEvent : IEvent<OnLevelCopied>
     {
         public static void Call(string srcMap, string dstMap)
         {
@@ -162,7 +162,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnLevelDeleted(string map);
-    public sealed class OnLevelDeletedEvent : IEvent<OnLevelDeleted>
+    public class OnLevelDeletedEvent : IEvent<OnLevelDeleted>
     {
         public static void Call(string map)
         {
@@ -172,7 +172,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnBlockHandlersUpdated(Level lvl, ushort block);
-    public sealed class OnBlockHandlersUpdatedEvent : IEvent<OnBlockHandlersUpdated>
+    public class OnBlockHandlersUpdatedEvent : IEvent<OnBlockHandlersUpdated>
     {
         public static void Call(Level lvl, ushort block)
         {
@@ -182,7 +182,7 @@ namespace Flames.Events.LevelEvents
     }
 
     public delegate void OnMainLevelChanging(ref string map);
-    public sealed class OnMainLevelChangingEvent : IEvent<OnMainLevelChanging>
+    public class OnMainLevelChangingEvent : IEvent<OnMainLevelChanging>
     {
         public static void Call(ref string map)
         {

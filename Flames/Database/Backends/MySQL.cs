@@ -23,7 +23,7 @@ using MySql.Data.MySqlClient;
 
 namespace Flames.SQL
 {
-    public sealed class MySQLBackend : IDatabaseBackend
+    public class MySQLBackend : IDatabaseBackend
     {
         public static IDatabaseBackend Instance = new MySQLBackend();
         public MySQLBackend()
@@ -176,7 +176,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class MySQLConnection : ISqlConnection
+    public class MySQLConnection : ISqlConnection
     {
         public MySqlConnection conn;
         public MySQLConnection(MySqlConnection conn) 
@@ -214,7 +214,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class MySQLCommand : ISqlCommand
+    public class MySQLCommand : ISqlCommand
     {
         public MySqlCommand cmd;
         public MySQLCommand(MySqlCommand cmd) 
@@ -251,7 +251,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class MySQLTransaction : ISqlTransaction
+    public class MySQLTransaction : ISqlTransaction
     {
         public MySqlTransaction trn;
         public MySQLTransaction(MySqlTransaction trn) 
@@ -273,7 +273,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class MySQLReader : ISqlReader
+    public class MySQLReader : ISqlReader
     {
         public MySqlDataReader rdr;
         public MySQLReader(MySqlDataReader rdr) 

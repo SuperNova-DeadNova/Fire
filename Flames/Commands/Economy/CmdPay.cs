@@ -20,7 +20,7 @@ using Flames.Events.EconomyEvents;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdPay : MoneyCmd
+    public class CmdPay : MoneyCmd
     {
         public override string name { get { return "Pay"; } }
         public override bool MessageBlockRestricted { get { return true; } }

@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdVoice : Command2
+    public class CmdVoice : Command2
     {
         public override string name { get { return "Voice"; } }
         public override string type { get { return CommandTypes.Moderation; } }

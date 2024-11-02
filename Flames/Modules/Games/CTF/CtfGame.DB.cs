@@ -29,7 +29,8 @@ namespace Flames.Modules.Games.CTF
             public int Points, Captures, Tags; 
         }
 
-        public static ColumnDesc[] ctfTable = new ColumnDesc[] {
+        public static ColumnDesc[] ctfTable = new ColumnDesc[] 
+        {
             new ColumnDesc("ID", ColumnType.Integer, priKey: true, autoInc: true, notNull: true),
             new ColumnDesc("Name", ColumnType.VarChar, 20),
             new ColumnDesc("Points", ColumnType.UInt24),

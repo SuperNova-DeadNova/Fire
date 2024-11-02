@@ -35,14 +35,19 @@ namespace Flames
     {
         public const string mustAgreeMsg = "You must read /rules then agree to them with /agree!";
 
-        public readonly object blockchangeLock = new object();
-        public bool HasBlockChange() { return Blockchange != null; }
+        public object blockchangeLock = new object();
+        public bool HasBlockChange() 
+        { 
+            return Blockchange != null; 
+        }
 
         public bool DoBlockchangeCallback(ushort x, ushort y, ushort z, ushort block)
         {
             lock (blockchangeLock)
             {
-                lastClick.X = x; lastClick.Y = y; lastClick.Z = z;
+                lastClick.X = x; 
+                lastClick.Y = y; 
+                lastClick.Z = z;
                 if (Blockchange == null) return false;
 
                 Blockchange(this, x, y, z, block);
@@ -56,11 +61,16 @@ namespace Flames
             ushort old = level.GetBlock(x, y, z);
             if (old == Block.Invalid) return;
 
-            if (jailed || frozen || possessed) { RevertBlock(x, y, z); return; }
+            if (jailed || frozen || possessed) 
+            { 
+                RevertBlock(x, y, z); 
+                return; 
+            }
             if (!agreed)
             {
                 Message(mustAgreeMsg);
-                RevertBlock(x, y, z); return;
+                RevertBlock(x, y, z); 
+                return;
             }
 
             if (level.IsMuseum && Blockchange == null) return;
@@ -69,7 +79,8 @@ namespace Flames
             if (Unverified)
             {
                 PassAuthenticator.Current.RequiresVerification(this, "modify blocks");
-                RevertBlock(x, y, z); return;
+                RevertBlock(x, y, z); 
+                return;
             }
 
             IGame game = IGame.GameOn(level);
@@ -84,7 +95,8 @@ namespace Flames
             if (old >= Block.Air_Flood && old <= Block.Door_Air_air)
             {
                 Message("Block is active, you cannot disturb it.");
-                RevertBlock(x, y, z); return;
+                RevertBlock(x, y, z); 
+                return;
             }
 
             if (!deletingBlock)
@@ -103,13 +115,15 @@ namespace Flames
                 {
                     Logger.Log(LogType.Warning, "{0} attempted to build with a {1} distance offset", name, diff);
                     Message("You can't build that far away.");
-                    RevertBlock(x, y, z); return;
+                    RevertBlock(x, y, z); 
+                    return;
                 }
             }
 
             if (!CheckManualChange(old, deletingBlock))
             {
-                RevertBlock(x, y, z); return;
+                RevertBlock(x, y, z); 
+                return;
             }
 
             ushort raw = placing ? block : Block.Air;
@@ -227,12 +241,14 @@ namespace Flames
                     // otherwise if you're holding air and try to place a block, this message would show
                     if (!level.IsAirAt(x, y, z)) Message("Deleting blocks is disabled in this level.");
 
-                    RevertBlock(x, y, z); return;
+                    RevertBlock(x, y, z); 
+                    return;
                 }
                 else if (action == 1 && !level.Config.Buildable)
                 {
                     Message("Placing blocks is disabled in this level.");
-                    RevertBlock(x, y, z); return;
+                    RevertBlock(x, y, z); 
+                    return;
                 }
 
                 if (held >= Block.Extended)
@@ -240,7 +256,8 @@ namespace Flames
                     if (!Session.hasBlockDefs || level.CustomBlockDefs[held] == null)
                     {
                         Message("Invalid block type: " + Block.ToRaw(held));
-                        RevertBlock(x, y, z); return;
+                        RevertBlock(x, y, z); 
+                        return;
                     }
                 }
                 HandleManualChange(x, y, z, action != 0, held, true);
@@ -258,13 +275,21 @@ namespace Flames
         {
             if (held >= 0) ClientHeldBlock = (ushort)held;
 
-            if (trainGrab || following.Length > 0) { CheckBlocks(Pos, Pos); return; }
+            if (trainGrab || following.Length > 0) 
+            { 
+                CheckBlocks(Pos, Pos); 
+                return; 
+            }
             Position next = new Position(x, y, z);
             CheckBlocks(Pos, next);
 
             bool cancel = false;
             OnPlayerMoveEvent.Call(this, next, yaw, pitch, ref cancel);
-            if (cancel) { cancel = false; return; }
+            if (cancel) 
+            { 
+                cancel = false; 
+                return; 
+            }
 
             Pos = next;
             SetYawPitch(yaw, pitch);
@@ -346,7 +371,28 @@ namespace Flames
                     Send(Packet.EnvMapProperty(i, value));
                 }
             }
-
+            if (Supports(CpeExt.LightingMode))
+            {
+                EnvConfig cfg;
+                if (zone != null && zone.Config.LightingMode != Packet.LightingMode.None)
+                {
+                    // Zone takes most precedence if it has a setting
+                    cfg = zone.Config;
+                }
+                else
+                {
+                    if (level.Config.LightingMode == Packet.LightingMode.None)
+                    {
+                        // If level has no setting, use global
+                        cfg = Server.Config;
+                    }
+                    else
+                    {
+                        cfg = level.Config;
+                    }
+                }
+                Send(Packet.SetLightingMode(cfg.LightingMode, cfg.LightingModeLocked));
+            }
             int weather = CurrentEnvProp(EnvProp.Weather, zone);
             Session.SendSetWeather((byte)weather);
         }
@@ -376,7 +422,10 @@ namespace Flames
             }
         }
 
-        public bool Moved() { return _lastRot.RotY != Rot.RotY || _lastRot.HeadX != Rot.HeadX; }
+        public bool Moved() 
+        { 
+            return _lastRot.RotY != Rot.RotY || _lastRot.HeadX != Rot.HeadX; 
+        }
 
         public void AnnounceDeath(string msg)
         {
@@ -399,9 +448,15 @@ namespace Flames
 
             bool cancel = false;
             OnPlayerDyingEvent.Call(this, block, ref cancel);
-            if (cancel) { cancel = false; return false; }
+            if (cancel) 
+            { 
+                cancel = false; 
+                return false; 
+            }
 
-            onTrain = false; trainInvincible = false; trainGrab = false;
+            onTrain = false; 
+            trainInvincible = false; 
+            trainGrab = false;
             ushort x = (ushort)Pos.BlockX, y = (ushort)Pos.BlockY, z = (ushort)Pos.BlockZ;
 
             string deathMsg = level.Props[block].DeathMessage;
@@ -432,7 +487,7 @@ namespace Flames
             if (TimesDied > short.MaxValue && Database.Backend.EnforcesIntegerLimits)
                 TimesDied = short.MaxValue;
 
-            if (Server.Config.AnnounceDeathCount && (TimesDied > 0 && TimesDied % 10 == 0))
+            if (Server.Config.AnnounceDeathCount && TimesDied > 0 && TimesDied % 10 == 0)
             {
                 AnnounceDeath("@p &Shas died &3" + TimesDied + " times");
             }
@@ -450,10 +505,18 @@ namespace Flames
 
             bool isCommand;
             text = Chat.ParseInput(text, out isCommand);
-            if (isCommand) { DoCommand(text); return; }
+            if (isCommand) 
+            { 
+                DoCommand(text); 
+                return; 
+            }
 
             // People who are muted can't speak or vote
-            if (muted) { Message("You are muted."); return; } //Muted: Only allow commands
+            if (muted) 
+            { 
+                Message("You are muted.");
+                return; 
+            } //Muted: Only allow commands
 
             if (Server.voting)
             {
@@ -471,7 +534,11 @@ namespace Flames
             text = HandleJoker(text);
 
             OnPlayerChatEvent.Call(this, text);
-            if (cancelchat) { cancelchat = false; return; }
+            if (cancelchat) 
+            { 
+                cancelchat = false; 
+                return; 
+            }
             Chat.MessageChat(this, "λFULL: &f" + text, null, true);
         }
 
@@ -558,7 +625,8 @@ namespace Flames
                 text = lastCMD;
                 if (text.Length == 0)
                 {
-                    Message("Cannot repeat command - no commands used yet."); return;
+                    Message("Cannot repeat command - no commands used yet.");
+                    return;
                 }
                 Message("Repeating &T/" + text);
             }
@@ -606,10 +674,9 @@ namespace Flames
                     callback = ExecuteSerialCommands;
                 }
 
-                Thread thread = new Thread(callback);
-                try { thread.Name = "CMD_" + cmd; } catch { }
-                thread.IsBackground = true;
-                thread.Start();
+                Thread thread;
+                Server.StartThread(out thread, "CMD_ " + cmd, callback);
+                Utils.SetBackgroundMode(thread);
             }
             catch (Exception e)
             {
@@ -635,13 +702,14 @@ namespace Flames
                     Command command = GetCommand(ref cmd, ref args, data);
                     if (command == null) return;
 
-                    messages.Add(args); commands.Add(command);
+                    messages.Add(args); 
+                    commands.Add(command);
                 }
 
-                Thread thread = new Thread(() => UseCommands(commands, messages, data));
-                thread.Name = "CMDS_";
-                thread.IsBackground = true;
-                thread.Start();
+                Thread thread;
+                Server.StartThread(out thread, "CMDS_",
+                                   () => UseCommands(commands, messages, data));
+                Utils.SetBackgroundMode(thread);
             }
             catch (Exception e)
             {
@@ -672,14 +740,20 @@ namespace Flames
 
         public bool CheckCommand(string cmd)
         {
-            if (cmd.Length == 0) { Message("No command entered."); return false; }
+            if (cmd.Length == 0) 
+            { 
+                Message("No command entered."); 
+                return false; 
+            }
             if (Server.Config.AgreeToRulesOnEntry && !agreed && !(cmd == "agree" || cmd == "rules" || cmd == "disagree" || cmd == "pass" || cmd == "setpass"))
             {
-                Message(mustAgreeMsg); return false;
+                Message(mustAgreeMsg); 
+                return false;
             }
             if (jailed)
             {
-                Message("You cannot use any commands while jailed."); return false;
+                Message("You cannot use any commands while jailed."); 
+                return false;
             }
             if (Unverified && !(cmd == "pass" || cmd == "setpass"))
             {
@@ -691,7 +765,8 @@ namespace Flames
             if (delta.TotalSeconds > 0)
             {
                 int secs = (int)Math.Ceiling(delta.TotalSeconds);
-                Message("Blocked from using commands for another " + secs + " seconds"); return false;
+                Message("Blocked from using commands for another " + secs + " seconds"); 
+                return false;
             }
             return true;
         }
@@ -716,20 +791,26 @@ namespace Flames
 
             Command.Search(ref cmdName, ref cmdArgs);
             OnPlayerCommandEvent.Call(this, cmdName, cmdArgs, data);
-            if (cancelcommand) { cancelcommand = false; return null; }
+            if (cancelcommand) 
+            { 
+                cancelcommand = false; 
+                return null; 
+            }
 
             Command command = Command.Find(cmdName);
             if (command == null)
             {
                 if (Block.Parse(this, cmdName) != Block.Invalid)
                 {
-                    cmdArgs = cmdName; cmdName = "mode";
+                    cmdArgs = cmdName; 
+                    cmdName = "mode";
                     command = Command.Find("Mode");
                 }
                 else
                 {
                     Logger.Log(LogType.CommandUsage, "{0} tried to use unknown command: /{1} {2}", name, cmdName, cmdArgs);
-                    Message("Unknown command \"{0}\".", cmdName); return null;
+                    Message("Unknown command \"{0}\".", cmdName); 
+                    return null;
                 }
             }
 
@@ -741,15 +822,13 @@ namespace Flames
 
             if (level != null && level.IsMuseum && !command.museumUsable)
             {
-                Message("Cannot use &T/{0} &Swhile in a museum.", command.name); return null;
+                Message("Cannot use &T/{0} &Swhile in a museum.", command.name); 
+                return null;
             }
             if (frozen && !command.UseableWhenFrozen)
             {
-                Message("Cannot use &T/{0} &Swhile frozen.", command.name); return null;
-            }
-            if (jailed && !command.UseableWhenJailed)
-            {
-                Message("Cannot use &T/{0} &Swhile jailed.", command.name); return null;
+                Message("Cannot use &T/{0} &Swhile frozen.", command.name); 
+                return null;
             }
             return command;
         }

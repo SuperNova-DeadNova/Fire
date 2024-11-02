@@ -22,7 +22,7 @@ using Flames.Network;
 
 namespace Flames.Authentication
 {
-    public sealed class AuthServiceConfig
+    public class AuthServiceConfig
     {
         public string URL;
         public string NameSuffix = "";

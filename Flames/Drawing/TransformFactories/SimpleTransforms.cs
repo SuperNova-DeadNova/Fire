@@ -20,12 +20,13 @@ using Flames.Commands;
 
 namespace Flames.Drawing.Transforms
 {
-    public sealed class NoTransformFactory : TransformFactory
+    public class NoTransformFactory : TransformFactory
     {
         public override string Name { get { return "None"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: none",
             "&HDoes not affect the output of draw operations.",
         };
@@ -36,12 +37,13 @@ namespace Flames.Drawing.Transforms
         }
     }
 
-    public sealed class ScaleTransformFactory : TransformFactory
+    public class ScaleTransformFactory : TransformFactory
     {
         public override string Name { get { return "Scale"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [scaleX] [scaleY] [scaleZ] <centre>",
             "&TAlternatively: [scale] <centre>",
             "&H[scale] values can be an integer or a fraction (e.g. 2 or 1/2).",

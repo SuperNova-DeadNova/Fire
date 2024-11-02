@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdInvincible : Command2
+    public class CmdInvincible : Command2
     {
         public override string name { get { return "Invincible"; } }
         public override string shortcut { get { return "Inv"; } }

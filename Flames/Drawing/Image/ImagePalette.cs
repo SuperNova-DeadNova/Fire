@@ -21,7 +21,7 @@ using System.IO;
 namespace Flames.Drawing
 {
     /// <summary> Represents a mapping of block ids to RGB colors. </summary>
-    public sealed class ImagePalette
+    public class ImagePalette
     {
         public string Name;
         public string FileName { get { return "extra/palettes/" + Name + ".pal"; } }
@@ -124,7 +124,8 @@ namespace Flames.Drawing
         }
 
 
-        public static PaletteEntry[] Color = new PaletteEntry[] {
+        public static PaletteEntry[] Color = new PaletteEntry[] 
+        {
             new PaletteEntry(128, 86,   57, Block.Dirt),
             new PaletteEntry(162, 129,  75, Block.Wood),
             new PaletteEntry(244, 237, 174, Block.Sand),
@@ -148,21 +149,24 @@ namespace Flames.Drawing
             new PaletteEntry(0,    0,    0, Block.Obsidian),
         };
 
-        public static PaletteEntry[] Grayscale = new PaletteEntry[] {
+        public static PaletteEntry[] Grayscale = new PaletteEntry[] 
+        {
             new PaletteEntry(0,     0,   0, Block.Obsidian),
             new PaletteEntry(46,   68,  47, Block.Black),
             new PaletteEntry(135, 145, 130, Block.Gray),
             new PaletteEntry(230, 240, 225, Block.White),
         };
 
-        public static PaletteEntry[] GrayscaleSimple = new PaletteEntry[] {
+        public static PaletteEntry[] GrayscaleSimple = new PaletteEntry[] 
+        {
             new PaletteEntry(32,   32,  32, Block.Obsidian),
             new PaletteEntry(96,   96,  96, Block.Black),
             new PaletteEntry(160, 160, 160, Block.Gray),
             new PaletteEntry(224, 224, 224, Block.White),
         };
 
-        public static PaletteEntry[] BlackWhite = new PaletteEntry[] {
+        public static PaletteEntry[] BlackWhite = new PaletteEntry[] 
+        {
             new PaletteEntry(255, 255, 255, Block.White),
             new PaletteEntry(0,     0,   0, Block.Obsidian),
         };

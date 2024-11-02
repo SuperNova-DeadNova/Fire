@@ -32,7 +32,7 @@ namespace Flames
         public string Level;
     }
 
-    public sealed class WarpList
+    public class WarpList
     {
         public static WarpList Global = new WarpList();
         public List<Warp> Items = new List<Warp>();

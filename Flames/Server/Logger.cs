@@ -81,11 +81,11 @@ namespace Flames
         ConsoleMessage = FlameMessage,
 #if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
-        RandomMessage,
+        RandomMessage = FlameMessage,
         /// <summary> Work on backwards compatibility with other cores </summary>
-        NovaMessage,
+        NovaMessage = FlameMessage,
         /// <summary> Work on backwards compatibility with other cores </summary>
-        GoldenSparksMessage,
+        GoldenSparksMessage = FlameMessage,
 #endif
     }
 

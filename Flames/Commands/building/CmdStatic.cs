@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.Building
 {
-    public sealed class CmdStatic : Command2
+    public class CmdStatic : Command2
     {
         public override string name { get { return "Static"; } }
         public override string shortcut { get { return "t"; } }

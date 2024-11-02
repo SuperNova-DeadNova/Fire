@@ -25,7 +25,7 @@ using Flames.Maths;
 
 namespace Flames.Levels.IO
 {
-    public sealed class DatReader
+    public class DatReader
     {
         public BinaryReader src;
         public List<object> handles = new List<object>();
@@ -60,7 +60,7 @@ namespace Flames.Levels.IO
         }
     }
 
-    public sealed class DatImporter : IMapImporter
+    public class DatImporter : IMapImporter
     {
         public override string Extension { get { return ".dat"; } }
         public override string Description { get { return "Minecraft Classic map"; } }

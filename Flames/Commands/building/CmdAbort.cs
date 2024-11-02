@@ -19,14 +19,14 @@ using Flames.Drawing.Transforms;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdAbort : Command2
+    public class CmdAbort : Command
     {
         public override string name { get { return "Abort"; } }
         public override string shortcut { get { return "a"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.ClearBlockchange();
             p.painting = false;

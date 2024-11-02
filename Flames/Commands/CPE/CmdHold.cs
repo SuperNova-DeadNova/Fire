@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.CPE
 {
-    public sealed class CmdHold : Command2
+    public class CmdHold : Command
     {
         public override string name { get { return "Hold"; } }
         public override string shortcut { get { return "HoldThis"; } }
@@ -26,7 +26,7 @@ namespace Flames.Commands.CPE
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

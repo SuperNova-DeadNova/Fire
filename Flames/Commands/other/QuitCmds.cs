@@ -21,7 +21,7 @@ using System.Threading;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdRagequit : Command2
+    public class CmdRagequit : Command
     {
         public override string name { get { return "RageQuit"; } }
         public override string shortcut { get { return ""; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Misc
         public override bool SuperUseable { get { return false; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.Leave("RAGEQUIT!!");
         }

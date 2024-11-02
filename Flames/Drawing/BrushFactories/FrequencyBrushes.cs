@@ -107,12 +107,13 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class RandomBrushFactory : BrushFactory
+    public class RandomBrushFactory : BrushFactory
     {
         public override string Name { get { return "Random"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [block1/frequency] [block2]..",
             "&HDraws by randomly selecting blocks from the given [blocks].",
             "&Hfrequency is optional (defaults to 1), and specifies the number of times " +
@@ -133,12 +134,13 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class GradientBrushFactory : BrushFactory
+    public class GradientBrushFactory : BrushFactory
     {
         public override string Name { get { return "Gradient"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: <axis> [block1/frequency] [block2]..",
             "&HDraws by linearly selecting blocks from the given [blocks].",
             "&Hfrequency is optional (defaults to 1), and specifies the number of times " +

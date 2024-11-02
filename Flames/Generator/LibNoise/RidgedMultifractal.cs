@@ -24,7 +24,7 @@ using System;
 
 namespace LibNoise
 {
-    public sealed class RidgedMultifractal : IModule
+    public class RidgedMultifractal : IModule
     {
         public int OctaveCount;
 

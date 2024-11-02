@@ -21,7 +21,7 @@ using Flames.Util;
 
 namespace Flames.DB
 {
-    public unsafe sealed class BlockDBFile_V1 : BlockDBFile
+    public unsafe class BlockDBFile_V1 : BlockDBFile
     {
         public override void WriteEntries(Stream s, FastList<BlockDBEntry> entries)
         {

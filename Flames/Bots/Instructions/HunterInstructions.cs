@@ -22,7 +22,7 @@ using Flames.Maths;
 namespace Flames.Bots
 {
     /// <summary> Causes the bot to move towards the closest player, within a defined search radius. </summary>
-    public sealed class HuntInstruction : BotInstruction
+    public class HuntInstruction : BotInstruction
     {
         public HuntInstruction()
         {
@@ -124,7 +124,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to kill nearby players. </summary>
-    public sealed class KillInstruction : BotInstruction
+    public class KillInstruction : BotInstruction
     {
         public KillInstruction() 
         { 
@@ -159,7 +159,7 @@ namespace Flames.Bots
         };
     }
 
-    public sealed class StareInstruction : BotInstruction
+    public class StareInstruction : BotInstruction
     {
         public StareInstruction() 
         { 

@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdPaste : Command2
+    public class CmdPaste : Command
     {
         public override string name { get { return "Paste"; } }
         public override string shortcut { get { return "v"; } }
@@ -35,7 +35,7 @@ namespace Flames.Commands.Building
             get { return new[] { new CommandAlias("PasteNot", "not"), new CommandAlias("pn", "not") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             BrushArgs args = new BrushArgs(p, message, Block.Air);
             if (!BrushFactory.Find("Paste").Validate(args)) return;

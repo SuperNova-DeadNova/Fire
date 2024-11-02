@@ -27,7 +27,7 @@ using Flames.Util;
 
 namespace Flames
 {
-    public sealed partial class Level : IDisposable
+    public partial class Level : IDisposable
     {
 
         /// <summary>

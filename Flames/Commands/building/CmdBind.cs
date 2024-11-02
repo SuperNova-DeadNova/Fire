@@ -18,14 +18,14 @@
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdBind : Command2
+    public class CmdBind : Command
     {
         public override string name { get { return "Bind"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

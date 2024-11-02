@@ -20,7 +20,7 @@ using System.Collections.Generic;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdRankInfo : Command2
+    public class CmdRankInfo : Command
     {
         public override string name { get { return "RankInfo"; } }
         public override string shortcut { get { return "ri"; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Info
         public override bool UseableWhenFrozen { get { return true; } }
         public override bool MessageBlockRestricted { get { return false; } }
 
-        public override void Use(Player p, string name, CommandData data)
+        public override void Use(Player p, string name)
         {
             if (CheckSuper(p, name, "player name")) return;
             if (name.Length == 0) name = p.name;

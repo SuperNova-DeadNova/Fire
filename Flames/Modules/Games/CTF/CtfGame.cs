@@ -25,14 +25,14 @@ using Flames.SQL;
 
 namespace Flames.Modules.Games.CTF
 {
-    public sealed class CtfData
+    public class CtfData
     {
         public int Captures, Tags, Points;
         public bool HasFlag, TagCooldown, TeamChatting;
         public Vec3S32 LastHeadPos;
     }
 
-    public sealed class CtfTeam
+    public class CtfTeam
     {
         public string Name, Color;
         public string ColoredName { get { return Color + Name; } }
@@ -41,7 +41,11 @@ namespace Flames.Modules.Games.CTF
         public ushort FlagBlock;
         public VolatileArray<Player> Members = new VolatileArray<Player>();
 
-        public CtfTeam(string name, string color) { Name = name; Color = color; }
+        public CtfTeam(string name, string color) 
+        { 
+            Name = name; 
+            Color = color; 
+        }
 
         public void RespawnFlag(Level lvl)
         {
@@ -55,13 +59,19 @@ namespace Flames.Modules.Games.CTF
         public CTFMapConfig cfg = new CTFMapConfig();
         public CTFConfig Config = new CTFConfig();
         public override string GameName { get { return "CTF"; } }
-        public override RoundsGameConfig GetConfig() { return Config; }
+        public override RoundsGameConfig GetConfig() 
+        { 
+            return Config; 
+        }
 
         public CtfTeam Red = new CtfTeam("Red", Colors.red);
         public CtfTeam Blue = new CtfTeam("Blue", Colors.blue);
 
         public static CTFGame Instance = new CTFGame();
-        public CTFGame() { Picker = new LevelPicker(); }
+        public CTFGame() 
+        { 
+            Picker = new SimpleLevelPicker(); 
+        }
 
         public override string WelcomeMessage
         {

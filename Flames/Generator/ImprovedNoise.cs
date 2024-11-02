@@ -20,7 +20,7 @@ using System;
 namespace Flames.Generator
 {
     /// <summary> Implements improved perlin noise as described in http://mrl.nyu.edu/~perlin/noise/ </summary>
-    public sealed class ImprovedNoise
+    public class ImprovedNoise
     {
         public float Frequency = 1;
         public float Amplitude = 1;

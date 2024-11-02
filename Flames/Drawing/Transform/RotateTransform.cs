@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Drawing.Transforms
 {
-    public sealed class RotateTransform : Transform
+    public class RotateTransform : Transform
     {
         public override string Name { get { return "Rotate"; } }
         public bool CentreOrigin;

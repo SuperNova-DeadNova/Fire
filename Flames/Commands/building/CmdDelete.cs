@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Building
 {
-    public sealed class CmdDelete : Command2
+    public class CmdDelete : Command
     {
         public override string name { get { return "Delete"; } }
         public override string shortcut { get { return "d"; } }
@@ -25,7 +25,7 @@ namespace Flames.Commands.Building
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0) 
             { 

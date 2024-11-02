@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdMoveAll : Command2
+    public class CmdMoveAll : Command2
     {
         public override string name { get { return "MoveAll"; } }
         public override string shortcut { get { return "ma"; } }

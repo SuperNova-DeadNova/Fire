@@ -16,9 +16,9 @@
     permissions and limitations under the Licenses.
 */
 
-namespace Flames.Commands.Building 
+namespace Flames.Commands.Building
 {
-    public sealed class CmdDoNotMark : Command2 
+    public class CmdDoNotMark : Command
     {
         public override string name { get { return "DoNotMark"; } }
         public override string shortcut { get { return "dnm"; } }
@@ -26,12 +26,14 @@ namespace Flames.Commands.Building
         public override bool SuperUseable { get { return false; } }
         public override CommandAlias[] Aliases { get { return new[] { new CommandAlias("dm") }; } }
 
-        public override void Use(Player p, string message, CommandData data) {
-           p.ClickToMark = !p.ClickToMark;
-           p.Message("Click blocks to &T/mark&S: {0}", p.ClickToMark ? "&2ON" : "&4OFF");
+        public override void Use(Player p, string message)
+        {
+            p.ClickToMark = !p.ClickToMark;
+            p.Message("Click blocks to &T/mark&S: {0}", p.ClickToMark ? "&2ON" : "&4OFF");
         }
-        
-        public override void Help(Player p) {
+
+        public override void Help(Player p)
+        {
             p.Message("&T/DoNotMark");
             p.Message("&HToggles whether clicking blocks adds a marker to a selection. (e.g. &T/cuboid&H)");
         }

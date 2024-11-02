@@ -18,7 +18,7 @@
 using Flames.Games;
 namespace Flames.Commands.World
 {
-    public sealed class CmdReload : Command2
+    public class CmdReload : Command2
     {
         public override string name { get { return "Reload"; } }
         public override string shortcut { get { return "Reveal"; } }

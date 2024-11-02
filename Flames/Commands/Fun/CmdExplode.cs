@@ -21,14 +21,14 @@ using Flames.Maths;
 
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdExplode : Command2
+    public class CmdExplode : Command
     {
         public override string name { get { return "Explode"; } }
         public override string shortcut { get { return "ex"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             {

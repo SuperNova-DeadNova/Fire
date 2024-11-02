@@ -4,7 +4,7 @@ using Flames.Generator.Foliage;
 
 namespace Flames.Generator.fCraft
 {
-    public sealed class fCraftTree : Tree
+    public class fCraftTree : Tree
     {
         // 66 = max number of leaves possible
         public override long EstimateBlocksAffected() 

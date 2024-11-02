@@ -19,13 +19,13 @@ using Flames.Util;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdNews : Command2
+    public class CmdNews : Command
     {
         public override string name { get { return "News"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             TextFile newsText = TextFile.Files["News"];
             newsText.EnsureExists();

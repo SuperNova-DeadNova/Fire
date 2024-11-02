@@ -23,7 +23,7 @@ using System.Text;
 
 namespace Flames
 {
-    public sealed class ZipReaderStream : Stream
+    public class ZipReaderStream : Stream
     {
         public long CompressedLen;
         public Stream stream;
@@ -81,7 +81,7 @@ namespace Flames
     }
 
     /// <summary> Reads entries from a ZIP archive. </summary>
-    public sealed class ZipReader
+    public class ZipReader
     {
         public BinaryReader reader;
         public Stream stream;

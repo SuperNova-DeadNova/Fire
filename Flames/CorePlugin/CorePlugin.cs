@@ -23,7 +23,7 @@ using Flames.Events.ServerEvents;
 namespace Flames.Core
 {
 
-    public sealed class CorePlugin : Plugin
+    public class CorePlugin : Plugin
     {
         public override string name { get { return "CorePlugin"; } }
 

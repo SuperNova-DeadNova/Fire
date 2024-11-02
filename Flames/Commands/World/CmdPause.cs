@@ -20,7 +20,7 @@ using Flames.Tasks;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdPause : Command2
+    public class CmdPause : Command2
     {
         public override string name { get { return "Pause"; } }
         public override string type { get { return CommandTypes.World; } }

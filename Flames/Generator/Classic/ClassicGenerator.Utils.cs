@@ -4,7 +4,7 @@ using System;
 
 namespace Flames.Generator.Classic
 {
-    public sealed partial class ClassicGenerator
+    public partial class ClassicGenerator
     {
         public static int Floor(float value)
         {
@@ -60,7 +60,7 @@ namespace Flames.Generator.Classic
             }
         }
 
-        public sealed class FastIntStack
+        public class FastIntStack
         {
             public int[] Values;
             public int Size;
@@ -90,7 +90,7 @@ namespace Flames.Generator.Classic
     }
 
     // Based on https://docs.oracle.com/javase/7/docs/api/java/util/Random.html
-    public sealed class JavaRandom
+    public class JavaRandom
     {
 
         public long seed;

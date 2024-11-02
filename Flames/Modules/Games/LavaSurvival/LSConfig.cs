@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class LSConfig : RoundsGameConfig
+    public class LSConfig : RoundsGameConfig
     {
         [ConfigInt("lives", "Game", 3, 0)]
         public int MaxLives = 3;
@@ -88,7 +88,7 @@ namespace Flames.Modules.Games.LS
         }
     }
 
-    public sealed class LSMapConfig : RoundsGameMapConfig
+    public class LSMapConfig : RoundsGameMapConfig
     {
         [ConfigInt("fast-chance", null, 0, 0, 100)]
         public int FastChance;

@@ -20,7 +20,7 @@ using Flames.Events.EconomyEvents;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdTake : MoneyCmd
+    public class CmdTake : MoneyCmd
     {
         public override string name { get { return "Take"; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }

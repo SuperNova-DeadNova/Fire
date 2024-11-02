@@ -18,13 +18,13 @@
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdInfect : Command2
+    public class CmdInfect : Command
     {
         public override string name { get { return "Infect"; } }
         public override string type { get { return CommandTypes.Games; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Player who = message.Length == 0 ? p : PlayerInfo.FindMatches(p, message);
             if (who == null) return;

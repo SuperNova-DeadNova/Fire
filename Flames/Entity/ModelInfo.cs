@@ -38,7 +38,8 @@ namespace Flames
 
         // Eye height may be 1-2 pixels different from client's eye height,
         // because we're really after the centre of the entity's head
-        public static List<ModelInfo> Models = new List<ModelInfo>() {
+        public static List<ModelInfo> Models = new List<ModelInfo>() 
+        {
             new ModelInfo("humanoid",    18,56,18, 28),
             new ModelInfo("sit",         18,56,18, 18),
             new ModelInfo("chicken",     16,24,16, 12),

@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdDeleteLvl : Command2
+    public class CmdDeleteLvl : Command2
     {
         public override string name { get { return "DeleteLvl"; } }
         public override string type { get { return CommandTypes.World; } }

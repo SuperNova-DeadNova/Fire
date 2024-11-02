@@ -22,13 +22,13 @@ using Flames.SQL;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdOpStats : Command2
+    public class CmdOpStats : Command
     {
         public override string name { get { return "OpStats"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string end = DateTime.Now.ToString(Database.DateFormat);
             string start = "thismonth";

@@ -19,7 +19,7 @@ using Flames.Drawing.Transforms;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdTransform : Command2
+    public class CmdTransform : Command
     {
         public override string name { get { return "Transform"; } }
         public override string type { get { return CommandTypes.Building; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Building
             get { return new[] { new CommandAlias("Transforms", "list"), new CommandAlias("Scale", "scale") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {
@@ -40,7 +40,7 @@ namespace Flames.Commands.Building
             string[] args = message.SplitSpaces(2);
             TransformFactory transform = TransformFactory.Find(args[0]);
 
-            if (IsListCommand(args[0]))
+            if (IsListAction(args[0]))
             {
                 List(p);
             }

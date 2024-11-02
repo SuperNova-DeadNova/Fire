@@ -20,7 +20,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class RandomBrush : Brush
+    public class RandomBrush : Brush
     {
         public ushort[] blocks;
         public int seed;

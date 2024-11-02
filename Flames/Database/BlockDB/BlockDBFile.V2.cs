@@ -21,7 +21,7 @@ using Flames.Util;
 
 namespace Flames.DB
 {
-    public unsafe sealed class BlockDBFile_V2 : BlockDBFile
+    public unsafe class BlockDBFile_V2 : BlockDBFile
     {
         public const int BlockSize = BulkEntries;
 

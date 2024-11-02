@@ -22,7 +22,7 @@ using System.CodeDom.Compiler;
 
 namespace Flames.Modules.Compiling
 {
-    public sealed class CSCompiler : ICompiler
+    public class CSCompiler : ICompiler
     {
         public override string FileExtension { get { return ".cs"; } }
         public override string ShortName { get { return "C#"; } }
@@ -143,7 +143,7 @@ namespace Flames
             }
         }
     }
-    public sealed class VBCompiler : ICompiler
+    public class VBCompiler : ICompiler
     {
         public override string FileExtension { get { return ".vb"; } }
         public override string ShortName { get { return "VB"; } }
@@ -265,7 +265,7 @@ End Namespace";
         }
     }
 }
-public sealed class JScriptCompiler : ICompiler
+public class JScriptCompiler : ICompiler
 {
     public override string ShortName { get { return "JS"; } }
     public override string FullName { get { return "JScript"; } }

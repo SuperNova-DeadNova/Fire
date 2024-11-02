@@ -19,7 +19,7 @@ using System.IO;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdRestore : Command2
+    public class CmdRestore : Command2
     {
         public override string name { get { return "Restore"; } }
         public override string type { get { return CommandTypes.World; } }
@@ -29,7 +29,11 @@ namespace Flames.Commands.World
 
         public override void Use(Player p, string message, CommandData data)
         {
-            if (message.Length == 0) { LevelOperations.OutputBackups(p, p.level); return; }
+            if (message.Length == 0) 
+            { 
+                LevelOperations.OutputBackups(p, p.level); 
+                return; 
+            }
 
             Level lvl;
             string[] args = message.SplitSpaces();

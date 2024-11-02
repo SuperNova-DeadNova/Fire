@@ -24,7 +24,7 @@ using Flames.Commands;
 namespace Flames
 {
 
-    public sealed class PlayerBot : Entity
+    public class PlayerBot : Entity
     {
 
         public bool hunt = false, kill = false;

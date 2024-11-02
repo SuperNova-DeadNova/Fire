@@ -20,11 +20,14 @@ using Flames.Util;
 
 namespace Flames.Eco
 {
-    public sealed class SnackItem : SimpleItem
+    public class SnackItem : SimpleItem
     {
         public SnackItem()
         {
-            Aliases = new string[] { "snack" };
+            Aliases = new string[] 
+            { 
+                "snack" 
+            };
             Price = 0;
         }
 

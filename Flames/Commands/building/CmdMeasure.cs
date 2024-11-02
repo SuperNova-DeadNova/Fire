@@ -21,14 +21,14 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdMeasure : Command2
+    public class CmdMeasure : Command
     {
         public override string name { get { return "Measure"; } }
         public override string shortcut { get { return "ms"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             List<ushort> toCount = null;
             if (message.Length > 0)

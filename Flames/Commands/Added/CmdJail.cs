@@ -20,7 +20,7 @@ using System;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdJail : Command2
+    public class CmdJail : Command2
     {
         public override string name { get { return "Jail"; } }
         public override string shortcut { get { return ""; } }

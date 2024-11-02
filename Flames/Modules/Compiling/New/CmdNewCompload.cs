@@ -20,7 +20,7 @@ using Flames.NewScripting;
 
 namespace Flames.Modules.NewCompiling
 {
-    public sealed class CmdNewPluginCompLoad : CmdNewPluginCompile 
+    public class CmdNewPluginCompLoad : CmdNewPluginCompile
     {
         public override string name { get { return "NewPluginCompLoad"; } }
         public override string shortcut { get { return "newcml"; } }
@@ -34,21 +34,24 @@ namespace Flames.Modules.NewCompiling
                 };
             }
         }
-        public override void CompileNewPlugin(Player p, string[] paths, ICompiler compiler) {
+        public override void CompileNewPlugin(Player p, string[] paths, ICompiler compiler)
+        {
             string dst = IScripting.NewPluginPath(paths[0]);
             UnloadNewPlugin(p, paths[0]);
             base.CompileNewPlugin(p, paths, compiler);
             ScriptingOperations.LoadNewPlugins(p, dst);
         }
-        public static void UnloadNewPlugin(Player p, string name) {
+        public static void UnloadNewPlugin(Player p, string name)
+        {
             NewPlugin newplugin = NewPlugin.FindNewCustom(name);
-            
+
             if (newplugin == null) return;
             ScriptingOperations.UnloadNewPlugin(p, newplugin);
         }
-        public override void Help(Player p) {
+        public override void Help(Player p)
+        {
             p.Message("&T/NewPluginCompLoad [plugin]");
             p.Message("&HCompiles and loads (or reloads) a C# new plugin into the server");
-        }        
+        }
     }
 }

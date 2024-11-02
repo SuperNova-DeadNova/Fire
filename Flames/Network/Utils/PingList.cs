@@ -20,7 +20,7 @@ using System.Threading;
 
 namespace Flames.Network
 {
-    public sealed class PingList
+    public class PingList
     {
         public struct PingEntry
         {

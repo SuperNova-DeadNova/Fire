@@ -20,7 +20,7 @@ using System.IO;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdLevels : Command2
+    public class CmdLevels : Command
     {
         public override string name { get { return "Levels"; } }
         public override string shortcut { get { return "Worlds"; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.Info
             get { return new[] { new CommandAlias("Maps") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] files = LevelInfo.AllMapFiles();
             // Files list is not guaranteed to be in alphabetical order

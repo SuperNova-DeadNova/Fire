@@ -33,7 +33,7 @@ namespace Sharkbite.Irc
     /// This class manages the connection to the IRC server and provides
     /// access to all the objects needed to send and receive messages.
     /// </summary>
-    public sealed class Connection
+    public class Connection
     {
         public TcpClient client;
         public StreamReader reader;
@@ -443,7 +443,10 @@ namespace Sharkbite.Irc
 
         #region Parsing
         public const string ACTION = "\u0001ACTION";
-        public char[] Separator = new char[] { ' ' };
+        public char[] Separator = new char[] 
+        { 
+            ' ' 
+        };
         public Regex replyRegex = new Regex("^:([^\\s]*) ([\\d]{3}) ([^\\s]*) (.*)", RegexOptions.Compiled | RegexOptions.Singleline);
 
         public void Parse(string message)

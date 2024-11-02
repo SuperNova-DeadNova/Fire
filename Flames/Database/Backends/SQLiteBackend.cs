@@ -330,7 +330,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class SQLiteCommand : ISqlCommand
+    public class SQLiteCommand : ISqlCommand
     {
         public string sqlCmd;
         public SQLiteConnection conn;
@@ -419,7 +419,8 @@ namespace Flames.SQL
 
     public static class SQLiteConvert
     {
-        public static string[] _datetimeFormats = new string[] {
+        public static string[] _datetimeFormats = new string[] 
+        {
             DATEFORMAT_UTC, DATEFORMAT_LOCAL
         };
 
@@ -532,7 +533,7 @@ namespace Flames.SQL
         Null = 5,
     }
 
-    public sealed class SQLiteDataReader : ISqlReader
+    public class SQLiteDataReader : ISqlReader
     {
         public SQLiteCommand _command;
         public SQLiteStatement stmt;
@@ -733,7 +734,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class SQLiteException : ExternalException
+    public class SQLiteException : ExternalException
     {
         public SQLiteException(SQLiteErrorCode code, string message) : base(FormatError(code, message)) 
         { 
@@ -813,7 +814,7 @@ namespace Flames.SQL
         public const int Done = 101;
     }
 
-    public sealed class SQLiteStatement : IDisposable
+    public class SQLiteStatement : IDisposable
     {
         public IntPtr handle;
         public SQLiteConnection conn;
@@ -1029,7 +1030,7 @@ namespace Flames.SQL
         }
     }
 
-    public sealed class SQLiteTransaction : ISqlTransaction
+    public class SQLiteTransaction : ISqlTransaction
     {
         public SQLiteConnection conn;
 

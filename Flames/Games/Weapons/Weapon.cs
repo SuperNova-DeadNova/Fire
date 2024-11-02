@@ -203,7 +203,7 @@ namespace Flames.Games
     }
 
     /// <summary> Manages the glass box around the player. Adjusts based on where player is looking. </summary>
-    public sealed class AimBox
+    public class AimBox
     {
         public Player player;
         public List<Vec3U16> lastGlass = new List<Vec3U16>();

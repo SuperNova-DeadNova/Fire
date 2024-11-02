@@ -17,14 +17,14 @@
 */
 namespace Flames.Commands.Building
 {
-    public sealed class CmdPaint : Command2
+    public class CmdPaint : Command
     {
         public override string name { get { return "Paint"; } }
         public override string shortcut { get { return "p"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0) 
             {

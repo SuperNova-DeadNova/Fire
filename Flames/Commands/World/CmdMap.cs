@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdMap : Command2
+    public class CmdMap : Command2
     {
         public override string name { get { return "Map"; } }
         public override string type { get { return CommandTypes.World; } }

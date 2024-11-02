@@ -25,7 +25,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdReport : Command2
+    public class CmdReport : Command2
     {
         public override string name { get { return "Report"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -50,7 +50,7 @@ namespace Flames.Commands.Moderation
                 Directory.CreateDirectory("extra/reported");
 
             string cmd = args[0];
-            if (IsListCommand(cmd))
+            if (IsListAction(cmd))
             {
                 HandleList(p, args, data);
             }
@@ -58,11 +58,11 @@ namespace Flames.Commands.Moderation
             {
                 HandleClear(p, args, data);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 HandleDelete(p, args, data);
             }
-            else if (IsInfoCommand(cmd))
+            else if (IsInfoAction(cmd))
             {
                 HandleCheck(p, args, data);
             }

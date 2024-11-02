@@ -20,7 +20,7 @@ using Flames.Games;
 
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdTeam : Command2
+    public class CmdTeam : Command2
     {
         public override string name { get { return "Team"; } }
         public override string type { get { return CommandTypes.Games; } }

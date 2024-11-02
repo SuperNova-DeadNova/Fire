@@ -17,13 +17,13 @@
 */
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdRestart : Command2
+    public class CmdRestart : Command
     {
         public override string name { get { return "Restart"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) message = Server.Config.DefaultRestartMessage;
             Server.Stop(true, message);

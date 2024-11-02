@@ -27,7 +27,7 @@ using Flames.Util;
 
 namespace Flames.Modules.Relay.Discord
 {
-    public sealed class DiscordUser : RelayUser
+    public class DiscordUser : RelayUser
     {
         public string ReferencedUser;
 

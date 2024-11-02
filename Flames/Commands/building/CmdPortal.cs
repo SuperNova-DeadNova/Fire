@@ -1,14 +1,14 @@
 /*
     Copyright 2011 MCForge
-        
+
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
-    
+
     https://opensource.org/license/ecl-2-0/
     https://www.gnu.org/licenses/gpl-3.0.html
-    
+
     Unless required by applicable law or agreed to in writing,
     software distributed under the Licenses are distributed on an "AS IS"
     BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
@@ -16,14 +16,14 @@
     permissions and limitations under the Licenses.
  */
 using System.Collections.Generic;
-using Flames.Blocks;
 using Flames.Blocks.Extended;
+using Flames.Blocks;
 using Flames.Maths;
 using Flames.Util;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdPortal : Command2
+    public class CmdPortal : Command
     {
         public override string name { get { return "Portal"; } }
         public override string shortcut { get { return "o"; } }
@@ -32,12 +32,10 @@ namespace Flames.Commands.Building
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
-            PortalArgs pArgs = new PortalArgs
-            {
-                Multi = false
-            };
+            PortalArgs pArgs = new PortalArgs();
+            pArgs.Multi = false;
             string[] args = message.SplitSpaces();
             string block = message.Length == 0 ? "" : args[0].ToLower();
 
@@ -47,7 +45,7 @@ namespace Flames.Commands.Building
             }
             else if (args.Length >= 2)
             {
-                Help(p);
+                Help(p); 
                 return;
             }
 
@@ -64,10 +62,10 @@ namespace Flames.Commands.Building
 
         public ushort GetBlock(Player p, string name)
         {
-            if (name == "show")
-            {
-                ShowPortals(p);
-                return Block.Invalid;
+            if (name == "show") 
+            { 
+                ShowPortals(p); 
+                return Block.Invalid; 
             }
             ushort block = Block.Parse(p, name);
             if (block != Block.Invalid && p.level.Props[block].IsPortal) return block;
@@ -82,7 +80,14 @@ namespace Flames.Commands.Building
             if (name == "lava") block = Block.Portal_Lava;
 
             if (p.level.Props[block].IsPortal) return block;
-            Help(p); return Block.Invalid;
+            Help(p); 
+            return Block.Invalid;
+        }
+
+        public static bool IsPortalBlock(Level lvl, Vec3U16 pos)
+        {
+            ushort block = lvl.GetBlock(pos.X, pos.Y, pos.Z);
+            return lvl.Props[block].IsPortal;
         }
 
         public void EntryChange(Player p, ushort x, ushort y, ushort z, ushort block)
@@ -91,14 +96,14 @@ namespace Flames.Commands.Building
             ushort old = p.level.GetBlock(x, y, z);
             if (!p.level.CheckAffect(p, x, y, z, old, args.Block))
             {
-                p.RevertBlock(x, y, z);
+                p.RevertBlock(x, y, z); 
                 return;
             }
             p.ClearBlockchange();
 
             if (args.Multi && block == Block.Red && args.Entries.Count > 0)
             {
-                ExitChange(p, x, y, z, block);
+                ExitChange(p, x, y, z, block); 
                 return;
             }
 
@@ -107,8 +112,8 @@ namespace Flames.Commands.Building
             PortalPos Port;
 
             Port.Map = p.level.name;
-            Port.x = x;
-            Port.y = y;
+            Port.x = x; 
+            Port.y = y; 
             Port.z = z;
             args.Entries.Add(Port);
             p.blockchangeObject = args;
@@ -148,21 +153,22 @@ namespace Flames.Commands.Building
 
             p.Message("&3Exit &Sblock placed");
             if (!p.staticCommands) return;
+            p.Message("To delete portals, toggle &T/delete &Smode.");
             args.Entries.Clear();
             p.blockchangeObject = args;
             p.Blockchange += EntryChange;
         }
 
-        public class PortalArgs
-        {
-            public List<PortalPos> Entries;
-            public ushort Block;
+        public class PortalArgs 
+        { 
+            public List<PortalPos> Entries; 
+            public ushort Block; 
             public bool Multi;
         }
-        public struct PortalPos
-        {
-            public ushort x, y, z;
-            public string Map;
+        public struct PortalPos 
+        { 
+            public ushort x, y, z; 
+            public string Map; 
         }
 
 
@@ -170,30 +176,33 @@ namespace Flames.Commands.Building
         {
             p.showPortals = !p.showPortals;
             List<Vec3U16> coords = Portal.GetAllCoords(p.level.MapName);
+            List<Vec3U16> exits = new List<Vec3U16>();
 
             foreach (Vec3U16 pos in coords)
             {
+                PortalExit exit = Portal.Get(p.level.MapName, pos.X, pos.Y, pos.Z);
                 if (p.showPortals)
                 {
-                    p.SendBlockchange(pos.X, pos.Y, pos.Z, Block.Green);
+                    bool exists = IsPortalBlock(p.Level, pos);
+                    Vec3U16 exitPos = new Vec3U16(exit.X, exit.Y, exit.Z);
+                    if (exists && !exits.Contains(exitPos)) exits.Add(exitPos);
+
+                    // Show Entry
+                    ushort entryBlock = exists ? Block.Green : Block.Black;
+                    p.SendBlockchange(pos.X, pos.Y, pos.Z, entryBlock);
+
+                    // Show Exit
+                    if (exit.Map != p.level.MapName) continue;
+                    ushort exitBlock = exists || exits.Contains(exitPos) ? Block.Red : Block.Black;
+                    p.SendBlockchange(exit.X, exit.Y, exit.Z, exitBlock);
                 }
                 else
                 {
+                    // Revert Entry
                     p.RevertBlock(pos.X, pos.Y, pos.Z);
-                }
-            }
 
-            List<PortalExit> exits = Portal.GetAllExits(p.level.MapName);
-            foreach (PortalExit exit in exits)
-            {
-                if (exit.Map != p.level.MapName) continue;
-
-                if (p.showPortals)
-                {
-                    p.SendBlockchange(exit.X, exit.Y, exit.Z, Block.Red);
-                }
-                else
-                {
+                    // Revert Exit
+                    if (exit.Map != p.level.MapName) continue;
                     p.RevertBlock(exit.X, exit.Y, exit.Z);
                 }
             }
@@ -238,7 +247,8 @@ namespace Flames.Commands.Building
             p.Message("&H  Note: The exit can be on a different level.");
             List<string> names = SupportedBlocks(p);
             p.Message("&H  Supported blocks: &S{0}", names.Join());
-            p.Message("&T/Portal show &H- Shows portals (green = entry, red = exit)");
+            p.Message("&T/Portal show &H- Shows or hides portals on the map");
+            p.Message("&H  (green = entry, red = exit, black = queued for removal)");
         }
     }
 }

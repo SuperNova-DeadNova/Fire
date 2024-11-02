@@ -19,7 +19,7 @@ using Flames.Network;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdPing : Command2
+    public class CmdPing : Command2
     {
         public override string name { get { return "Ping"; } }
         public override string type { get { return CommandTypes.Information; } }

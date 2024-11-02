@@ -24,7 +24,7 @@ using Flames.Games;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class ZSConfig : RoundsGameConfig
+    public class ZSConfig : RoundsGameConfig
     {
         [ConfigInt("infection-start-countdown", "Round", 30, 0)]
         public int InfectionCountdown = 30;
@@ -93,7 +93,7 @@ namespace Flames.Modules.Games.ZS
         [ConfigInt("humans-win-reward-max", "Human rewards", 6, 0)]
         public int HumansRewardMax = 6;
 
-        public static ConfigElement[] cfg;
+        public static new ConfigElement[] cfg;
         public override bool AllowAutoload { get { return true; } }
         public override string GameName { get { return "Zombie Survival"; } }
 
@@ -130,11 +130,14 @@ namespace Flames.Modules.Games.ZS
         }
 
 
-        public static string[] defMessages = new string[] { "{0} WIKIWOO'D {1}", "{0} stuck their teeth into {1}",
+        public static string[] defMessages = new string[] 
+        { 
+            "{0} WIKIWOO'D {1}", "{0} stuck their teeth into {1}",
             "{0} licked {1}'s brain ", "{0} danubed {1}", "{0} made {1} meet their maker", "{0} tripped {1}",
             "{0} made some zombie babies with {1}", "{0} made {1} see the dark side", "{0} tweeted {1}",
             "{0} made {1} open source", "{0} infected {1}", "{0} iDotted {1}", "{1} got nommed on",
-            "{0} transplanted {1}'s living brain" };
+            "{0} transplanted {1}'s living brain" 
+        };
 
         public static List<string> LoadInfectMessages()
         {

@@ -23,7 +23,7 @@ namespace Flames.Util
     public delegate void TextFileChanged();
 
     /// <summary> Represents a text file and associated data for it </summary>
-    public sealed class TextFile
+    public class TextFile
     {
         public string Filename;
         public string[] DefaultText;
@@ -63,7 +63,8 @@ namespace Flames.Util
         }
 
 
-        public static Dictionary<string, TextFile> Files = new Dictionary<string, TextFile>() {
+        public static Dictionary<string, TextFile> Files = new Dictionary<string, TextFile>() 
+        {
             { "News", new TextFile(Paths.NewsFile, "News have not been created. Put News in '" + Paths.NewsFile + "'.") },
             { "FAQ", new TextFile(Paths.FaqFile,
                                   "Example: What does this server run on? This server runs on &b" + Server.SoftwareName) },

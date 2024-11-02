@@ -62,9 +62,9 @@ namespace Flames
                 {
                     Logger.Log(LogType.SystemActivity, "No update found!");
                 }
-                else if (NewerVersionDetected != null)
+                else
                 {
-                    NewerVersionDetected(null, EventArgs.Empty);
+                    NewerVersionDetected?.Invoke(null, EventArgs.Empty);
                 }
             }
             catch (Exception ex)
@@ -74,8 +74,19 @@ namespace Flames
 
             client.Dispose();
         }
-
+        public static bool NeedsUpdating()
+        {
+            using (WebClient client = HttpUtil.CreateWebClient())
+            {
+                string latest = client.DownloadString(CurrentVersionURL);
+                return new Version(latest) > new Version(Server.Version);
+            }
+        }
         public static void PerformUpdate()
+        {
+            PerformUpdate(true);
+        }
+        public static void PerformUpdate(bool GUI)
         {
             try
             {
@@ -91,7 +102,10 @@ namespace Flames
 
                 WebClient client = HttpUtil.CreateWebClient();
                 client.DownloadFile(dllURL, "Flames_.update");
-                client.DownloadFile(guiURL, "Flames.update");
+                if (GUI)
+                {
+                    client.DownloadFile(guiURL, "Flames.update");
+                }
                 client.DownloadFile(cliURL, "FlamesCLI.update");
 
                 Level[] levels = LevelInfo.Loaded.Items;
@@ -108,11 +122,14 @@ namespace Flames
                 // Move current files to previous files (by moving instead of copying, 
                 //  can overwrite original the files without breaking the server)
                 AtomicIO.TryMove("Flames_.dll", "prev_Flames_.dll");
-                AtomicIO.TryMove("Flames.exe", "prev_Flames.exe");
+                if (GUI)
+                {
+                    AtomicIO.TryMove("Flames.exe", "prev_Flames.exe");
+                    File.Move("Flames.update", "Flames.exe");
+                }
                 AtomicIO.TryMove("FlamesCLI.exe", "prev_FlamesCLI.exe");
                 File.Move("FlamesCLI.update", "FlamesCLI.exe");
                 File.Move("Flames_.update", "Flames_.dll");
-                File.Move("Flames.update", "Flames.exe");
                 Server.Stop(true, "Updating server.");
             }
             catch (Exception ex)

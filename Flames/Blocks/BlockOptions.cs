@@ -22,7 +22,7 @@ using Flames.Commands;
 namespace Flames.Blocks
 {
 
-    public sealed class BlockOption
+    public class BlockOption
     {
         public string Name, Help;
         public BlockOptions.OptionSetter SetFunc;

@@ -20,7 +20,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdMute : Command2
+    public class CmdMute : Command2
     {
         public override string name { get { return "Mute"; } }
         public override string type { get { return CommandTypes.Moderation; } }

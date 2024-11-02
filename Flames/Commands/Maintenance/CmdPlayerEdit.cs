@@ -22,7 +22,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdPlayerEdit : Command2
+    public class CmdPlayerEdit : Command
     {
         public override string name { get { return "PlayerEdit"; } }
         public override string shortcut { get { return "pe"; } }
@@ -36,7 +36,7 @@ namespace Flames.Commands.Maintenance
         public delegate void DBSetter(string name, string column, string data);
         public const int type_norm = 0, type_lo = 1, type_hi = 2;
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

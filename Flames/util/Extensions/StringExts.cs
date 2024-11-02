@@ -129,5 +129,16 @@ namespace Flames
             }
             return false;
         }
+        public static string[] SplitExact(this string str, int maxArgs)
+        {
+            string[] output = new string[maxArgs];
+            string[] input = string.IsNullOrEmpty(str) ? new string[0] : str.SplitSpaces(maxArgs);
+
+            for (int i = 0; i < output.Length; i++)
+            {
+                output[i] = i < input.Length ? input[i] : "";
+            }
+            return output;
+        }
     }
 }

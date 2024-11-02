@@ -51,11 +51,13 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class PasteBrush : SimplePasteBrush
+    public class PasteBrush : SimplePasteBrush
     {
         public ushort[] Include;
 
-        public PasteBrush(CopyState state) : base(state) { }
+        public PasteBrush(CopyState state) : base(state) 
+        { 
+        }
 
         public override ushort NextBlock(DrawOp op)
         {
@@ -70,11 +72,13 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class PasteNotBrush : SimplePasteBrush
+    public class PasteNotBrush : SimplePasteBrush
     {
         public ushort[] Exclude;
 
-        public PasteNotBrush(CopyState state) : base(state) { }
+        public PasteNotBrush(CopyState state) : base(state) 
+        { 
+        }
 
         public override ushort NextBlock(DrawOp op)
         {

@@ -256,7 +256,7 @@ namespace Flames
     }
 
     /// <summary> Encapuslates access permissions (visit or build) for a level. </summary>
-    public sealed class LevelAccessController : AccessController
+    public class LevelAccessController : AccessController
     {
         public bool isVisit;
         public LevelConfig cfg;

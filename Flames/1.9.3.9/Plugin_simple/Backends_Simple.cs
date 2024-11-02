@@ -22,7 +22,7 @@ using System.CodeDom.Compiler;
 
 namespace Flames.Scripting
 {
-    public sealed class CSCompiler_Simple : ICodeDomCompiler_Simple
+    public class CSCompiler_Simple : ICodeDomCompiler_Simple
     {
         public override string FileExtension { get { return ".cs"; } }
         public override string ShortName { get { return "CS"; } }
@@ -73,7 +73,7 @@ namespace Flames
         }
     }
 
-    public sealed class VBCompiler_Simple : ICodeDomCompiler_Simple
+    public class VBCompiler_Simple : ICodeDomCompiler_Simple
     {
         public override string FileExtension { get { return ".vb"; } }
         public override string ShortName { get { return "VB"; } }

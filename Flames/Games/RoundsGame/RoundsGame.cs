@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 MCGalaxy
+    Copyright 2015-2024 MCGalaxy
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -17,6 +17,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using Flames.Events.GameEvents;
 
@@ -91,17 +92,16 @@ namespace Flames.Games
                 if (pl.level == Map) PlayerJoinedGame(pl);
             }
 
-            Thread t = new Thread(RunGame)
-            {
-                Name = "Game_" + GameName
-            };
-            t.Start();
+            Thread thread;
+            Server.StartThread(out thread, "Game_ " + GameName, RunGame);
+            Utils.SetBackgroundMode(thread);
         }
 
         /// <summary> Attempts to auto start this game with infinite rounds. </summary>
         public void AutoStart()
         {
             if (!GetConfig().StartImmediately) return;
+
             try
             {
                 Start(Player.Flame, "", int.MaxValue);
@@ -118,7 +118,7 @@ namespace Flames.Games
             List<string> maps = Picker.GetCandidateMaps(this);
 
             if (maps == null || maps.Count == 0) return null;
-            return LevelPicker.GetRandomMap(new Random(), maps);
+            return Picker.GetRandomMap(new Random(), maps);
         }
 
         public void RunGame()
@@ -335,12 +335,12 @@ namespace Flames.Games
                 SaveStats(pl); 
             }
 
-            Map?.Message(GameName + " &Sgame ended");
+            if (Map != null) Map.Message(GameName + " &Sgame ended");
             Logger.Log(LogType.GameActivity, "[{0}] Game ended", GameName);
-            Picker?.Clear();
+            if (Picker != null) Picker.Clear();
 
             LastMap = "";
-            Map?.AutoUnload();
+            if (Map != null) Map.AutoUnload();
             Map = null;
         }
 
@@ -351,6 +351,14 @@ namespace Flames.Games
             {
                 if (p.Supports(CpeExt.InstantMOTD)) p.SendMapMotd();
             }
+        }
+
+        public virtual void ReloadConfig()
+        {
+            GetConfig().Load();
+
+            if (File.Exists(GetConfig().Path)) return;
+            GetConfig().Save();
         }
     }
 }

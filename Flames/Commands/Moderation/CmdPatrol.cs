@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdPatrol : Command2
+    public class CmdPatrol : Command2
     {
         public override string name { get { return "Patrol"; } }
         public override string type { get { return CommandTypes.Moderation; } }

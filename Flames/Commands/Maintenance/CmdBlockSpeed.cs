@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdBlockSpeed : Command2
+    public class CmdBlockSpeed : Command2
     {
         public override string name { get { return "BlockSpeed"; } }
         public override string type { get { return CommandTypes.Moderation; } }

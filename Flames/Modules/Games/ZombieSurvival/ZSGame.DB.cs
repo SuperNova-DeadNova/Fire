@@ -98,7 +98,8 @@ namespace Flames.Modules.Games.ZS
         }
 
 
-        public static ColumnDesc[] zsTable = new ColumnDesc[] {
+        public static ColumnDesc[] zsTable = new ColumnDesc[] 
+        {
             new ColumnDesc("ID", ColumnType.Integer, priKey: true, autoInc: true, notNull: true),
             new ColumnDesc("Name", ColumnType.Char, 20),
             new ColumnDesc("TotalRounds", ColumnType.Int32),

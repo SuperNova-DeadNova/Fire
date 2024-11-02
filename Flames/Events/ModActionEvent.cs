@@ -20,7 +20,7 @@ using System;
 namespace Flames.Events
 {
     /// <summary> Represents a moderation action. </summary>
-    public sealed class ModAction
+    public class ModAction
     {
         /// <summary> Target player name or IP. </summary>
         public string Target;
@@ -125,7 +125,7 @@ namespace Flames.Events
     }
 
     /// <summary> Raised when a moderation action occurs. </summary>
-    public sealed class OnModActionEvent : IEvent<OnModAction>
+    public class OnModActionEvent : IEvent<OnModAction>
     {
         public static void Call(ModAction e)
         {

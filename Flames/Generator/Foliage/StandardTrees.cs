@@ -28,7 +28,7 @@ using System;
 
 namespace Flames.Generator.Foliage
 {
-    public sealed class CactusTree : Tree
+    public class CactusTree : Tree
     {
         public override long EstimateBlocksAffected() 
         { 
@@ -69,7 +69,7 @@ namespace Flames.Generator.Foliage
         }
     }
 
-    public sealed class NormalTree : Tree
+    public class NormalTree : Tree
     {
         public override long EstimateBlocksAffected() 
         { 
@@ -109,7 +109,7 @@ namespace Flames.Generator.Foliage
         }
     }
 
-    public sealed class SwampTree : Tree
+    public class SwampTree : Tree
     {
         public override long EstimateBlocksAffected() 
         { 

@@ -21,7 +21,7 @@ using Flames.Authentication;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdPass : Command2
+    public class CmdPass : Command2
     {
         public override string name { get { return "Pass"; } }
         public override string type { get { return CommandTypes.Moderation; } }

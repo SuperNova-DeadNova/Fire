@@ -20,7 +20,7 @@ using System.Text;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdPClients : Command2
+    public class CmdPClients : Command2
     {
         public override string name { get { return "PClients"; } }
         public override string shortcut { get { return "Clients"; } }

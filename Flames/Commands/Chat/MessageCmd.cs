@@ -63,11 +63,11 @@ namespace Flames.Commands.Chatting
         }
     }
 
-    public sealed class CmdHigh5 : MessageCmd
+    public class CmdHigh5 : MessageCmd
     {
         public override string name { get { return "High5"; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             TryMessageAction(p, message, "λNICK &Sjust highfived λTARGET", true);
         }

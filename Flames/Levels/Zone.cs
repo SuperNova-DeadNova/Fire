@@ -23,7 +23,7 @@ using Flames.Maths;
 namespace Flames
 {
 
-    public sealed class ZoneConfig : AreaConfig
+    public class ZoneConfig : AreaConfig
     {
         [ConfigString("Name", "General", "", true)]
         public string Name = "";
@@ -36,7 +36,7 @@ namespace Flames
     }
 
     /// <summary> Encapuslates build access permissions for a zone. </summary>
-    public sealed class ZoneAccessController : AccessController
+    public class ZoneAccessController : AccessController
     {
         public ZoneConfig cfg;
 

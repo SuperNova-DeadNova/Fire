@@ -21,14 +21,14 @@ using Flames.SQL;
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdServer : Command2
+    public class CmdServer : Command
     {
         public override string name { get { return "Server"; } }
         public override string shortcut { get { return "Serv"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             switch (args[0].ToLower())
@@ -186,7 +186,7 @@ namespace Flames.Commands.Maintenance
             if (args.Length == 1 || !args[1].CaselessEq("confirm"))
             {
                 p.Message("This will export all the BlockDB tables in the database to more efficient .cbdb files.");
-                p.Message("Note: This is only useful if you have updated from older {0} versions", Server.SoftwareName);
+                p.Message("Note: This is only useful if you have updated from older {0} &Sversions", Server.SoftwareName);
                 p.MessageLines(DBUpgrader.CompactMessages);
                 p.Message("Type &T/Server upgradeblockdb confirm &Sto begin");
             }

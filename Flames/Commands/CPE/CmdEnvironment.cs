@@ -19,7 +19,7 @@ using System.IO;
 
 namespace Flames.Commands.CPE
 {
-    public sealed class CmdEnvironment : Command2
+    public class CmdEnvironment : Command2
     {
         public override string name { get { return "Environment"; } }
         public override string shortcut { get { return "Env"; } }

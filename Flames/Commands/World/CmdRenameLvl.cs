@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdRenameLvl : Command2
+    public class CmdRenameLvl : Command2
     {
         public override string name { get { return "RenameLvl"; } }
         public override string type { get { return CommandTypes.World; } }

@@ -18,14 +18,14 @@
 
 namespace Flames.Commands.Bots
 {
-    public sealed class CmdBots : Command2
+    public class CmdBots : Command
     {
         public override string name { get { return "Bots"; } }
         public override string shortcut { get { return "BotList"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Level lvl = p.IsSuper ? null : p.level;
             string[] args = message.SplitSpaces(2);

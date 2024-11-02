@@ -83,7 +83,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to nod down up and down for a certain interval. </summary>
-    public sealed class NodInstruction : SpinInstruction
+    public class NodInstruction : SpinInstruction
     {
         public NodInstruction() 
         { 

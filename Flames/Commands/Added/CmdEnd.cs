@@ -2,13 +2,13 @@
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdEnd : Command2
+    public class CmdEnd : Command
     {
         public override string name { get { return "End"; } }
         public override string type { get { return CommandTypes.Added; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Flames; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             End(p);
         }

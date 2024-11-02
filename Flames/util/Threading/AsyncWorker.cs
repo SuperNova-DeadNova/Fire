@@ -82,12 +82,9 @@ namespace Flames
         /// <summary> Starts the background worker thread </summary>
         public void RunAsync()
         {
-            Thread worker = new Thread(SendLoop)
-            {
-                Name = ThreadName,
-                IsBackground = true
-            };
-            worker.Start();
+            Thread worker;
+            Server.StartThread(out worker, ThreadName, SendLoop);
+            Utils.SetBackgroundMode(worker);
         }
 
         public void StopAsync()

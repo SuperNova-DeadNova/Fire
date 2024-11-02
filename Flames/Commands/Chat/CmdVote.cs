@@ -20,14 +20,14 @@ using Flames.Tasks;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdVote : Command2
+    public class CmdVote : Command
     {
         public override string name { get { return "Vote"; } }
         public override string shortcut { get { return "vo"; } }
         public override string type { get { return CommandTypes.Chat; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

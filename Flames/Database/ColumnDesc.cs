@@ -54,7 +54,8 @@ namespace Flames.SQL
             return colTypes[(int)Type];
         }
 
-        public static string[] colTypes = new string[] {
+        public static string[] colTypes = new string[] 
+        {
             "TINYINT UNSIGNED", "SMALLINT UNSIGNED", "MEDIUMINT UNSIGNED",
             "INT UNSIGNED", "BIGINT UNSIGNED", "TINYINT", "SMALLINT",
             "MEDIUMINT", "INT", "BIGINT", "INTEGER", "DATETIME",

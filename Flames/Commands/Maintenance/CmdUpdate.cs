@@ -17,25 +17,45 @@
 */
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdUpdate : Command2
+    public class CmdUpdate : Command
     {
         public override string name { get { return "Update"; } }
         public override string shortcut { get { return ""; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Owner; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
-            DoUpdate(p);
+            if (message.CaselessEq("check"))
+            {
+                p.Message("Checking for updates..");
+                bool needsUpdating = Updater.NeedsUpdating();
+                p.Message("Server {0}", needsUpdating ? "&cneeds updating" : "&ais up to date");
+            }
+            else if (message.Length >= 0)
+            {
+                if (Server.RunningOnMono())
+                {
+                    DoUpdate(p, false);
+                }
+                else
+                {
+                    DoUpdate(p, true);
+                }
+            }
+            else
+            {
+                Help(p);
+            }
         }
-        public static void DoUpdate(Player p)
+        public static void DoUpdate(Player p, bool GUI)
         {
             if (!CheckPerms(p))
             {
                 p.Message("Only the Flames or the Server Owner can update the server."); 
                 return;
             }
-            Updater.PerformUpdate();
+            Updater.PerformUpdate(GUI);
         }
 
         public static bool CheckPerms(Player p)
@@ -47,6 +67,9 @@ namespace Flames.Commands.Maintenance
         }
         public override void Help(Player p)
         {
+            p.Message("&T/Update check");
+            p.Message("&HChecks whether the server needs updating");
+            p.Message("&T/Update");
             p.Message("&T/Update &H- Force updates the server");
         }
     }

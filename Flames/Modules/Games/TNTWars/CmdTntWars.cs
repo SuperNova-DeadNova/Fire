@@ -24,7 +24,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.TW
 {
-    public sealed class CmdTntWars : RoundsGameCmd
+    public class CmdTntWars : RoundsGameCmd
     {
         public override string name { get { return "TntWars"; } }
         public override string shortcut { get { return "tw"; } }
@@ -311,12 +311,12 @@ namespace Flames.Modules.Games.TW
             List<TWGame.TWZone> zones = noTntZone ? game.tntFreeZones : game.tntImmuneZones;
             string opt = args[3];
 
-            if (IsCreateCommand(opt))
+            if (IsCreateAction(opt))
             {
                 p.Message("Place 2 blocks to create a {0} zone", type);
                 p.MakeSelection(2, zones, AddZoneCallback);
             }
-            else if (IsDeleteCommand(opt))
+            else if (IsDeleteAction(opt))
             {
                 if (args.Length > 4 && args[4].CaselessEq("all"))
                 {

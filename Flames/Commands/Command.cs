@@ -42,7 +42,10 @@ namespace Flames
         public virtual LevelPermission defaultRank { get { return LevelPermission.Guest; } }
 
         public abstract void Use(Player p, string message);
-        public virtual void Use(Player p, string message, CommandData data) { Use(p, message); }
+        public virtual void Use(Player p, string message, CommandData data) 
+        {
+            Use(p, message); 
+        }
         public abstract void Help(Player p);
         public virtual void Help(Player p, string message) { Help(p); Formatter.PrintCommandInfo(p, this); }
 
@@ -57,9 +60,6 @@ namespace Flames
         /// <summary> Whether this command can be used when a player is frozen </summary>
         /// <remarks> Only informational commands should override this to return true </remarks>
         public virtual bool UseableWhenFrozen { get { return false; } }
-        /// <summary> Whether this command can be used when a player is jailed </summary>
-        /// <remarks> Only informational commands should override this to return true </remarks>
-        public virtual bool UseableWhenJailed { get { return UseableWhenFrozen; } }
 
         /// <summary> Whether using this command is logged to server logs </summary>
         /// <remarks> return false to prevent this command showing in logs (e.g. /pass) </remarks>

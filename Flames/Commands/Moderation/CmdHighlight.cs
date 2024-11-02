@@ -23,7 +23,7 @@ using Flames.Network;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdHighlight : Command2
+    public class CmdHighlight : Command
     {
         public override string name { get { return "Highlight"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -35,7 +35,7 @@ namespace Flames.Commands.Moderation
             get { return new CommandAlias[] { new CommandAlias("HighlightArea", "area") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             TimeSpan delta = TimeSpan.Zero;
             bool area = message.CaselessStarts("area ");

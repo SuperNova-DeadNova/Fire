@@ -148,7 +148,7 @@ namespace Flames.Bots
         }
     }
 
-    public sealed class BotProperties
+    public  class BotProperties
     {
         [ConfigString] public string DisplayName;
         [ConfigString] public string Name;

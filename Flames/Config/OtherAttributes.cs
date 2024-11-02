@@ -21,7 +21,7 @@ using Flames.Maths;
 namespace Flames.Config
 {
 
-    public sealed class ConfigBoolAttribute : ConfigAttribute
+    public class ConfigBoolAttribute : ConfigAttribute
     {
         public bool defValue;
 
@@ -50,7 +50,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigPermAttribute : ConfigAttribute
+    public class ConfigPermAttribute : ConfigAttribute
     {
         public LevelPermission defPerm;
 
@@ -84,7 +84,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigEnumAttribute : ConfigAttribute
+    public class ConfigEnumAttribute : ConfigAttribute
     {
         public object defValue;
         public Type enumType;
@@ -112,7 +112,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigVec3Attribute : ConfigAttribute
+    public class ConfigVec3Attribute : ConfigAttribute
     {
         public ConfigVec3Attribute(string name, string section) : base(name, section) 
         { 
@@ -135,7 +135,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigBoolArrayAttribute : ConfigAttribute
+    public class ConfigBoolArrayAttribute : ConfigAttribute
     {
         public bool defValue;
         public int minCount;

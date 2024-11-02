@@ -21,7 +21,7 @@ using Flames.Drawing;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCopySlot : Command2
+    public class CmdCopySlot : Command
     {
         public override string name { get { return "CopySlot"; } }
         public override string shortcut { get { return "cs"; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Building
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

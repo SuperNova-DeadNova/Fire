@@ -19,7 +19,7 @@ using Flames.Commands;
 
 namespace Flames.Modules.Compiling
 {
-    public sealed class CmdCmdCreate : CmdCompile
+    public class CmdCmdCreate : CmdCompile
     {
         public override string name { get { return "CmdCreate"; } }
         public override string shortcut { get { return ""; } }
@@ -30,7 +30,10 @@ namespace Flames.Modules.Compiling
 
         public override void CompileCommand(Player p, string[] paths, ICompiler compiler)
         {
-            if (compiler == null) { compiler = new CSCompiler(); }
+            if (compiler == null) 
+            { 
+                compiler = new CSCompiler(); 
+            }
 
             foreach (string cmd in paths)
             {

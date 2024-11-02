@@ -21,13 +21,13 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdRedo : Command2
+    public class CmdRedo : Command
     {
         public override string name { get { return "Redo"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0)
             {

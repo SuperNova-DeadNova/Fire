@@ -17,7 +17,7 @@
  */
 namespace Flames.Modules.NewCompiling
 {
-    public sealed class CmdNewPluginCreate : CmdNewPluginCompile 
+    public class CmdNewPluginCreate : CmdNewPluginCompile 
     {
         public override string name { get { return "NewPluginCreate"; } }
         public override string shortcut { get { return "NewPCreate"; } }

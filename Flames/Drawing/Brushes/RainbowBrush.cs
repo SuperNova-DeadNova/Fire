@@ -20,31 +20,39 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class RainbowBrush : CheckeredPaletteBrush
+    public class RainbowBrush : CheckeredPaletteBrush
     {
         public override string Name { get { return "Rainbow"; } }
-        public RainbowBrush() : base(blocks) { }
+        public RainbowBrush() : base(blocks) 
+        { 
+        }
 
-        public static ushort[] blocks = new ushort[] {
+        public static new ushort[] blocks = new ushort[] 
+        {
             Block.Red,   Block.Orange,  Block.Yellow,
             Block.Lime,  Block.Green,   Block.Teal,
             Block.Aqua,  Block.Cyan,    Block.Blue,
             Block.Indigo, Block.Violet, Block.Magenta,
-            Block.Pink };
+            Block.Pink 
+        };
     }
 
-    public sealed class BWRainbowBrush : CheckeredPaletteBrush
+    public class BWRainbowBrush : CheckeredPaletteBrush
     {
         public override string Name { get { return "BWRainbow"; } }
-        public BWRainbowBrush() : base(blocks) { }
+        public BWRainbowBrush() : base(blocks) 
+        { 
+        }
 
-        public static ushort[] blocks = new ushort[] {
+        public static new ushort[] blocks = new ushort[] 
+        {
             Block.Iron,  Block.White,    Block.Gray,
             Block.Black, Block.Obsidian, Block.Black,
-            Block.Gray,  Block.White };
+            Block.Gray,  Block.White 
+        };
     }
 
-    public sealed class RandomRainbowBrush : Brush
+    public class RandomRainbowBrush : Brush
     {
         public Random rnd = new Random();
         public ushort[] blocks;

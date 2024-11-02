@@ -54,8 +54,9 @@ namespace Flames.Modules.Compiling
             return PLUGINS_SOURCE_DIR + name + FileExtension; 
         }
 
-        public static List<ICompiler> Compilers = new List<ICompiler>() {
-            new CSCompiler(), new VBCompiler()
+        public static List<ICompiler> Compilers = new List<ICompiler>() 
+        {
+            new CSCompiler(), new VBCompiler(), new JScriptCompiler()
         };
 
 

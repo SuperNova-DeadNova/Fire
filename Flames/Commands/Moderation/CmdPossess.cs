@@ -19,7 +19,7 @@
 namespace Flames.Commands.Moderation
 {
 
-    public sealed class CmdPossess : Command2
+    public class CmdPossess : Command2
     {
         public override string name { get { return "Possess"; } }
         public override string type { get { return CommandTypes.Moderation; } }

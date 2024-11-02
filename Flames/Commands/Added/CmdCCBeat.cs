@@ -31,13 +31,13 @@ namespace Flames.Commands
             p.Message("&T/ccheartbeat &H- Forces a pump for the ClassiCube heartbeat.  DEBUG PURPOSES ONLY.");
         }
     }
-    public sealed class CmdUrl : Command
+    public class CmdUrl : Command
     {
         public override string name { get { return "ServerUrl"; } }
         public override string shortcut { get { return "url"; } }
         public override string type { get { return CommandTypes.Added; } }
         public override bool SuperUseable { get { return true; } }
-        public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
+        public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
 
 
         public override void Use(Player p, string message)

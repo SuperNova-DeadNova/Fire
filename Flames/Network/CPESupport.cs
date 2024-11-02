@@ -95,7 +95,7 @@ namespace Flames
         public const string CinematicGui = "CinematicGui";
     }
 
-    public sealed class CpeExtension
+    public class CpeExtension
     {
         /// <summary> Name of the CPE extension (e.g. ExtPlayerList) </summary>
         public string Name;
@@ -121,7 +121,8 @@ namespace Flames
 
 
         /// <summary> Array of all supported CPE extensions </summary>
-        public static CpeExtension[] All = new CpeExtension[] {
+        public static CpeExtension[] All = new CpeExtension[] 
+        {
             new CpeExtension(CpeExt.ClickDistance,       "Allows controlling how far away blocks can be placed/deleted (/Reach)"),
             new CpeExtension(CpeExt.CustomBlocks,        "Allows showing blocks 50 - 65 (Cobblestone Slab - Stone Brick)"),
             new CpeExtension(CpeExt.HeldBlock,           "Allows setting currently held block/block in hand"),

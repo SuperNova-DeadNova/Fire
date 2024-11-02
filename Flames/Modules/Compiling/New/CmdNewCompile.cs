@@ -19,14 +19,14 @@ using Flames.NewScripting;
 
 namespace Flames.Modules.NewCompiling
 {
-    public class CmdNewPluginCompile : Command2
+    public class CmdNewPluginCompile : Command
     {
         public override string name { get { return "NewPluginCompile"; } }
         public override string shortcut { get { return "NewPCompile"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Owner; } }
         public override bool MessageBlockRestricted { get { return true; } }
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             string name, lang;

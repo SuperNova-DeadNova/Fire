@@ -66,7 +66,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigBlockAttribute : ConfigUnsignedIntegerAttribute
+    public class ConfigBlockAttribute : ConfigUnsignedIntegerAttribute
     {
         public ushort defBlock;
         public ConfigBlockAttribute() : this(null, null, Block.Air) 
@@ -98,7 +98,7 @@ namespace Flames.Config
             return (ushort)ParseUnsignedInteger(raw, 0, 0, ushort.MaxValue);
         }
     }
-    public sealed class ConfigUIntAttribute : ConfigUnsignedIntegerAttribute
+    public class ConfigUIntAttribute : ConfigUnsignedIntegerAttribute
     {
         public uint defValue, minValue, maxValue;
 

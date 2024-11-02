@@ -22,7 +22,7 @@ using Flames.Commands.World;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdBlocks : Command2
+    public class CmdBlocks : Command
     {
         public override string name { get { return "Blocks"; } }
         public override string type { get { return CommandTypes.Information; } }
@@ -32,7 +32,7 @@ namespace Flames.Commands.Info
             get { return new[] { new CommandAlias("Materials") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             string modifier = args.Length > 1 ? args[1] : "";

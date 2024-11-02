@@ -19,14 +19,14 @@ using Flames.Scripting;
 
 namespace Flames.Commands.Scripting
 {
-    public sealed class CmdCmdLoad : Command2
+    public class CmdCmdLoad : Command
     {
         public override string name { get { return "CmdLoad"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Owner; } }
         public override bool MessageBlockRestricted { get { return true; } }
 
-        public override void Use(Player p, string cmdName, CommandData data)
+        public override void Use(Player p, string cmdName)
         {
             if (cmdName.Length == 0) 
             { 

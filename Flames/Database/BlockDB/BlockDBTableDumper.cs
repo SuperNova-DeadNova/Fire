@@ -26,7 +26,7 @@ using Flames.Util;
 namespace Flames.DB
 {
     /// <summary> Exports a BlockDB table to the new binary format. </summary>
-    public sealed class BlockDBTableDumper
+    public class BlockDBTableDumper
     {
         public string mapName;
         public Dictionary<string, int> nameCache = new Dictionary<string, int>();

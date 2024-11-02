@@ -20,7 +20,7 @@ using Flames.Commands.Misc;
 
 namespace Flames.Commands.Bots
 {
-    public sealed class CmdBotSummon : Command2
+    public class CmdBotSummon : Command2
     {
         public override string name { get { return "BotSummon"; } }
         public override string type { get { return CommandTypes.Moderation; } }

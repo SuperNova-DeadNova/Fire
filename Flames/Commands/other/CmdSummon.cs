@@ -19,7 +19,7 @@ using System;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdSummon : Command2
+    public class CmdSummon : Command2
     {
         public override string name { get { return "Summon"; } }
         public override string shortcut { get { return "s"; } }

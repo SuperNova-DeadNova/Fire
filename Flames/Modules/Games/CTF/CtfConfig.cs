@@ -23,7 +23,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.CTF
 {
-    public sealed class CTFConfig : RoundsGameConfig
+    public class CTFConfig : RoundsGameConfig
     {
         public override bool AllowAutoload { get { return false; } }
         public override string GameName { get { return "CTF"; } }
@@ -34,7 +34,7 @@ namespace Flames.Modules.Games.CTF
         public int CollisionsCheckInterval = 150;
     }
 
-    public sealed class CTFMapConfig : RoundsGameMapConfig
+    public class CTFMapConfig : RoundsGameMapConfig
     {
         [ConfigVec3("red-spawn", null)] 
         public Vec3U16 RedSpawn;

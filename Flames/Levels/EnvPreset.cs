@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Flames
 {
-    public sealed class EnvPreset
+    public class EnvPreset
     {
         public string Fog, Sky, Clouds, Sun, Shadow;
 
@@ -33,7 +33,8 @@ namespace Flames
             Shadow = args[4];
         }
 
-        public static Dictionary<string, string> Presets = new Dictionary<string, string>() {
+        public static Dictionary<string, string> Presets = new Dictionary<string, string>() 
+        {
                         //   fog   sky   clouds   sun   shadow
             { "Cartoon",  "00FFFF 1E90FF 00BFFF F5DEB3 F4A460" },
             { "Noir",     "000000 1F1F1F 000000 696969 1F1F1F" },

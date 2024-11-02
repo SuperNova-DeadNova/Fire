@@ -17,13 +17,13 @@
 */
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdFlipHeads : Command2
+    public class CmdFlipHeads : Command
     {
         public override string name { get { return "FlipHeads"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Server.flipHead = !Server.flipHead;
             if (Server.flipHead) Chat.MessageGlobal("All necks were broken");

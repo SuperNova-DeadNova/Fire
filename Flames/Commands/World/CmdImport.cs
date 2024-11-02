@@ -22,13 +22,13 @@ using Flames.Network;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdImport : Command2
+    public class CmdImport : Command
     {
         public override string name { get { return "Import"; } }
         public override string type { get { return CommandTypes.World; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

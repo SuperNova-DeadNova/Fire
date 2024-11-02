@@ -20,7 +20,7 @@ using Flames.Events;
 
 namespace Flames.Modules.Moderation.Notes
 {
-    public sealed class NotesPlugin : Plugin
+    public class NotesPlugin : Plugin
     {
         public override string name { get { return "Notes"; } }
 
@@ -62,7 +62,8 @@ namespace Flames.Modules.Moderation.Notes
                     break;
                 case ModActionType.Ban:
                     string banType = action.Duration.Ticks != 0 ? "T" : "B";
-                    AddNote(action, banType); break;
+                    AddNote(action, banType); 
+                    break;
             }
         }
 

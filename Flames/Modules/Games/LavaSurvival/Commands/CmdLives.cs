@@ -18,19 +18,19 @@
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class CmdLives : Command2
+    public class CmdLives : Command
     {
         public override string name { get { return "Lives"; } }
         public override string type { get { return CommandTypes.Games; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.Message("You " + LSGame.Instance.DescribeLives(p));
         }
 
         public override void Help(Player p)
         {
-            p.Message("&T/Alive");
+            p.Message("&T/Lives");
             p.Message("&HShows how many lives you currently have");
         }
     }

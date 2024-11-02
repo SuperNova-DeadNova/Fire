@@ -19,7 +19,7 @@ using Flames.Blocks;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdBlockSet : ItemPermsCmd
+    public class CmdBlockSet : ItemPermsCmd
     {
         public override string name { get { return "BlockSet"; } }
 

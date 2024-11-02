@@ -25,7 +25,7 @@ using Flames.Tasks;
 
 namespace Flames
 {
-    public sealed partial class Server
+    public partial class Server
     {
         public static void LoadMainLevel(SchedulerTask task)
         {

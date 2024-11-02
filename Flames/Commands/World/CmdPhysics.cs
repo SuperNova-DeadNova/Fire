@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.World
 {
-    public sealed class CmdPhysics : Command2
+    public class CmdPhysics : Command2
     {
         public override string name { get { return "Physics"; } }
         public override string type { get { return CommandTypes.World; } }

@@ -18,7 +18,7 @@
 
 namespace Flames.Modules.NewCompiling
 {
-    public sealed class NewCompilerPlugin : NewPlugin
+    public class NewCompilerPlugin : NewPlugin
     {
         public override string name { get { return "NewCompiler"; } }
 

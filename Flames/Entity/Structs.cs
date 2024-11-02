@@ -70,7 +70,10 @@ namespace Flames
         public int BlockZ { get { return Z >> 5; } }
 
 
-        public override bool Equals(object obj) { return (obj is Position) && Equals((Position)obj); }
+        public override bool Equals(object obj) 
+        { 
+            return (obj is Position) && Equals((Position)obj); 
+        }
 
         public bool Equals(Position other)
         {
@@ -82,9 +85,15 @@ namespace Flames
             return 1000000007 * X + 1000000009 * Y + 1000000021 * Z;
         }
 
-        public static bool operator ==(Position a, Position b) { return a.Equals(b); }
+        public static bool operator ==(Position a, Position b) 
+        { 
+            return a.Equals(b); 
+        }
 
-        public static bool operator !=(Position a, Position b) { return !a.Equals(b); }
+        public static bool operator !=(Position a, Position b) 
+        { 
+            return !a.Equals(b); 
+        }
 
 
         public const long mask = 0x1FFFFF;

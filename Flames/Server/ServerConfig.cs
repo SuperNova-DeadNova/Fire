@@ -23,7 +23,7 @@ using Flames.Modules.Relay.IRC;
 namespace Flames
 {
 
-    public sealed class ServerConfig : EnvConfig
+    public class ServerConfig : EnvConfig
     {
 #if CORE
         public const string Software = "&4H&6a&5r&0m&7o&2n&dy&a";

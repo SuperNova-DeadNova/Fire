@@ -91,7 +91,8 @@ namespace Flames.Drawing.Ops
             }
         }
 
-        public static ushort Round(float value) {
+        public static ushort Round(float value) 
+        {
             int valueI = (int)value;
             int floored = value < valueI ? valueI - 1 : valueI;
             float frac = value % 1.0f;

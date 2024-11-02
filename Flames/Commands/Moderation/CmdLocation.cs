@@ -1,7 +1,7 @@
 /*
-    Copyright 2015 MCGalaxy
+    Copyright 2015-2024 MCGalaxy
 
-    Dual-licensed under the Educational Community License, Version 2.0 and
+    Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
@@ -19,6 +19,7 @@ using System;
 using System.Net;
 using Flames.Config;
 using Flames.Network;
+using Flames.Util;
 
 namespace Flames.Commands.Moderation
 {
@@ -75,8 +76,11 @@ namespace Flames.Commands.Moderation
                 return; 
             }
 
-            obj.TryGetValue("region", out object region);
-            obj.TryGetValue("country", out object country);
+            object region = null, country = null;
+            obj.TryGetValue("region", out region);
+            obj.TryGetValue("country", out country);
+            string fullName = CountryUtils.GetName(country.ToString());
+            if (fullName != null) country = fullName;
 
             string suffix = HasExtraPerm(p, data.Rank, 1) ? "&b{1}&S/&b{2}" : "&b{2}";
             string nick = name == null ? ip : "of " + p.FormatNick(name);

@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class LSData
+    public class LSData
     {
         public int TimesDied, SpongesLeft, WaterLeft, DoorsLeft;
     }
@@ -58,7 +58,7 @@ namespace Flames.Modules.Games.LS
         public static LSGame Instance = new LSGame();
         public LSGame() 
         { 
-            Picker = new LevelPicker(); 
+            Picker = new SimpleLevelPicker(); 
         }
 
         public static LSData Get(Player p)

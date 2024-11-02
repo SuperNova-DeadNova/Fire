@@ -21,7 +21,7 @@ using Flames.Events.ServerEvents;
 
 namespace Flames.Modules.Relay.Discord
 {
-    public sealed class DiscordConfig
+    public class DiscordConfig
     {
         [ConfigBool("enabled", "General", false)]
         public bool Enabled;
@@ -96,7 +96,7 @@ namespace Flames.Modules.Relay.Discord
         Playing = 0, Listening = 2, Watching = 3, Competing = 5 
     }
 
-    public sealed class DiscordPlugin : Plugin
+    public class DiscordPlugin : Plugin
     {
         public override string name { get { return "DiscordRelay"; } }
 
@@ -132,13 +132,13 @@ namespace Flames.Modules.Relay.Discord
         }
     }
 
-    public sealed class CmdDiscordBot : RelayBotCmd
+    public class CmdDiscordBot : RelayBotCmd
     {
         public override string name { get { return "DiscordBot"; } }
         public override RelayBot Bot { get { return DiscordPlugin.Bot; } }
     }
 
-    public sealed class CmdDiscordControllers : BotControllersCmd
+    public class CmdDiscordControllers : BotControllersCmd
     {
         public override string name { get { return "DiscordControllers"; } }
         public override RelayBot Bot { get { return DiscordPlugin.Bot; } }

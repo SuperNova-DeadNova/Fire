@@ -19,13 +19,13 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdLastLevels : Command2
+    public class CmdLastLevels : Command
     {
         public override string name { get { return "LastLevels"; } }
         public override string shortcut { get { return "ll"; } }
         public override string type { get { return CommandTypes.Games; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             List<string> recent = ZSGame.Instance.Picker.RecentMaps;
             if (recent.Count == 0)

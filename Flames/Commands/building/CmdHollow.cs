@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdHollow : DrawCmd
+    public class CmdHollow : DrawCmd
     {
         public override string name { get { return "Hollow"; } }
 

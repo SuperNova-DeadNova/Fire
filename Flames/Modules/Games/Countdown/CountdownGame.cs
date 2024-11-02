@@ -1,7 +1,7 @@
 ﻿/*
     Copyright 2011 MCForge
         
-    Dual-licensed under the Educational Community License, Version 2.0 and
+    Dual-licensed under the    Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
@@ -28,7 +28,7 @@ namespace Flames.Modules.Games.Countdown
         public CountdownConfig Config = new CountdownConfig();
         public override string GameName { get { return "Countdown"; } }
         public override RoundsGameConfig GetConfig() 
-        {
+        { 
             return Config; 
         }
 
@@ -44,7 +44,7 @@ namespace Flames.Modules.Games.Countdown
         public static CountdownGame Instance = new CountdownGame();
         public CountdownGame() 
         { 
-            Picker = new LevelPicker(); 
+            Picker = new SimpleLevelPicker(); 
         }
 
         public override void UpdateMapConfig() 
@@ -151,11 +151,21 @@ namespace Flames.Modules.Games.Countdown
         {
             switch (speed)
             {
-                case CountdownSpeed.Slow: Interval = 800; break;
-                case CountdownSpeed.Normal: Interval = 650; break;
-                case CountdownSpeed.Fast: Interval = 500; break;
-                case CountdownSpeed.Extreme: Interval = 300; break;
-                case CountdownSpeed.Ultimate: Interval = 150; break;
+                case CountdownSpeed.Slow: 
+                    Interval = 800; 
+                    break;
+                case CountdownSpeed.Normal: 
+                    Interval = 650; 
+                    break;
+                case CountdownSpeed.Fast: 
+                    Interval = 500; 
+                    break;
+                case CountdownSpeed.Extreme: 
+                    Interval = 300; 
+                    break;
+                case CountdownSpeed.Ultimate: 
+                    Interval = 150; 
+                    break;
             }
             SpeedType = speed;
         }

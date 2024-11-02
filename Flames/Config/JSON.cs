@@ -7,9 +7,11 @@ using System.Text;
 namespace Flames.Config
 {
 
-    public sealed class JsonArray : List<object> { }
+    public class JsonArray : List<object> 
+    { 
+    }
 
-    public sealed class JsonObject : Dictionary<string, object>
+    public class JsonObject : Dictionary<string, object>
     {
         public object Meta;
 
@@ -25,7 +27,7 @@ namespace Flames.Config
     public delegate void JsonOnMember(JsonObject obj, string key, object value);
 
     /// <summary> Implements a simple JSON parser. </summary>
-    public sealed class JsonReader
+    public class JsonReader
     {
         public string Value;
         /// <summary> Whether an error occurred while parsing the given JSON. </summary>
@@ -43,7 +45,10 @@ namespace Flames.Config
             OnMember = DefaultOnMember;
         }
 
-        public static void DefaultOnMember(JsonObject obj, string key, object value) { obj[key] = value; }
+        public static void DefaultOnMember(JsonObject obj, string key, object value) 
+        {
+            obj[key] = value; 
+        }
 
 
         public const int T_NONE = 0, T_NUM = 1, T_TRUE = 2, T_FALSE = 3, T_NULL = 4;

@@ -21,7 +21,7 @@ using Flames.Maths;
 namespace Flames.DB
 {
     /// <summary> Optimised in-memory BlockDB cache. </summary>
-    public sealed class BlockDBCache
+    public class BlockDBCache
     {
         public BlockDBCacheNode Tail, Head;
 
@@ -115,7 +115,7 @@ namespace Flames.DB
         public int nextSize = 10 * 1000;
     }
 
-    public sealed class BlockDBCacheNode
+    public class BlockDBCacheNode
     {
         public BlockDBCacheNode Prev, Next;
 

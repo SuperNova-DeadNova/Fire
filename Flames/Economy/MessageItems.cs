@@ -19,11 +19,14 @@ using Flames.DB;
 
 namespace Flames.Eco
 {
-    public sealed class LoginMessageItem : SimpleItem
+    public class LoginMessageItem : SimpleItem
     {
         public LoginMessageItem()
         {
-            Aliases = new string[] { "login", "loginmsg", "loginmessage" };
+            Aliases = new string[] 
+            { 
+                "login", "loginmsg", "loginmessage" 
+            };
         }
 
         public override string Name { get { return "LoginMessage"; } }
@@ -54,11 +57,14 @@ namespace Flames.Eco
         }
     }
 
-    public sealed class LogoutMessageItem : SimpleItem
+    public class LogoutMessageItem : SimpleItem
     {
         public LogoutMessageItem()
         {
-            Aliases = new string[] { "logout", "logoutmsg", "logoutmessage" };
+            Aliases = new string[] 
+            { 
+                "logout", "logoutmsg", "logoutmessage" 
+            };
         }
 
         public override string Name { get { return "LogoutMessage"; } }

@@ -18,52 +18,57 @@
 using Flames.Commands;
 using Flames.Scripting;
 
-namespace Flames.Modules.Compiling 
+namespace Flames.Modules.Compiling
 {
-    public sealed class CmdCompLoad : CmdCompile 
+    public class CmdCompLoad : CmdCompile
     {
         public override string name { get { return "CompLoad"; } }
         public override string shortcut { get { return "cml"; } }
         public override CommandAlias[] Aliases { get { return null; } }
 
-        public override void CompilePlugin(Player p, string[] paths, ICompiler compiler) {
+        public override void CompilePlugin(Player p, string[] paths, ICompiler compiler)
+        {
             string dst = IScripting.PluginPath(paths[0]);
-            
+
             UnloadPlugin(p, paths[0]);
             base.CompilePlugin(p, paths, compiler);
             ScriptingOperations.LoadPlugins(p, dst);
         }
 
-        public static void UnloadPlugin(Player p, string name) {
+        public static void UnloadPlugin(Player p, string name)
+        {
             Plugin plugin = Plugin.FindCustom(name);
-            
+
             if (plugin == null) return;
             ScriptingOperations.UnloadPlugin(p, plugin);
         }
 
-        public override void CompileCommand(Player p, string[] paths, ICompiler compiler) {
+        public override void CompileCommand(Player p, string[] paths, ICompiler compiler)
+        {
             string cmd = paths[0];
             string dst = IScripting.CommandPath(cmd);
-            
+
             UnloadCommand(p, cmd);
             base.CompileCommand(p, paths, compiler);
             ScriptingOperations.LoadCommands(p, dst);
         }
 
-        public static void UnloadCommand(Player p, string cmdName) {
+        public static void UnloadCommand(Player p, string cmdName)
+        {
             string cmdArgs = "";
             Search(ref cmdName, ref cmdArgs);
             Command cmd = Find(cmdName);
-            
+
             if (cmd == null) return;
             ScriptingOperations.UnloadCommand(p, cmd);
         }
 
-        public override void Help(Player p) {
+        public override void Help(Player p)
+        {
             p.Message("&T/CompLoad [command]");
             p.Message("&HCompiles and loads (or reloads) a C# command into the server");
             p.Message("&T/CompLoad plugin [plugin]");
             p.Message("&HCompiles and loads (or reloads) a C# plugin into the server");
-        }        
+        }
     }
 }

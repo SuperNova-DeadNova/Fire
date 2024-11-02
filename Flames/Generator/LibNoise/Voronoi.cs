@@ -23,7 +23,7 @@
 
 namespace LibNoise
 {
-    public sealed class Voronoi : IModule
+    public class Voronoi : IModule
     {
         public double Displacement;
 

@@ -19,13 +19,13 @@ using Flames.Eco;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdEat : Command2
+    public class CmdEat : Command
     {
         public override string name { get { return "Eat"; } }
         public override string type { get { return CommandTypes.Chat; } }
 
         // Custom command, so can still be used even when economy is disabled
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Item item = Economy.GetItem("Snack");
             item.OnPurchase(p, message);

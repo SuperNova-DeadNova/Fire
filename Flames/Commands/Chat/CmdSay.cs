@@ -17,14 +17,14 @@
 */
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdSay : Command2
+    public class CmdSay : Command
     {
         public override string name { get { return "Say"; } }
         public override string shortcut { get { return "Broadcast"; } }
         public override string type { get { return CommandTypes.Chat; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

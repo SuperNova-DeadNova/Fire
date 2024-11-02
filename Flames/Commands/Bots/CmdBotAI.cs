@@ -21,7 +21,7 @@ using Flames.Bots;
 
 namespace Flames.Commands.Bots
 {
-    public sealed class CmdBotAI : Command2
+    public class CmdBotAI : Command
     {
         public override string name { get { return "BotAI"; } }
         public override string shortcut { get { return "bai"; } }
@@ -29,11 +29,11 @@ namespace Flames.Commands.Bots
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             string cmd = args[0];
-            if (IsListCommand(cmd))
+            if (IsListAction(cmd))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
                 HandleList(p, modifier);
@@ -54,15 +54,15 @@ namespace Flames.Commands.Bots
                 return;
             }
 
-            if (IsCreateCommand(cmd))
+            if (IsCreateAction(cmd))
             {
                 HandleAdd(p, ai, args);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 HandleDelete(p, ai, args);
             }
-            else if (IsInfoCommand(cmd))
+            else if (IsInfoAction(cmd))
             {
                 HandleInfo(p, ai);
             }

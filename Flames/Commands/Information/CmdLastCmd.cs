@@ -19,7 +19,7 @@ using System;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdLastCmd : Command2
+    public class CmdLastCmd : Command2
     {
         public override string name { get { return "LastCmd"; } }
         public override string shortcut { get { return "Last"; } }

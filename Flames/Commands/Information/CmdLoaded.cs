@@ -18,13 +18,13 @@
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdLoaded : Command2
+    public class CmdLoaded : Command
     {
         public override string name { get { return "Loaded"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Level[] loaded = LevelInfo.Loaded.Items;
             p.Message("Loaded levels [physics level] (&c[no] &Sif not visitable): ");

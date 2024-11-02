@@ -33,7 +33,7 @@ namespace Flames.Commands.Building
         public virtual string PlaceMessage { get { return "Place or break two blocks to determine the edges."; } }
         public const string BrushHelpLine = "   &HFor help about brushes, type &T/Help Brush";
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             DrawArgs dArgs = MakeArgs(p, message);
             if (dArgs.Op == null) return;

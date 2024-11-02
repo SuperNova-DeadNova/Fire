@@ -24,7 +24,7 @@ using System;
 
 namespace LibNoise
 {
-    public sealed class Billow : IModule
+    public class Billow : IModule
     {
         public double Persistence;
         public int OctaveCount;

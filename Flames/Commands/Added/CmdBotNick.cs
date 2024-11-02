@@ -1,6 +1,6 @@
 ﻿namespace Flames.Commands
 {
-    public sealed class CmdBotnick : Command
+    public class CmdBotnick : Command
     {
         public override string name { get { return "Botnick"; } }
         public override string shortcut { get { return "Botname"; } }

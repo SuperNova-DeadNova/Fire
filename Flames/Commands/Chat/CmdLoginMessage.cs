@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdLoginMessage : EntityPropertyCmd
+    public class CmdLoginMessage : EntityPropertyCmd
     {
         public override string name { get { return "LoginMessage"; } }
         public override string shortcut { get { return "LoginMsg"; } }

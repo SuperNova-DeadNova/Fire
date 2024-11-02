@@ -21,11 +21,14 @@ using Flames.Generator;
 
 namespace Flames.Eco
 {
-    public sealed class LevelItem : Item
+    public class LevelItem : Item
     {
         public LevelItem()
         {
-            Aliases = new string[] { "level", "levels", "map", "maps" };
+            Aliases = new string[] 
+            { 
+                "level", "levels", "map", "maps" 
+            };
         }
 
         public override string Name { get { return "Level"; } }
@@ -47,8 +50,10 @@ namespace Flames.Eco
             LevelPreset preset = FindPreset(args[0]);
             if (preset == null)
             {
-                preset = new LevelPreset();
-                preset.name = args[0];
+                preset = new LevelPreset
+                {
+                    name = args[0]
+                };
                 Presets.Add(preset);
             }
 
@@ -146,15 +151,15 @@ namespace Flames.Eco
             LevelPreset preset = FindPreset(args[2]);
             string cmd = args[1];
 
-            if (Command.IsCreateCommand(cmd))
+            if (Command.IsCreateAction(cmd))
             {
                 AddPreset(p, args, preset);
             }
-            else if (Command.IsDeleteCommand(cmd))
+            else if (Command.IsDeleteAction(cmd))
             {
                 RemovePreset(p, args, preset);
             }
-            else if (Command.IsEditCommand(cmd))
+            else if (Command.IsEditAction(cmd))
             {
                 EditPreset(p, args, preset);
             }

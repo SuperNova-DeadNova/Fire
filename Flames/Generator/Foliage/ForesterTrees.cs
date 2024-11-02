@@ -524,7 +524,7 @@ namespace Flames.Generator.Foliage
     }
 
 
-    public sealed class BambooTree : Tree
+    public class BambooTree : Tree
     {
 
         public override long EstimateBlocksAffected() 
@@ -561,7 +561,7 @@ namespace Flames.Generator.Foliage
         }
     }
 
-    public sealed class PalmTree : Tree
+    public class PalmTree : Tree
     {
 
         public override long EstimateBlocksAffected() 

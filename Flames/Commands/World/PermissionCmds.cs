@@ -156,7 +156,7 @@ namespace Flames.Commands.World
         }
     }
 
-    public sealed class CmdPermissionBuild : LevelPermissionCmd
+    public class CmdPermissionBuild : LevelPermissionCmd
     {
         public override string name { get { return "PerBuild"; } }
         public override string shortcut { get { return "WBuild"; } }
@@ -172,7 +172,7 @@ namespace Flames.Commands.World
         }
     }
 
-    public sealed class CmdPermissionVisit : LevelPermissionCmd
+    public class CmdPermissionVisit : LevelPermissionCmd
     {
         public override string name { get { return "PerVisit"; } }
         public override string shortcut { get { return "WAccess"; } }

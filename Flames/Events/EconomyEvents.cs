@@ -20,7 +20,7 @@ namespace Flames.Events.EconomyEvents
 {
     public delegate void OnMoneyChanged(Player p);
     /// <summary> Raised whenever a player's online money changes. </summary>
-    public sealed class OnMoneyChangedEvent : IEvent<OnMoneyChanged>
+    public class OnMoneyChangedEvent : IEvent<OnMoneyChanged>
     {
         public static void Call(Player p)
         {
@@ -29,7 +29,7 @@ namespace Flames.Events.EconomyEvents
         }
     }
 
-    public sealed class EcoTransaction
+    public class EcoTransaction
     {
         public Player Source;
         public string TargetName, TargetFormatted;
@@ -45,7 +45,7 @@ namespace Flames.Events.EconomyEvents
 
     public delegate void OnEcoTransaction(EcoTransaction transaction);
     /// <summary> Raised whenever an economic transaction occurs. </summary>
-    public sealed class OnEcoTransactionEvent : IEvent<OnEcoTransaction>
+    public class OnEcoTransactionEvent : IEvent<OnEcoTransaction>
     {
         public static void Call(EcoTransaction transaction)
         {

@@ -20,7 +20,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class ReplaceBrush : Brush
+    public class ReplaceBrush : Brush
     {
         public ushort[] include;
         public ushort target;
@@ -51,7 +51,7 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class ReplaceNotBrush : Brush
+    public class ReplaceNotBrush : Brush
     {
         public ushort[] exclude;
         public ushort target;

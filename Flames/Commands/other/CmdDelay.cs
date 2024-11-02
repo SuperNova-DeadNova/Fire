@@ -20,7 +20,7 @@ using System.Threading;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdDelay : Command2
+    public class CmdDelay : Command2
     {
         public override string name { get { return "Delay"; } }
         public override string type { get { return CommandTypes.Other; } }

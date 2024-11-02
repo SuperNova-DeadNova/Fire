@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Generator.Foliage
 {
-    public sealed class OakTree : Tree
+    public class OakTree : Tree
     {
 
         public int numBranches, maxExtent, maxBranchHeight, trunkHeight;

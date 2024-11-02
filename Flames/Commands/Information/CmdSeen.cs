@@ -20,13 +20,13 @@ using Flames.DB;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdSeen : Command2
+    public class CmdSeen : Command
     {
         public override string name { get { return "Seen"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

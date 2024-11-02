@@ -140,14 +140,16 @@ namespace Flames
             }
         }
 
-        /*static void MoveBackups(string src, string dst) {
+        /*public static void MoveBackups(string src, string dst) 
+          {
             string srcBase = LevelInfo.BackupBasePath(src);
             string dstBase = LevelInfo.BackupBasePath(dst);
             if (!Directory.Exists(srcBase)) return;
             Directory.CreateDirectory(dstBase);
             
             string[] backups = Directory.GetDirectories(srcBase);
-            for (int i = 0; i < backups.Length; i++) {
+            for (int i = 0; i < backups.Length; i++) 
+            {
                 string name = LevelInfo.BackupNameFrom(backups[i]);
                 string srcFile = LevelInfo.BackupFilePath(src, name);
                 string dstFile = LevelInfo.BackupFilePath(dst, name);

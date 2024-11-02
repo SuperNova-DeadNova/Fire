@@ -31,7 +31,7 @@ namespace Flames.Generator.Realistic
 {
     public delegate void PreprocessGen(Level lvl, MapGenArgs args);
 
-    public sealed class RealisticMapGen
+    public class RealisticMapGen
     {
         public float[] terrain, overlay, overlayT;
         public float treeDens;

@@ -20,7 +20,7 @@ using Flames.Games;
 
 namespace Flames.Modules.Games.Countdown
 {
-    public sealed class CountdownConfig : RoundsGameConfig 
+    public class CountdownConfig : RoundsGameConfig 
     {
         [ConfigEnum("default-speed", "Defaults", CountdownSpeed.Normal, typeof(CountdownSpeed))]
         public CountdownSpeed DefaultSpeed = CountdownSpeed.Normal;

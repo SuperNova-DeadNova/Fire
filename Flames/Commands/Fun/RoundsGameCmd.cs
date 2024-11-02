@@ -34,7 +34,7 @@ namespace Flames.Commands.Fun
                 HandleGo(p, game); 
                 return;
             }
-            else if (IsInfoCommand(message))
+            else if (IsInfoAction(message))
             {
                 HandleStatus(p, game); 
                 return;
@@ -57,7 +57,7 @@ namespace Flames.Commands.Fun
             {
                 RoundsGameConfig.AddMap(p, p.level.name, p.level.Config, game);
             }
-            else if (IsDeleteCommand(message))
+            else if (IsDeleteAction(message))
             {
                 RoundsGameConfig.RemoveMap(p, p.level.name, p.level.Config, game);
             }

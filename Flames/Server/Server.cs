@@ -40,7 +40,7 @@ using Flames.Modules.Awards;
 
 namespace Flames
 {
-    public sealed partial class Server
+    public partial class Server
     {
         public Server() 
         { 

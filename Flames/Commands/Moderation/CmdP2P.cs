@@ -20,7 +20,7 @@
 namespace Flames.Commands.Moderation
 {
 
-    public sealed class CmdP2P : Command2
+    public class CmdP2P : Command2
     {
         public override string name { get { return "P2P"; } }
         public override string type { get { return CommandTypes.Moderation; } }

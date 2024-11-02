@@ -20,14 +20,14 @@ using Flames.Drawing;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdPalette : Command2
+    public class CmdPalette : Command
     {
         public override string name { get { return "Palette"; } }
         public override string shortcut { get { return "ImgPalette"; } }
         public override string type { get { return CommandTypes.Building; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(5);
             if (message.Length == 0)

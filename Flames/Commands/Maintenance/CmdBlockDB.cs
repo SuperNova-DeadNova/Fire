@@ -19,7 +19,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdBlockDB : Command2
+    public class CmdBlockDB : Command2
     {
         public override string name { get { return "BlockDB"; } }
         public override string type { get { return CommandTypes.World; } }

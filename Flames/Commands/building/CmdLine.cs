@@ -21,7 +21,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdLine : DrawCmd
+    public class CmdLine : DrawCmd
     {
         public override string name { get { return "Line"; } }
         public override string shortcut { get { return "l"; } }

@@ -14,7 +14,7 @@ permissions and limitations under the Licenses.
 */
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdAdminChat : Command2
+    public class CmdAdminChat : Command
     {
         public override string name { get { return "AdminChat"; } }
         public override string shortcut { get { return "Admin"; } }
@@ -26,7 +26,7 @@ namespace Flames.Commands.Chatting
             get { return new[] { new CommandPerm(LevelPermission.Admin, "can read adminchat messages") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0) 
             { 

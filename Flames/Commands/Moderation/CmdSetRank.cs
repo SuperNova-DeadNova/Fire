@@ -20,7 +20,7 @@ using Flames.Events.GroupEvents;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdSetRank : Command2
+    public class CmdSetRank : Command2
     {
         public override string name { get { return "SetRank"; } }
         public override string shortcut { get { return "Rank"; } }

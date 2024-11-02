@@ -19,13 +19,16 @@ using Flames.Games;
 
 namespace Flames.Commands.Fun
 {
-    public class CmdLike : Command2
+    public class CmdLike : Command
     {
         public override string name { get { return "Like"; } }
         public override string type { get { return CommandTypes.Games; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data) { RateMap(p, true); }
+        public override void Use(Player p, string message) 
+        { 
+            RateMap(p, true); 
+        }
 
         public bool RateMap(Player p, bool like)
         {
@@ -75,10 +78,10 @@ namespace Flames.Commands.Fun
         }
     }
 
-    public sealed class CmdDislike : CmdLike
+    public class CmdDislike : CmdLike
     {
         public override string name { get { return "Dislike"; } }
-        public override void Use(Player p, string message, CommandData data) 
+        public override void Use(Player p, string message) 
         { 
             RateMap(p, false); 
         }

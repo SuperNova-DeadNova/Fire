@@ -19,13 +19,13 @@ using System.IO;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdView : Command2
+    public class CmdView : Command
     {
         public override string name { get { return "View"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!Directory.Exists("extra/text/"))
                 Directory.CreateDirectory("extra/text");

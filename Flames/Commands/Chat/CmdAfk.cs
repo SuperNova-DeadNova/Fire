@@ -20,7 +20,7 @@ using Flames.Events.PlayerEvents;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdAfk : Command2
+    public class CmdAfk : Command
     {
         public override string name { get { return "AFK"; } }
         public override string type { get { return CommandTypes.Information; } }
@@ -28,7 +28,7 @@ namespace Flames.Commands.Chatting
         public override bool MessageBlockRestricted { get { return true; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data) 
+        public override void Use(Player p, string message) 
         { 
             ToggleAfk(p, message); 
         }

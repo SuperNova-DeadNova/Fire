@@ -22,7 +22,7 @@ namespace Flames.Events.GroupEvents
 
     public delegate void GroupLoaded(Group group);
     /// <summary> Raised when a particular group is loaded.</summary>
-    public sealed class OnGroupLoadedEvent : IEvent<GroupLoaded>
+    public class OnGroupLoadedEvent : IEvent<GroupLoaded>
     {
 
         public static void Call(Group g)
@@ -34,7 +34,7 @@ namespace Flames.Events.GroupEvents
 
     public delegate void GroupLoad();
     /// <summary> Raised when list of groups has been loaded or reloaded. </summary>
-    public sealed class OnGroupLoadEvent : IEvent<GroupLoad>
+    public class OnGroupLoadEvent : IEvent<GroupLoad>
     {
 
         public static void Call()
@@ -46,7 +46,7 @@ namespace Flames.Events.GroupEvents
 
     public delegate void GroupSave();
     /// <summary> Raised when list of groups has been saved. </summary>
-    public sealed class OnGroupSaveEvent : IEvent<GroupSave>
+    public class OnGroupSaveEvent : IEvent<GroupSave>
     {
 
         public static void Call()
@@ -58,7 +58,7 @@ namespace Flames.Events.GroupEvents
 
     public delegate void OnChangingGroup(string player, Group curRank, Group newRank, ref bool cancel);
     /// <summary> Raised when a player is about to have their rank changed. Cancelable. </summary>
-    public sealed class OnChangingGroupEvent : IEvent<OnChangingGroup>
+    public class OnChangingGroupEvent : IEvent<OnChangingGroup>
     {
 
         public static void Call(string player, Group curRank, Group newRank, ref bool cancel)

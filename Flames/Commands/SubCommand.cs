@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 MCGalaxy
+    Copyright 2015-2024 MCGalaxy
         
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,37 +22,48 @@ namespace Flames.Commands
 {
 
     /// <summary>
-    /// Represents the name, behavior, and help text for a subcommand. Used with SubCommandGroup to offer a variety of subcommands to run based on user input.
+    /// Represents the name, behavior, and help for a subcommand. Used with SubCommandGroup to offer a variety of subcommands to run based on user input.
     /// </summary>
     public class SubCommand
     {
-        public delegate void Behavior(Player p, string[] args);
-        public delegate void BehaviorOneArg(Player p, string arg);
+        public delegate void Behavior(Player p, string arg);
+        public delegate void HelpBehavior(Player p, string message);
 
         public string Name;
-        public int ArgCount;
         public Behavior behavior;
-        public string[] Help;
+        public HelpBehavior helpBehavior = null;
         public bool MapOnly;
         public string[] Aliases;
 
         /// <summary>
+        /// Construct a SubCommand with simple style help.
         /// When mapOnly is true, the subcommand can only be used when the player is the realm owner.
-        /// Args passed to behavior through SubCommandGroup.Use are guaranteed to be the length specified by argCount
         /// </summary>
-        public SubCommand(string name, int argCount, Behavior behavior, string[] help, bool mapOnly = true, string[] aliases = null)
+        public SubCommand(string name, Behavior behavior, string[] help, bool mapOnly = true, string[] aliases = null)
+                            : this(name, behavior, mapOnly, aliases)
         {
-            if (argCount < 1) { throw new ArgumentException("argCount must be greater than or equal to 1."); }
+            if (help != null && help.Length > 0) helpBehavior = (p, arg) => { p.MessageLines(help); };
+        }
+
+        /// <summary>
+        /// Construct a SubCommand with custom help behavior (e.g. this subcommand needs help that changes based on help args)
+        /// </summary>
+        public SubCommand(string name, Behavior behavior, HelpBehavior helpBehavior, bool mapOnly = true, string[] aliases = null)
+                            : this(name, behavior, mapOnly, aliases)
+        {
+            this.helpBehavior = helpBehavior;
+        }
+
+        /// <summary>
+        /// Construct a SubCommand without help
+        /// </summary>
+        public SubCommand(string name, Behavior behavior, bool mapOnly = true, string[] aliases = null)
+        {
             Name = name;
-            ArgCount = argCount;
             this.behavior = behavior;
-            Help = help;
             MapOnly = mapOnly;
             Aliases = aliases;
         }
-        public SubCommand(string name, BehaviorOneArg simpleBehavior, string[] help, bool mapOnly = true, string[] aliases = null) :
-            this(name, 1, (p, args) => { simpleBehavior(p, args[0]); }, help, mapOnly, aliases)
-        { }
 
         public bool Match(string cmd)
         {
@@ -60,28 +71,24 @@ namespace Flames.Commands
             {
                 foreach (string alias in Aliases)
                 {
-                    if (alias.CaselessEq(cmd)) 
-                    { 
-                        return true; 
-                    }
+                    if (alias.CaselessEq(cmd)) return true;
                 }
             }
             return Name.CaselessEq(cmd);
         }
+
         public bool AnyMatchingAlias(SubCommand other)
         {
             if (Aliases != null)
             {
                 foreach (string alias in Aliases)
                 {
-                    if (other.Match(alias)) 
-                    { 
-                        return true; 
-                    }
+                    if (other.Match(alias)) return true;
                 }
             }
             return other.Match(Name);
         }
+
         public bool Allowed(Player p, string parentCommandName)
         {
             if (MapOnly && !LevelInfo.IsRealmOwner(p.level, p.name))
@@ -91,14 +98,15 @@ namespace Flames.Commands
             }
             return true;
         }
-        public void DisplayHelp(Player p)
+
+        public void DisplayHelp(Player p, string message)
         {
-            if (Help == null || Help.Length == 0)
+            if (helpBehavior == null)
             {
                 p.Message("No help is available for {0}", Name);
                 return;
             }
-            p.MessageLines(Help);
+            helpBehavior(p, message);
         }
     }
 
@@ -113,7 +121,7 @@ namespace Flames.Commands
         }
 
         public string parentCommandName;
-        public List<SubCommand> subCommands;
+        List<SubCommand> subCommands;
 
         public SubCommandGroup(string parentCmd, List<SubCommand> initialCmds)
         {
@@ -142,7 +150,7 @@ namespace Flames.Commands
 
         public UsageResult Use(Player p, string message, bool alertNoneFound = true)
         {
-            string[] args = message.SplitSpaces(2);
+            string[] args = message.SplitExact(2);
             string cmd = args[0];
 
             foreach (SubCommand subCmd in subCommands)
@@ -156,24 +164,10 @@ namespace Flames.Commands
                     return UsageResult.Disallowed; 
                 }
 
-                string[] bArgs = new string[subCmd.ArgCount];
-                string[] cmdArgs = args.Length > 1 ? args[1].SplitSpaces(subCmd.ArgCount) : new string[] { "" };
-
-                for (int i = 0; i < bArgs.Length; i++)
-                {
-                    if (i < cmdArgs.Length) 
-                    { 
-                        bArgs[i] = cmdArgs[i]; 
-                    }
-                    else 
-                    { 
-                        bArgs[i] = ""; 
-                    }
-                }
-
-                subCmd.behavior(p, bArgs);
+                subCmd.behavior(p, args[1]);
                 return UsageResult.Success;
             }
+
             if (alertNoneFound)
             {
                 p.Message("There is no {0} command \"{1}\".", parentCommandName, message);
@@ -188,18 +182,22 @@ namespace Flames.Commands
             p.Message("&HUse &T/Help {0} [command] &Hfor more details", parentCommandName);
         }
 
-        public void DisplayHelpFor(Player p, string subCmdName)
+        public void DisplayHelpFor(Player p, string message)
         {
+            string[] words = message.SplitSpaces(2);
+            string subCmdName = words[0];
+            string helpArgs = words.Length == 2 ? words[1] : "";
+
             foreach (SubCommand subCmd in subCommands)
             {
                 if (!subCmd.Match(subCmdName)) 
                 { 
                     continue; 
                 }
-                subCmd.DisplayHelp(p);
+                subCmd.DisplayHelp(p, helpArgs);
                 return;
             }
-            p.Message("There is no {0} command {1} to display help for.", parentCommandName, subCmdName);
+            p.Message("There is no {0} command \"{1}\".", parentCommandName, subCmdName);
         }
     }
 }

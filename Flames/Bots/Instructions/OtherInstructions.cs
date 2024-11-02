@@ -20,7 +20,7 @@ using System.IO;
 namespace Flames.Bots
 {
     /// <summary> Causes the bot to reset to the and execute first instruction. </summary>
-    public sealed class ResetInstruction : BotInstruction
+    public class ResetInstruction : BotInstruction
     {
         public ResetInstruction()
         {
@@ -41,7 +41,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to be removed from the world. </summary>
-    public sealed class RemoveInstruction : BotInstruction
+    public class RemoveInstruction : BotInstruction
     {
         public RemoveInstruction()
         {
@@ -62,7 +62,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to switch to a different AI. </summary>
-    public sealed class LinkScriptInstruction : BotInstruction
+    public class LinkScriptInstruction : BotInstruction
     {
         public LinkScriptInstruction()
         {
@@ -109,7 +109,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to wait/do nothing for a certain interval. </summary>
-    public sealed class WaitInstruction : BotInstruction
+    public class WaitInstruction : BotInstruction
     {
         public WaitInstruction()
         {

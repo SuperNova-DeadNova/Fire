@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdOpChat : Command2
+    public class CmdOpChat : Command
     {
         public override string name { get { return "OpChat"; } }
         public override string shortcut { get { return "Op"; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Chatting
             get { return new[] { new CommandPerm(LevelPermission.Operator, "can read opchat messages") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length > 0) 
             { 

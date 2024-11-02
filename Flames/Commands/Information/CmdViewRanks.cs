@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdViewRanks : Command2
+    public class CmdViewRanks : Command
     {
         public override string name { get { return "ViewRanks"; } }
         public override string type { get { return CommandTypes.Information; } }
@@ -32,7 +32,7 @@ namespace Flames.Commands.Info
             }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(2);
             if (message.Length == 0)

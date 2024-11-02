@@ -781,6 +781,10 @@ namespace Flames.Network
             buffer[2] = (byte)(locked ? 1 : 0);
             return buffer;
         }
+        public static byte[] SetCinematicGui(bool hideCrosshair, bool hideHand, bool hideHotbar, byte r, byte g, byte b, byte opacity, float barSize)
+        {
+            return SetCinematicGui(hideCrosshair, hideHand, hideHotbar, r, g, b, opacity, (ushort)barSize);
+        }
 
         public static byte[] SetCinematicGui(bool hideCrosshair, bool hideHand, bool hideHotbar, byte r, byte g, byte b, byte opacity, ushort barSize)
         {

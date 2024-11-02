@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.CPE
 {
-    public sealed class CmdReachDistance : Command2
+    public class CmdReachDistance : Command
     {
         public override string name { get { return "ReachDistance"; } }
         public override string shortcut { get { return "Reach"; } }
@@ -26,7 +26,7 @@ namespace Flames.Commands.CPE
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

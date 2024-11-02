@@ -19,7 +19,7 @@ using Flames.Generator;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdNewLvl : Command2
+    public class CmdNewLvl : Command2
     {
         public override string name { get { return "NewLvl"; } }
         public override string shortcut { get { return "Gen"; } }

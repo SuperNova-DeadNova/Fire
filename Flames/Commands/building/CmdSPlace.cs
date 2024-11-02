@@ -20,7 +20,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdSPlace : DrawCmd
+    public class CmdSPlace : DrawCmd
     {
         public override string name { get { return "SPlace"; } }
         public override string shortcut { get { return "set"; } }

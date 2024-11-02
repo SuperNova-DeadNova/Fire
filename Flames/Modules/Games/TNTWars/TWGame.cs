@@ -29,7 +29,10 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.TW
 {
-    public enum TWGameMode { FFA, TDM };
+    public enum TWGameMode 
+    { 
+        FFA, TDM 
+    };
     public enum TWDifficulty
     {
         Easy,    // 2 Hits to die, Tnt has long delay
@@ -37,9 +40,13 @@ namespace Flames.Modules.Games.TW
         Hard,    // 1 Hit to die, Tnt has short delay
         Extreme, // 1 Hit to die, Tnt has short delay and BIG exlosion
     }
-    public sealed class PlayerAndScore { public Player p; public int Score; }
+    public class PlayerAndScore 
+    { 
+        public Player p; 
+        public int Score; 
+    }
 
-    public sealed class TWData
+    public class TWData
     {
         public int Score, Health = 2, KillStreak, TNTCounter;
         public float ScoreMultiplier = 1f;
@@ -59,7 +66,7 @@ namespace Flames.Modules.Games.TW
         }
     }
 
-    public sealed class TWTeam
+    public class TWTeam
     {
         public string Name, Color;
         public string ColoredName { get { return Color + Name; } }
@@ -97,7 +104,10 @@ namespace Flames.Modules.Games.TW
         public TNTImmuneFilter tntImmuneFilter;
 
         public static TWGame Instance = new TWGame();
-        public TWGame() { Picker = new LevelPicker(); }
+        public TWGame() 
+        {
+            Picker = new SimpleLevelPicker(); 
+        }
 
         public const string twExtrasKey = "F_TW_DATA";
         public static TWData Get(Player p)

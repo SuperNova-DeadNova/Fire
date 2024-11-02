@@ -21,21 +21,24 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.NewCompiling
 {
-    public sealed class CSCompiler : ICompiler 
+    public class CSCompiler : ICompiler
     {
         public override string FileExtension { get { return ".cs"; } }
-        public override string ShortName     { get { return "C#"; } }  
-        public override string FullName      { get { return "CSharp"; } }
+        public override string ShortName { get { return "C#"; } }
+        public override string FullName { get { return "CSharp"; } }
 
-        public override ICompilerErrors DoCompile(string[] srcPaths, string dstPath) {
+        public override ICompilerErrors DoCompile(string[] srcPaths, string dstPath)
+        {
             List<string> referenced = ProcessInput(srcPaths, "//");
-            
+
             CommandLineCompiler compiler = new ClassicCSharpCompiler();
             return compiler.Compile(srcPaths, dstPath, referenced);
         }
-        
-        public override string NewPluginSkeleton {
-            get {
+
+        public override string NewPluginSkeleton
+        {
+            get
+            {
                 return @"//\tAuto-generated plugin skeleton class
 //\tUse this as a basis for custom Flames new plugins
 

@@ -20,7 +20,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdDrill : Command2
+    public class CmdDrill : Command
     {
         public override string name { get { return "Drill"; } }
         public override string type { get { return CommandTypes.Building; } }
@@ -28,7 +28,7 @@ namespace Flames.Commands.Building
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             ushort dist = 20;
             if (message.Length > 0 && !CommandParser.GetUShort(p, message, "Distance", ref dist)) return;

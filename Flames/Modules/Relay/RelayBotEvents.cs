@@ -22,7 +22,7 @@ namespace Flames.Modules.Relay
 {
     public delegate void OnDirectMessage(RelayBot bot, string channel, RelayUser user, string message, ref bool cancel);
     /// <summary> Called when an external communication service user sends a message directly to the relay bot </summary>
-    public sealed class OnDirectMessageEvent : IEvent<OnDirectMessage>
+    public class OnDirectMessageEvent : IEvent<OnDirectMessage>
     {
         public static void Call(RelayBot bot, string channel, RelayUser user, string message, ref bool cancel)
         {
@@ -43,7 +43,7 @@ namespace Flames.Modules.Relay
 
     public delegate void OnChannelMessage(RelayBot bot, string channel, RelayUser user, string message, ref bool cancel);
     /// <summary> Called when an external communication service user sends a message to the given channel </summary>
-    public sealed class OnChannelMessageEvent : IEvent<OnChannelMessage>
+    public class OnChannelMessageEvent : IEvent<OnChannelMessage>
     {
         public static void Call(RelayBot bot, string channel, RelayUser user, string message, ref bool cancel)
         {

@@ -25,7 +25,7 @@ using Flames.Events.ServerEvents;
 namespace Flames.Network
 {
     /// <summary> Heartbeat to ClassiCube.net's web server. </summary>
-    public sealed class ClassiCubeBeat : Heartbeat
+    public class ClassiCubeBeat : Heartbeat
     {
         public string proxyUrl;
         public string LastResponse;

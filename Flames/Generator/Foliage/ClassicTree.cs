@@ -1,11 +1,11 @@
 ﻿// Copyright 2014-2017 ClassicalSharp | Licensed under BSD-3
-// Based on: https://github.com/UnknownShadow200/ClassiCube/wiki/Minecraft-Classic-map-generation-algorithm
+// Based on: https://github.com/ClassiCube/ClassiCube/wiki/Minecraft-Classic-map-generation-algorithm
 using System;
 using Flames.Generator.Classic;
 
 namespace Flames.Generator.Foliage
 {
-    public sealed class ClassicTree : Tree
+    public class ClassicTree : Tree
     {
         public JavaRandom rng;
         // 61 = max number of leaves possible, +1 for extra log

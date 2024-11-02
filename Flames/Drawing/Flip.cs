@@ -21,8 +21,14 @@ namespace Flames.Drawing
     /// <summary> Utility methods for rotating and mirroring a CopyState. </summary>
     public static class Flip
     {
-        public static string[] rotX_90_270 = new string[] { "NS", "UD" };
-        public static string[] rotX_180 = new string[] { "N", "S", "NE", "SE", "NW", "SW" };
+        public static string[] rotX_90_270 = new string[] 
+        { 
+            "NS", "UD" 
+        };
+        public static string[] rotX_180 = new string[] 
+        { 
+            "N", "S", "NE", "SE", "NW", "SW" 
+        };
         public static CopyState RotateX(CopyState state, int angle, BlockDefinition[] defs)
         {
             CopyState newState = Clone(state);
@@ -34,7 +40,10 @@ namespace Flames.Drawing
             else if (angle == 180) transform = Transform(defs, rotX_180, null);
             else transform = Transform(defs, null, null);
 
-            int[] m = new int[] { posX, negZ, posY };
+            int[] m = new int[] 
+            { 
+                posX, negZ, posY 
+            };
             if (angle == 180) 
             { 
                 m[1] = negY; 
@@ -48,9 +57,18 @@ namespace Flames.Drawing
             return Rotate(state, newState, m, transform);
         }
 
-        public static string[] rotY_90 = new string[] { "N", "E", "S", "W", "NE", "SE", "SW", "NW", "WE", "NS", "WE", "NS" };
-        public static string[] rotY_180 = new string[] { "W", "E", "N", "S", "NE", "SW", "NW", "SE" };
-        public static string[] rotY_270 = new string[] { "N", "W", "S", "E", "NE", "NW", "SW", "SE", "WE", "NS", "WE", "NS" };
+        public static string[] rotY_90 = new string[] 
+        { 
+            "N", "E", "S", "W", "NE", "SE", "SW", "NW", "WE", "NS", "WE", "NS" 
+        };
+        public static string[] rotY_180 = new string[] 
+        { 
+            "W", "E", "N", "S", "NE", "SW", "NW", "SE" 
+        };
+        public static string[] rotY_270 = new string[] 
+        { 
+            "N", "W", "S", "E", "NE", "NW", "SW", "SE", "WE", "NS", "WE", "NS" 
+        };
         public static CopyState RotateY(CopyState state, int angle, BlockDefinition[] defs)
         {
             CopyState newState = Clone(state);
@@ -63,7 +81,10 @@ namespace Flames.Drawing
             else if (angle == 270) transform = Transform(defs, null, rotY_270);
             else transform = Transform(defs, null, null);
 
-            int[] m = new int[] { negZ, posY, posX };
+            int[] m = new int[] 
+            { 
+                negZ, posY, posX
+            };
             if (angle == 180) 
             { 
                 m[0] = negX; 
@@ -77,8 +98,14 @@ namespace Flames.Drawing
             return Rotate(state, newState, m, transform);
         }
 
-        public static string[] rotZ_90_270 = new string[] { "WE", "UD" };
-        public static string[] rotZ_180 = new string[] { "W", "E", "NW", "NE", "SW", "SE" };
+        public static string[] rotZ_90_270 = new string[] 
+        { 
+            "WE", "UD" 
+        };
+        public static string[] rotZ_180 = new string[] 
+        { 
+            "W", "E", "NW", "NE", "SW", "SE" 
+        };
         public static CopyState RotateZ(CopyState state, int angle, BlockDefinition[] defs)
         {
             CopyState newState = Clone(state);
@@ -90,7 +117,10 @@ namespace Flames.Drawing
             else if (angle == 180) transform = Transform(defs, rotZ_180, null);
             else transform = Transform(defs, null, null);
 
-            int[] m = new int[] { posY, negX, posZ };
+            int[] m = new int[]
+            { 
+                posY, negX, posZ 
+            };
             if (angle == 180) 
             {
                 m[0] = negX; 
@@ -166,7 +196,10 @@ namespace Flames.Drawing
             return newState;
         }
 
-        public static string[] mirrorX = new string[] { "W", "E", "NW", "NE", "SW", "SE" };
+        public static string[] mirrorX = new string[] 
+        { 
+            "W", "E", "NW", "NE", "SW", "SE" 
+        };
         public static void MirrorX(CopyState state, BlockDefinition[] defs)
         {
             // ceiling division by 2, because for odd length, we still want to
@@ -194,7 +227,10 @@ namespace Flames.Drawing
             }
         }
 
-        public static string[] mirrorY = new string[] { "D", "U" };
+        public static string[] mirrorY = new string[] 
+        { 
+            "D", "U" 
+        };
         public static void MirrorY(CopyState state, BlockDefinition[] defs)
         {
             int midY = (state.Height + 1) / 2, maxY = state.Height - 1;
@@ -221,7 +257,10 @@ namespace Flames.Drawing
             }
         }
 
-        public static string[] mirrorZ = new string[] { "N", "S", "NW", "SW", "NE", "SE" };
+        public static string[] mirrorZ = new string[] 
+        { 
+            "N", "S", "NW", "SW", "NE", "SE" 
+        };
         public static void MirrorZ(CopyState state, BlockDefinition[] defs)
         {
             int midZ = (state.Length + 1) / 2, maxZ = state.Length - 1;

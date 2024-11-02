@@ -20,7 +20,7 @@ namespace Flames.Generator.Realistic
 {
     public delegate ushort CalcLiquidLevel(ushort lvlHeight);
 
-    public sealed class RealisticMapGenArgs
+    public class RealisticMapGenArgs
     {
         public MapGenBiomeName Biome = MapGenBiomeName.Forest;
         public float RangeLow = 0.2f;

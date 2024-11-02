@@ -23,7 +23,8 @@ namespace Flames.Eco
 {
     public static partial class Economy
     {
-        public static ColumnDesc[] ecoTable = new ColumnDesc[] {
+        public static ColumnDesc[] ecoTable = new ColumnDesc[] 
+        {
             new ColumnDesc("player", ColumnType.VarChar, 20, priKey: true),
             new ColumnDesc("money", ColumnType.Int32),
             new ColumnDesc("total", ColumnType.Int32),

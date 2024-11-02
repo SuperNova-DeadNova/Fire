@@ -19,12 +19,12 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.Awards
 {
-    public sealed class CmdAwards : Command2
+    public class CmdAwards : Command
     {
         public override string name { get { return "Awards"; } }
         public override string type { get { return CommandTypes.Economy; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             if (args.Length > 2) 

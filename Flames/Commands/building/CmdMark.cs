@@ -20,7 +20,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdMark : Command2
+    public class CmdMark : Command
     {
         public override string name { get { return "Mark"; } }
         public override string shortcut { get { return "click"; } }
@@ -35,7 +35,7 @@ namespace Flames.Commands.Building
             }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.CaselessEq("all"))
             {

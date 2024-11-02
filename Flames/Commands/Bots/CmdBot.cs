@@ -20,7 +20,7 @@ using Flames.Bots;
 
 namespace Flames.Commands.Bots
 {
-    public sealed class CmdBot : Command2
+    public class CmdBot : Command2
     {
         public override string name { get { return "Bot"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -71,7 +71,7 @@ namespace Flames.Commands.Bots
             {
                 AddBot(p, bot);
             }
-            else if (IsDeleteCommand(args[0]))
+            else if (IsDeleteAction(args[0]))
             {
                 RemoveBot(p, bot, value);
             }

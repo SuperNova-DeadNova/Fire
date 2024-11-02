@@ -26,7 +26,7 @@ namespace Flames.Scripting
 {
     /// <summary> Exception raised when attempting to load a new command/plugin 
     /// that has the same name as an already loaded command/plugin </summary>
-    public sealed class AlreadyLoadedException : Exception
+    public class AlreadyLoadedException : Exception
     {
         public AlreadyLoadedException(string msg) : base(msg) 
         { 

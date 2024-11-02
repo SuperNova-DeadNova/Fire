@@ -26,7 +26,7 @@ namespace Flames.NewScripting
 {
     /// <summary> Exception raised when attempting to load a new plugin 
     /// that has the same name as an already loaded new plugin </summary>
-    public sealed class AlreadyLoadedException : Exception
+    public class AlreadyLoadedException : Exception
     {
         public AlreadyLoadedException(string msg) : base(msg)
         {
@@ -121,7 +121,7 @@ namespace Flames.NewScripting
             return Assembly.Load(data, debug);
         }
 
-        static byte[] GetDebugData(string path)
+        public static byte[] GetDebugData(string path)
         {
             if (Server.RunningOnMono())
             {

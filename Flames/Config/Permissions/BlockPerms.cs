@@ -22,7 +22,7 @@ using System.IO;
 namespace Flames.Blocks
 {
     /// <summary> Represents which ranks are allowed (and which are disallowed) to use a block. </summary>
-    public sealed class BlockPerms : ItemPerms
+    public class BlockPerms : ItemPerms
     {
         public ushort ID;
         public override string ItemName { get { return ID.ToString(); } }

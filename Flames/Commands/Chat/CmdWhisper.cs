@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdWhisper : Command2
+    public class CmdWhisper : Command
     {
         public override string name { get { return "Whisper"; } }
         public override string type { get { return CommandTypes.Chat; } }
@@ -25,7 +25,7 @@ namespace Flames.Commands.Chatting
         public override bool UseableWhenFrozen { get { return true; } }
         public override bool MessageBlockRestricted { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

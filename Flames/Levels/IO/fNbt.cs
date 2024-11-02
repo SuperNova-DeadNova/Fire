@@ -33,7 +33,7 @@ using System.Text;
 namespace fNbt
 {
     /// <summary> A tag containing a single byte. </summary>
-    public sealed class NbtByte : NbtTag
+    public class NbtByte : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Byte; } }
         public byte Value;
@@ -45,7 +45,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing an array of bytes. </summary>
-    public sealed class NbtByteArray : NbtTag
+    public class NbtByteArray : NbtTag
     {
         public static byte[] empty = new byte[0];
         public override NbtTagType TagType { get { return NbtTagType.ByteArray; } }
@@ -63,13 +63,18 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a set of other named tags. Order is not guaranteed. </summary>
-    public sealed class NbtCompound : NbtTag, IEnumerable<NbtTag>
+    public class NbtCompound : NbtTag, IEnumerable<NbtTag>
     {
         public override NbtTagType TagType { get { return NbtTagType.Compound; } }
         public Dictionary<string, NbtTag> tags = new Dictionary<string, NbtTag>();
 
-        public NbtCompound() { }
-        public NbtCompound(string tagName) { Name = tagName; }
+        public NbtCompound() 
+        { 
+        }
+        public NbtCompound(string tagName) 
+        { 
+            Name = tagName; 
+        }
 
         public override NbtTag this[string tagName]
         {
@@ -81,7 +86,10 @@ namespace fNbt
             }
         }
 
-        public bool Contains(string tagName) { return tags.ContainsKey(tagName); }
+        public bool Contains(string tagName) 
+        { 
+            return tags.ContainsKey(tagName); 
+        }
 
         public override void ReadTag(NbtBinaryReader reader)
         {
@@ -107,7 +115,7 @@ namespace fNbt
         }
     }
 
-    public sealed class NbtDouble : NbtTag
+    public class NbtDouble : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Double; } }
         public double Value;
@@ -118,7 +126,7 @@ namespace fNbt
         }
     }
 
-    public sealed class NbtFloat : NbtTag
+    public class NbtFloat : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Float; } }
         public float Value;
@@ -130,7 +138,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a single signed 32-bit integer. </summary>
-    public sealed class NbtInt : NbtTag
+    public class NbtInt : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Int; } }
         public int Value;
@@ -142,7 +150,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing an array of signed 32-bit integers. </summary>
-    public sealed class NbtIntArray : NbtTag
+    public class NbtIntArray : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.IntArray; } }
         public int[] Value;
@@ -160,7 +168,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a list of unnamed tags, all of the same kind. </summary>
-    public sealed class NbtList : NbtTag
+    public class NbtList : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.List; } }
         public List<NbtTag> Tags = new List<NbtTag>();
@@ -183,7 +191,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a single signed 64-bit integer. </summary>
-    public sealed class NbtLong : NbtTag
+    public class NbtLong : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Long; } }
         public long Value;
@@ -195,7 +203,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a single signed 16-bit integer. </summary>
-    public sealed class NbtShort : NbtTag
+    public class NbtShort : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.Short; } }
         public short Value;
@@ -207,7 +215,7 @@ namespace fNbt
     }
 
     /// <summary> A tag containing a single string. String is stored in UTF-8 encoding. </summary>
-    public sealed class NbtString : NbtTag
+    public class NbtString : NbtTag
     {
         public override NbtTagType TagType { get { return NbtTagType.String; } }
         public string Value;
@@ -272,9 +280,12 @@ namespace fNbt
             {
                 switch (TagType)
                 {
-                    case NbtTagType.Byte: return ((NbtByte)this).Value;
-                    case NbtTagType.Short: return ((NbtShort)this).Value;
-                    case NbtTagType.Int: return ((NbtInt)this).Value;
+                    case NbtTagType.Byte: 
+                        return ((NbtByte)this).Value;
+                    case NbtTagType.Short: 
+                        return ((NbtShort)this).Value;
+                    case NbtTagType.Int: 
+                        return ((NbtInt)this).Value;
                     default:
                         throw new InvalidCastException("Cannot get IntValue from " + TagType);
                 }
@@ -303,17 +314,28 @@ namespace fNbt
         {
             switch (type)
             {
-                case NbtTagType.Byte: return new NbtByte();
-                case NbtTagType.Short: return new NbtShort();
-                case NbtTagType.Int: return new NbtInt();
-                case NbtTagType.Long: return new NbtLong();
-                case NbtTagType.Float: return new NbtFloat();
-                case NbtTagType.Double: return new NbtDouble();
-                case NbtTagType.ByteArray: return new NbtByteArray();
-                case NbtTagType.String: return new NbtString();
-                case NbtTagType.List: return new NbtList();
-                case NbtTagType.Compound: return new NbtCompound();
-                case NbtTagType.IntArray: return new NbtIntArray();
+                case NbtTagType.Byte: 
+                    return new NbtByte();
+                case NbtTagType.Short: 
+                    return new NbtShort();
+                case NbtTagType.Int: 
+                    return new NbtInt();
+                case NbtTagType.Long: 
+                    return new NbtLong();
+                case NbtTagType.Float: 
+                    return new NbtFloat();
+                case NbtTagType.Double: 
+                    return new NbtDouble();
+                case NbtTagType.ByteArray: 
+                    return new NbtByteArray();
+                case NbtTagType.String: 
+                    return new NbtString();
+                case NbtTagType.List: 
+                    return new NbtList();
+                case NbtTagType.Compound: 
+                    return new NbtCompound();
+                case NbtTagType.IntArray: 
+                    return new NbtIntArray();
             }
             return null;
         }
@@ -321,12 +343,12 @@ namespace fNbt
 
     /// <summary> BinaryReader wrapper that takes care of reading primitives from an NBT stream,
     /// while taking care of endianness, string encoding, and skipping. </summary>
-    public sealed class NbtBinaryReader : BinaryReader
+    public class NbtBinaryReader : BinaryReader
     {
-        public readonly byte[] buffer = new byte[sizeof(double)];
-        public readonly bool swapNeeded;
+        public byte[] buffer = new byte[sizeof(double)];
+        public bool swapNeeded;
         // avoid allocation for small strings (which is majority of them)
-        public readonly byte[] strBuffer = new byte[64];
+        public byte[] strBuffer = new byte[64];
 
         public NbtBinaryReader(Stream input, bool bigEndian) : base(input)
         {
@@ -450,10 +472,13 @@ namespace fNbt
     }
 
     /// <summary> Represents a complete NBT file. </summary>
-    public sealed class NbtFile
+    public class NbtFile
     {
         public NbtCompound RootTag;
-        public NbtFile() { RootTag = new NbtCompound(""); }
+        public NbtFile() 
+        { 
+            RootTag = new NbtCompound(""); 
+        }
 
         public void LoadFromStream(Stream stream)
         {
@@ -478,9 +503,11 @@ namespace fNbt
         }
     }
 
-    public sealed class NbtFormatException : Exception
+    public class NbtFormatException : Exception
     {
-        public NbtFormatException(string message) : base(message) { }
+        public NbtFormatException(string message) : base(message) 
+        { 
+        }
     }
 
     /// <summary> Enumeration of named binary tag types, and their corresponding codes. </summary>

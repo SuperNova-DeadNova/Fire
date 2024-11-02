@@ -19,7 +19,7 @@ using Flames.Util;
 
 namespace Flames
 {
-    public sealed class ChatToken
+    public class ChatToken
     {
         public string Trigger;
         public string Description;

@@ -19,7 +19,7 @@ using Flames.Scripting;
 
 namespace Flames.Commands.Scripting
 {
-    public sealed class CmdPlugin : Command2
+    public class CmdPlugin : Command2
     {
         public override string name { get { return "Plugin"; } }
         public override string type { get { return CommandTypes.Other; } }
@@ -34,10 +34,10 @@ namespace Flames.Commands.Scripting
         }
         public override bool MessageBlockRestricted { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(2);
-            if (IsListCommand(args[0]))
+            if (IsListAction(args[0]))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
 

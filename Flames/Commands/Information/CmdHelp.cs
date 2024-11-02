@@ -18,7 +18,7 @@ using Flames.Commands.CPE;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdHelp : Command2
+    public class CmdHelp : Command
     {
         public override string name { get { return "Help"; } }
         public override string type { get { return CommandTypes.Information; } }
@@ -32,7 +32,7 @@ namespace Flames.Commands.Info
             }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

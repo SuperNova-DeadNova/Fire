@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCuboid : DrawCmd
+    public class CmdCuboid : DrawCmd
     {
         public override string name { get { return "Cuboid"; } }
         public override string shortcut { get { return "z"; } }

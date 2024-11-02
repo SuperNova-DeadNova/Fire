@@ -18,11 +18,14 @@
 
 namespace Flames.Eco
 {
-    public sealed class TitleItem : SimpleItem
+    public class TitleItem : SimpleItem
     {
         public TitleItem()
         {
-            Aliases = new string[] { "titles", "title" };
+            Aliases = new string[] 
+            { 
+                "titles", "title" 
+            };
         }
 
         public override string Name { get { return "Title"; } }
@@ -48,11 +51,14 @@ namespace Flames.Eco
         }
     }
 
-    public sealed class NickItem : SimpleItem
+    public class NickItem : SimpleItem
     {
         public NickItem()
         {
-            Aliases = new string[] { "nickname", "nick", "name" };
+            Aliases = new string[] 
+            { 
+                "nickname", "nick", "name" 
+            };
         }
 
         public override string Name { get { return "Nickname"; } }
@@ -83,11 +89,14 @@ namespace Flames.Eco
         }
     }
 
-    public sealed class TitleColorItem : SimpleItem
+    public class TitleColorItem : SimpleItem
     {
         public TitleColorItem()
         {
-            Aliases = new string[] { "tcolor", "tcolour", "titlecolor", "titlecolour" };
+            Aliases = new string[] 
+            { 
+                "tcolor", "tcolour", "titlecolor", "titlecolour" 
+            };
         }
 
         public override string Name { get { return "TitleColor"; } }
@@ -116,11 +125,14 @@ namespace Flames.Eco
         }
     }
 
-    public sealed class ColorItem : SimpleItem
+    public class ColorItem : SimpleItem
     {
         public ColorItem()
         {
-            Aliases = new string[] { "color", "colour" };
+            Aliases = new string[] 
+            { 
+                "color", "colour" 
+            };
         }
 
         public override string Name { get { return "Color"; } }

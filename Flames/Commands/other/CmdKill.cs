@@ -19,7 +19,7 @@ using Flames.Commands.Chatting;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdKill : Command2
+    public class CmdKill : Command2
     {
         public override string name { get { return "Kill"; } }
         public override string type { get { return CommandTypes.Other; } }

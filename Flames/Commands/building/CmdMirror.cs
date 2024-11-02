@@ -19,7 +19,7 @@ using Flames.Drawing;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdMirror : Command2
+    public class CmdMirror : Command
     {
         public override string name { get { return "Mirror"; } }
         public override string type { get { return CommandTypes.Building; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Building
             get { return new[] { new CommandAlias("Flip") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

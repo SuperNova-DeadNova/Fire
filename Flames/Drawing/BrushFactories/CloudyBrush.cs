@@ -20,12 +20,13 @@ using Flames.Commands;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class CloudyBrushFactory : BrushFactory
+    public class CloudyBrushFactory : BrushFactory
     {
         public override string Name { get { return "Cloudy"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [block1/frequency] [block2] <args>..",
             "&HDraws by selecting blocks from the given [blocks] using perlin noise.",
             "&Hfrequency is optional (defaults to 1), and specifies the number of times " +

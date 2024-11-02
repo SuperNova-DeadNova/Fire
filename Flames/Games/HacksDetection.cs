@@ -46,7 +46,7 @@ namespace Flames.Games
         public static TimeSpan interval = TimeSpan.FromSeconds(5);
     }
 
-    public sealed class SpeedhackDetector : HacksDetector
+    public class SpeedhackDetector : HacksDetector
     {
 
         public SpeedhackDetector(Player p) : base(p) 
@@ -69,7 +69,7 @@ namespace Flames.Games
         }
     }
 
-    public sealed class NoclipDetector : HacksDetector
+    public class NoclipDetector : HacksDetector
     {
 
         public NoclipDetector(Player p) : base(p) 

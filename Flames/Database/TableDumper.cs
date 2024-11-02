@@ -19,7 +19,7 @@ using System.IO;
 
 namespace Flames.SQL
 {
-    public sealed class TableDumper
+    public class TableDumper
     {
         public bool gottenRows;
         public string table, insertCols;

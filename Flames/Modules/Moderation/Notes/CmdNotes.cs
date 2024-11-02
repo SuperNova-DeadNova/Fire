@@ -20,13 +20,13 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.Moderation.Notes
 {
-    public class CmdNotes : Command2
+    public class CmdNotes : Command
     {
         public override string name { get { return "Notes"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             string name = args[0];
@@ -109,14 +109,14 @@ namespace Flames.Modules.Moderation.Notes
         }
     }
 
-    public sealed class CmdMyNotes : CmdNotes
+    public class CmdMyNotes : CmdNotes
     {
         public override string name { get { return "MyNotes"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override bool SuperUseable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             PrintNotes(p, "MyNotes", p.name, message);
         }

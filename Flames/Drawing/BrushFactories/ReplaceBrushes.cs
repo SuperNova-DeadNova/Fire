@@ -20,12 +20,13 @@ using Flames.Commands;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class ReplaceBrushFactory : BrushFactory
+    public class ReplaceBrushFactory : BrushFactory
     {
         public override string Name { get { return "Replace"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [block1] [block2].. [new]",
             "&HDraws by replacing existing blocks that are in the given [blocks] with [new]",
             "&H  If only [block] is given, replaces with your held block.",
@@ -90,12 +91,13 @@ namespace Flames.Drawing.Brushes
         }
     }
 
-    public sealed class ReplaceNotBrushFactory : BrushFactory
+    public class ReplaceNotBrushFactory : BrushFactory
     {
         public override string Name { get { return "ReplaceNot"; } }
         public override string[] Help { get { return HelpString; } }
 
-        public static string[] HelpString = new string[] {
+        public static string[] HelpString = new string[] 
+        {
             "&TArguments: [block1] [block2].. [new]",
             "&HDraws by replacing existing blocks that not are in the given [blocks] with [new]",
             "&H  If only [block] is given, replaces with your held block.",

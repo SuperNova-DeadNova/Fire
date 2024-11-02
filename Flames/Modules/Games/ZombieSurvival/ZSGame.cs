@@ -49,7 +49,7 @@ namespace Flames.Modules.Games.ZS
         }
     }
 
-    public sealed class ZSData
+    public class ZSData
     {
         public int BlocksLeft = 50, BlocksStacked;
         public int LastX, LastY, LastZ;
@@ -87,7 +87,7 @@ namespace Flames.Modules.Games.ZS
         public static ZSGame Instance = new ZSGame();
         public ZSGame() 
         { 
-            Picker = new LevelPicker(); 
+            Picker = new SimpleLevelPicker(); 
         }
 
         public override string WelcomeMessage
@@ -131,7 +131,9 @@ namespace Flames.Modules.Games.ZS
         }
 
         // TODO: Move ZS map config to per-game properties
-        public override void UpdateMapConfig() { }
+        public override void UpdateMapConfig() 
+        { 
+        }
 
         public override List<Player> GetPlayers()
         {

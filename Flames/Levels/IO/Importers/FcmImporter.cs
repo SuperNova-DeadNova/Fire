@@ -23,7 +23,7 @@ using Flames.Maths;
 
 namespace Flames.Levels.IO
 {
-    public sealed class FcmImporter : IMapImporter
+    public class FcmImporter : IMapImporter
     {
 
         public override string Extension { get { return ".fcm"; } }
@@ -99,7 +99,10 @@ namespace Flames.Levels.IO
             return Encoding.ASCII.GetString(data);
         }
 
-        public static char[] comma = new char[] { ',' };
+        public static char[] comma = new char[] 
+        { 
+            ',' 
+        };
         public static void ParseZone(Level lvl, string raw)
         {
             string[] parts = raw.Split(comma);

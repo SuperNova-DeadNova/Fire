@@ -19,7 +19,7 @@ using Flames.Util;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdOpRules : Command2
+    public class CmdOpRules : Command2
     {
         public override string name { get { return "OpRules"; } }
         public override string type { get { return CommandTypes.Information; } }

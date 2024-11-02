@@ -20,7 +20,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdTempBan : Command2
+    public class CmdTempBan : Command2
     {
         public override string name { get { return "TempBan"; } }
         public override string shortcut { get { return "tb"; } }

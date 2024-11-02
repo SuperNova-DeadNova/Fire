@@ -16,7 +16,7 @@ using System.Collections.Generic;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdCommands : Command2
+    public class CmdCommands : Command
     {
         public override string name { get { return "Commands"; } }
         public override string shortcut { get { return "Cmds"; } }
@@ -27,7 +27,7 @@ namespace Flames.Commands.Info
             get { return new[] { new CommandAlias("CmdList") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!ListCommands(p, message)) Help(p);
         }

@@ -19,7 +19,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdPlace : Command2
+    public class CmdPlace : Command
     {
         public override string name { get { return "Place"; } }
         public override string shortcut { get { return "pl"; } }
@@ -28,7 +28,7 @@ namespace Flames.Commands.Building
         public override bool SuperUseable { get { return false; } }
         public override CommandParallelism Parallelism { get { return CommandParallelism.NoAndSilent; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             ushort block = p.GetHeldBlock();
             Vec3S32 P = p.Pos.BlockCoords;

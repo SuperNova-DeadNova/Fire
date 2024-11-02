@@ -46,7 +46,7 @@ namespace Flames
         public const uint SIG_ZIP64_LOC = 0x07064b50;
     }
 
-    public sealed class ZipWriterStream : Stream
+    public class ZipWriterStream : Stream
     {
         public uint Crc32 = uint.MaxValue;
         public long CompressedLen;
@@ -143,7 +143,7 @@ namespace Flames
     }
 
     /// <summary> Writes entries into a ZIP archive. </summary>
-    public sealed class ZipWriter
+    public class ZipWriter
     {
         public BinaryWriter writer;
         public Stream stream;

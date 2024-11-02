@@ -6,7 +6,7 @@
 
 namespace Flames.Generator.Classic
 {
-    public sealed class ImprovedNoise
+    public class ImprovedNoise
     {
         public ImprovedNoise(JavaRandom rnd)
         {
@@ -60,7 +60,7 @@ namespace Flames.Generator.Classic
         public byte[] p = new byte[512];
     }
 
-    public sealed class OctaveNoise
+    public class OctaveNoise
     {
         public ImprovedNoise[] baseNoise;
         public OctaveNoise(int octaves, JavaRandom rnd)
@@ -84,7 +84,7 @@ namespace Flames.Generator.Classic
         }
     }
 
-    public sealed class CombinedNoise
+    public class CombinedNoise
     {
         public OctaveNoise noise1, noise2;
         public CombinedNoise(OctaveNoise noise1, OctaveNoise noise2)

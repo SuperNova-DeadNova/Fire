@@ -20,7 +20,7 @@ using Flames.Generator;
 
 namespace Flames.Commands.Building 
 {
-    public sealed class CmdMaze : DrawCmd 
+    public class CmdMaze : DrawCmd 
     {
         public override string name { get { return "Maze"; } }
 

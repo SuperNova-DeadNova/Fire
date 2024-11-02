@@ -19,7 +19,7 @@ using Flames.Commands.Chatting;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdJoker : Command2
+    public class CmdJoker : Command2
     {
         public override string name { get { return "Joker"; } }
         public override string type { get { return CommandTypes.Moderation; } }

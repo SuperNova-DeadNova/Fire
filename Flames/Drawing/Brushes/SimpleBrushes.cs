@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class SolidBrush : Brush
+    public class SolidBrush : Brush
     {
         public ushort block;
 
@@ -37,7 +37,7 @@ namespace Flames.Drawing.Brushes
     }
 
     // CheckeredPaletteBrush of { b1, b1, b2, b2 }
-    public sealed class StripedBrush : Brush
+    public class StripedBrush : Brush
     {
         public ushort b1, b2;
 
@@ -56,7 +56,7 @@ namespace Flames.Drawing.Brushes
     }
 
     // CheckeredPaletteBrush of { b1, b2 }
-    public sealed class CheckeredBrush : Brush
+    public class CheckeredBrush : Brush
     {
         public ushort b1, b2;
 

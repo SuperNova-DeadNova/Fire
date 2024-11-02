@@ -22,7 +22,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdInfoSwap : Command2
+    public class CmdInfoSwap : Command2
     {
         public override string name { get { return "InfoSwap"; } }
         public override string type { get { return CommandTypes.Moderation; } }

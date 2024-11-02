@@ -19,7 +19,7 @@ using Flames.Drawing.Brushes;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdBrush : Command2
+    public class CmdBrush : Command
     {
         public override string name { get { return "Brush"; } }
         public override string shortcut { get { return "br"; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.Building
             get { return new CommandAlias[] { new CommandAlias("Brushes", "list") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {
@@ -41,7 +41,7 @@ namespace Flames.Commands.Building
             string[] args = message.SplitSpaces(2);
             BrushFactory brush = BrushFactory.Find(args[0]);
 
-            if (IsListCommand(args[0]))
+            if (IsListAction(args[0]))
             {
                 BrushFactory.List(p);
             }

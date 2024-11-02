@@ -20,7 +20,7 @@ using Flames.Events.EconomyEvents;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdGive : MoneyCmd
+    public class CmdGive : MoneyCmd
     {
         public override string name { get { return "Give"; } }
         public override string shortcut { get { return "Gib"; } }

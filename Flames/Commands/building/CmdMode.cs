@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdMode : Command2
+    public class CmdMode : Command
     {
         public override string name { get { return "Mode"; } }
         public override string type { get { return CommandTypes.Building; } }
@@ -28,7 +28,7 @@ namespace Flames.Commands.Building
             get { return new CommandAlias[] { new CommandAlias("TNT", "tnt") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             // Special handling for the old TNT command
             if (message.CaselessStarts("tnt "))

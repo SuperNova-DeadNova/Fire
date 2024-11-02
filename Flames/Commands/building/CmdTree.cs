@@ -20,7 +20,7 @@ using Flames.Generator.Foliage;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdTree : DrawCmd
+    public class CmdTree : DrawCmd
     {
         public override string name { get { return "Tree"; } }
         public override string type { get { return CommandTypes.Building; } }

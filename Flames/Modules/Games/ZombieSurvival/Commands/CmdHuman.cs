@@ -20,13 +20,13 @@ using Flames.Eco;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdHuman : Command2
+    public class CmdHuman : Command
     {
         public override string name { get { return "Human"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data_)
+        public override void Use(Player p, string message)
         {
             ZSData data = ZSGame.Get(p);
             if (data.PledgeSurvive)

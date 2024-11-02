@@ -78,7 +78,8 @@ namespace Flames.DB
         }
 
 
-        public static List<TopStat> stats = new List<TopStat>() {
+        public static List<TopStat> stats = new List<TopStat>() 
+        {
             new DBTopStat("Logins", "Most logins", "Players",
                         PlayerData.ColumnLogins, FormatInteger),
             new DBTopStat("Deaths", "Most deaths", "Players",

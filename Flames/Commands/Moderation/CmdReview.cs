@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdReview : Command2
+    public class CmdReview : Command2
     {
         public override string name { get { return "Review"; } }
         public override string shortcut { get { return "rvw"; } }
@@ -46,7 +46,7 @@ namespace Flames.Commands.Moderation
             {
                 HandleEnter(p, data);
             }
-            else if (IsListCommand(message))
+            else if (IsListAction(message))
             {
                 HandleView(p, data);
             }

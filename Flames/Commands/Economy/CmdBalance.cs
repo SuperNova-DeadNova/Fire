@@ -20,13 +20,13 @@ using Flames.Eco;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdBalance : Command2
+    public class CmdBalance : Command
     {
         public override string name { get { return "Balance"; } }
         public override string shortcut { get { return "Money"; } }
         public override string type { get { return CommandTypes.Economy; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (CheckSuper(p, message, "player name")) return;
             if (message.Length == 0) message = p.name;

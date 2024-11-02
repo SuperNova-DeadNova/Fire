@@ -18,14 +18,14 @@
 
 namespace Flames.Modules.Awards
 {
-    public sealed class CmdAwardMod : Command2
+    public class CmdAwardMod : Command
     {
         public override string name { get { return "AwardMod"; } }
         public override string type { get { return CommandTypes.Economy; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
         public static char[] awardArgs = new char[] { ':' };
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(2);
             if (args.Length < 2) 
@@ -34,7 +34,7 @@ namespace Flames.Modules.Awards
                 return; 
             }
 
-            if (IsCreateCommand(args[0]))
+            if (IsCreateAction(args[0]))
             {
                 args = args[1].Split(awardArgs, 2);
                 if (args.Length == 1)
@@ -58,7 +58,7 @@ namespace Flames.Modules.Awards
                     AwardsList.Save();
                 }
             }
-            else if (IsDeleteCommand(args[0]))
+            else if (IsDeleteAction(args[0]))
             {
                 if (!AwardsList.Remove(args[1]))
                 {

@@ -19,7 +19,7 @@ using Flames.Drawing;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdSpin : Command2
+    public class CmdSpin : Command
     {
         public override string name { get { return "Spin"; } }
         public override string type { get { return CommandTypes.Building; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.Building
             get { return new[] { new CommandAlias("Rotate") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) message = "y";
             if (p.CurrentCopy == null)

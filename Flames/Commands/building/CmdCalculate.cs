@@ -19,13 +19,13 @@ using System;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCalculate : Command2
+    public class CmdCalculate : Command
     {
         public override string name { get { return "Calculate"; } }
         public override string shortcut { get { return "Calc"; } }
         public override string type { get { return CommandTypes.Building; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             if (args.Length < 2)

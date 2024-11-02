@@ -17,7 +17,7 @@
  */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdCmdSet : ItemPermsCmd
+    public class CmdCmdSet : ItemPermsCmd
     {
         public override string name { get { return "CmdSet"; } }
         public override string shortcut { get { return "SetCmd"; } }

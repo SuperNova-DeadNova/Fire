@@ -19,7 +19,7 @@ using System.Threading;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdTpA : Command2
+    public class CmdTpA : Command
     {
         public override string name { get { return "TPA"; } }
         public override string type { get { return CommandTypes.Other; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Misc
             get { return new[] { new CommandAlias("TPAccept", "accept"), new CommandAlias("TPDeny", "deny") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

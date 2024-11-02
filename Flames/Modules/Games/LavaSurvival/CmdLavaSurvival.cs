@@ -24,7 +24,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class CmdLavaSurvival : RoundsGameCmd
+    public class CmdLavaSurvival : RoundsGameCmd
     {
         public override string name { get { return "LavaSurvival"; } }
         public override string shortcut { get { return "LS"; } }

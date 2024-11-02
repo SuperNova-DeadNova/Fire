@@ -18,13 +18,13 @@
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdShowQueue : Command2
+    public class CmdShowQueue : Command
     {
         public override string name { get { return "ShowQueue"; } }
         public override string shortcut { get { return "sq"; } }
         public override string type { get { return CommandTypes.Games; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             ShowQueued(p, ZSGame.Instance.Picker.QueuedMap, "level");
             ShowQueued(p, ZSGame.Instance.QueuedZombie, "zombie");

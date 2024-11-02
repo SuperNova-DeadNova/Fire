@@ -20,11 +20,14 @@ using Flames.Commands;
 
 namespace Flames.Eco
 {
-    public sealed class RankItem : Item
+    public class RankItem : Item
     {
         public RankItem()
         {
-            Aliases = new string[] { "rank", "ranks", "rankup" };
+            Aliases = new string[] 
+            { 
+                "rank", "ranks", "rankup" 
+            };
         }
 
         public override string Name { get { return "Rank"; } }
@@ -134,7 +137,7 @@ namespace Flames.Eco
                 p.Message("&aSet price of rank {0} &ato &f{1} &3{2}", grp.ColoredName, cost, Server.Config.Currency);
                 GetOrAdd(grp.Permission).Price = cost;
             }
-            else if (Command.IsDeleteCommand(args[1]))
+            else if (Command.IsDeleteAction(args[1]))
             {
                 Group grp = Matcher.FindRanks(p, args[2]);
                 if (grp == null) return;

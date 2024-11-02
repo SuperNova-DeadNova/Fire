@@ -23,7 +23,7 @@ using Flames.Tasks;
 namespace Flames
 {
     /// <summary> Manages a list of block updates to periodically broadcast to players. </summary>
-    public sealed class BlockQueue : List<ulong>
+    public class BlockQueue : List<ulong>
     {
 
         /// <summary> Time in milliseconds between ticks. </summary>

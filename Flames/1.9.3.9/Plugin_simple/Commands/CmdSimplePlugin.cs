@@ -20,7 +20,7 @@ using Flames.Scripting;
 
 namespace Flames.Commands.Scripting
 {
-    public sealed class CmdPlugin_simple : Command2
+    public class CmdPlugin_simple : Command2
     {
         public override string name { get { return "SimplePlugin"; } }
         public override string shortcut { get { return "p_s"; } }
@@ -52,7 +52,7 @@ namespace Flames.Commands.Scripting
         public override void Use(Player p, string message, CommandData data)
         {
             string[] args = message.SplitSpaces(3);
-            if (IsListCommand(args[0]))
+            if (IsListAction(args[0]))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
 

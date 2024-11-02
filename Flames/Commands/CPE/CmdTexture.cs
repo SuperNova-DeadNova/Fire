@@ -19,7 +19,7 @@ using Flames.Network;
 
 namespace Flames.Commands.CPE
 {
-    public sealed class CmdTexture : Command2
+    public class CmdTexture : Command2
     {
         public override string name { get { return "Texture"; } }
         public override string type { get { return CommandTypes.Other; } }

@@ -22,7 +22,7 @@ using System.IO;
 namespace Flames.Commands
 {
     /// <summary> Represents which ranks are allowed (and which are disallowed) to use a command. </summary>
-    public sealed class CommandPerms : ItemPerms
+    public class CommandPerms : ItemPerms
     {
         public string CmdName;
         public override string ItemName { get { return CmdName; } }

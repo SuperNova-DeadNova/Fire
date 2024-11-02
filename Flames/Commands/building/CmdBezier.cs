@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdBezier : DrawCmd
+    public class CmdBezier : DrawCmd
     {
         public override string name { get { return "Bezier"; } }
         public override CommandAlias[] Aliases

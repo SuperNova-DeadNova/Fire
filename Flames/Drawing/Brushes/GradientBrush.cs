@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class GradientBrush : Brush
+    public class GradientBrush : Brush
     {
         public ushort[] blocks;
         public CustomModelAnimAxis axis, _axis;

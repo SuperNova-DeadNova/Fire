@@ -20,7 +20,7 @@ using System.Threading;
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdMuseum : Command2
+    public class CmdMuseum : Command
     {
         public override string name { get { return "Museum"; } }
         public override string type { get { return CommandTypes.World; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.World
         public const string currentFlag = "*current";
         public const string latestFlag = "*latest";
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

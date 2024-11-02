@@ -22,7 +22,7 @@ using Flames.Generator.Foliage;
 namespace Flames
 {
 
-    public sealed class LevelOption
+    public class LevelOption
     {
         public string Name, Help;
         public LevelOptions.OptionSetter SetFunc;
@@ -45,7 +45,8 @@ namespace Flames
         public const string Chat = "Chat", Guns = "Guns", Buildable = "Buildable", Deletable = "Deletable";
         public const string LoadDelay = "LoadDelay", Drawing = "Drawing", Authors = "Authors";
 
-        public static List<LevelOption> Options = new List<LevelOption>() {
+        public static List<LevelOption> Options = new List<LevelOption>() 
+        {
              new LevelOption(MOTD,       SetMotd,  "&HSets the motd for this map. (leave blank to use default motd)"),
              new LevelOption(RealmOwner, SetOwner, "&HSets the players allowed to use /realm on this map."),
              new LevelOption(TreeType,   SetTree,  "&HSets the type of trees saplings grow into."),

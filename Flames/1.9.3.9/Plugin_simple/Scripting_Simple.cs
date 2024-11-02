@@ -40,7 +40,7 @@ namespace Flames.Scripting
         /// <summary> Constructs instances of all types which derive from T in the given assembly. </summary>
         /// <returns> The list of constructed instances. </returns>
 
-        public sealed class AlreadyLoadedException : Exception
+        public class AlreadyLoadedException : Exception
         {
             public AlreadyLoadedException(string msg) : base(msg) 
             { 

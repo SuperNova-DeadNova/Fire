@@ -22,7 +22,7 @@ using Flames.Drawing.Brushes;
 
 namespace Flames.Drawing.Ops
 {
-    public sealed class FixGrassDrawOp : CuboidDrawOp
+    public class FixGrassDrawOp : CuboidDrawOp
     {
         public bool LightMode;
         public bool FixGrass, FixDirt;

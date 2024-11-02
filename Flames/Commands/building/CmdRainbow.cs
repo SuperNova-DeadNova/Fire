@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdRainbow : DrawCmd
+    public class CmdRainbow : DrawCmd
     {
         public override string name { get { return "Rainbow"; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }

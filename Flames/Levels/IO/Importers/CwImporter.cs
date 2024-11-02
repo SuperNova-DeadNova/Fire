@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Levels.IO
 {
-    public sealed class CwImporter : IMapImporter
+    public class CwImporter : IMapImporter
     {
 
         public override string Extension { get { return ".cw"; } }

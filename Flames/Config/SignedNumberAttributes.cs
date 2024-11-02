@@ -67,7 +67,7 @@ namespace Flames.Config
         }
     }
 
-    public sealed class ConfigIntAttribute : ConfigSignedIntegerAttribute
+    public class ConfigIntAttribute : ConfigSignedIntegerAttribute
     {
         public int defValue, minValue, maxValue;
 

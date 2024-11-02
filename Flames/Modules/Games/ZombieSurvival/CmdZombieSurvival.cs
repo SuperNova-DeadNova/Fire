@@ -23,7 +23,7 @@ using Flames.Games;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdZombieSurvival : RoundsGameCmd
+    public class CmdZombieSurvival : RoundsGameCmd
     {
         public override string name { get { return "ZombieSurvival"; } }
         public override string shortcut { get { return "ZS"; } }

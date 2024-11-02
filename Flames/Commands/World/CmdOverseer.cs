@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed partial class CmdOverseer : Command2
+    public partial class CmdOverseer : Command
     {
         public override string name { get { return "Overseer"; } }
         public override string shortcut { get { return Overseer.commandShortcut; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.World
         }
         public override CommandParallelism Parallelism { get { return CommandParallelism.NoAndWarn; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

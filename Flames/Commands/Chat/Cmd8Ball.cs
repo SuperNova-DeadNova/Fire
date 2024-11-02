@@ -22,7 +22,7 @@ using Flames.Util;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class Cmd8Ball : Command2
+    public class Cmd8Ball : Command
     {
         public override string name { get { return "8ball"; } }
         public override string shortcut { get { return ""; } }
@@ -33,7 +33,7 @@ namespace Flames.Commands.Chatting
         public static DateTime nextUse;
         public static TimeSpan delay = TimeSpan.FromSeconds(2);
 
-        public override void Use(Player p, string question, CommandData data)
+        public override void Use(Player p, string question)
         {
             if (!MessageCmd.CanSpeak(p, name)) return;
             if (question.Length == 0) 

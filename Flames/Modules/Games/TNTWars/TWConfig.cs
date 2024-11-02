@@ -28,7 +28,7 @@ using Flames.Maths;
 
 namespace Flames.Modules.Games.TW
 {
-    public sealed class TWConfig : RoundsGameConfig
+    public class TWConfig : RoundsGameConfig
     {
         public override bool AllowAutoload { get { return false; } }
         public override string GameName { get { return "TNT Wars"; } }
@@ -39,7 +39,7 @@ namespace Flames.Modules.Games.TW
         public TWDifficulty Difficulty = TWDifficulty.Normal;
     }
 
-    public sealed class TWMapConfig : RoundsGameMapConfig
+    public class TWMapConfig : RoundsGameMapConfig
     {
         [ConfigBool("grace-period", null, true)]
         public bool GracePeriod = true;

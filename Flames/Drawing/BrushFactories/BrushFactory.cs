@@ -34,7 +34,8 @@ namespace Flames.Drawing.Brushes
             return Construct(args) != null; 
         }
 
-        public static List<BrushFactory> Brushes = new List<BrushFactory>() {
+        public static List<BrushFactory> Brushes = new List<BrushFactory>() 
+        {
             new SolidBrushFactory(),    new CheckeredBrushFactory(),
             new StripedBrushFactory(),  new PasteBrushFactory(),
             new ReplaceBrushFactory(),  new ReplaceNotBrushFactory(),

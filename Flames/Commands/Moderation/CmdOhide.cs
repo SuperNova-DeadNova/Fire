@@ -19,7 +19,7 @@
 */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdOHide : Command2
+    public class CmdOHide : Command2
     {
         public override string name { get { return "OHide"; } }
         public override string type { get { return CommandTypes.Moderation; } }

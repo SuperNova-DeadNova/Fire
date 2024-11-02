@@ -18,13 +18,13 @@
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdVIP : Command2
+    public class CmdVIP : Command
     {
         public override string name { get { return "VIP"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {
@@ -34,7 +34,7 @@ namespace Flames.Commands.Moderation
             string[] args = message.SplitSpaces();
             string cmd = args[0];
 
-            if (IsCreateCommand(cmd))
+            if (IsCreateAction(cmd))
             {
                 if (args.Length < 2)
                 {
@@ -43,7 +43,7 @@ namespace Flames.Commands.Moderation
                 }
                 Add(p, args[1]);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 if (args.Length < 2)
                 {
@@ -52,7 +52,7 @@ namespace Flames.Commands.Moderation
                 }
                 Remove(p, args[1]);
             }
-            else if (IsListCommand(cmd))
+            else if (IsListAction(cmd))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
                 List(p, modifier);

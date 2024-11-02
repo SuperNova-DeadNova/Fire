@@ -20,7 +20,7 @@ using Flames.Events.ServerEvents;
 
 namespace Flames.Modules.Relay.IRC
 {
-    public sealed class IRCPlugin : Plugin
+    public class IRCPlugin : Plugin
     {
         public override string name { get { return "IRCRelay"; } }
 
@@ -53,7 +53,7 @@ namespace Flames.Modules.Relay.IRC
         }
     }
 
-    public sealed class CmdIRCBot : RelayBotCmd
+    public class CmdIRCBot : RelayBotCmd
     {
         public override string name { get { return "IRCBot"; } }
         public override CommandAlias[] Aliases
@@ -63,7 +63,7 @@ namespace Flames.Modules.Relay.IRC
         public override RelayBot Bot { get { return IRCPlugin.Bot; } }
     }
 
-    public sealed class CmdIrcControllers : BotControllersCmd
+    public class CmdIrcControllers : BotControllersCmd
     {
         public override string name { get { return "IRCControllers"; } }
         public override string shortcut { get { return "IRCCtrl"; } }

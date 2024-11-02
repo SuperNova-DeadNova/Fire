@@ -21,7 +21,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdInbox : Command2
+    public class CmdInbox : Command
     {
         public override string name { get { return "Inbox"; } }
         public override string type { get { return CommandTypes.Chat; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.Chatting
 
         public const int i_text = 0, i_sent = 1, i_from = 2;
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!Database.TableExists("Inbox" + p.name))
             {
@@ -55,7 +55,7 @@ namespace Flames.Commands.Chatting
                     Output(p, i + 1, entries[i]);
                 }
             }
-            else if (IsDeleteCommand(args[0]))
+            else if (IsDeleteAction(args[0]))
             {
                 if (args.Length == 1)
                 {

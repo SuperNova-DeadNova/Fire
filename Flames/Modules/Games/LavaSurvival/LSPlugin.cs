@@ -19,7 +19,7 @@ using Flames.Events.ServerEvents;
 
 namespace Flames.Modules.Games.LS
 {
-    public sealed class LSPlugin : Plugin
+    public class LSPlugin : Plugin
     {
         public override string name { get { return "LS"; } }
         public static Command cmdLS = new CmdLavaSurvival();

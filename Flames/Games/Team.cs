@@ -21,7 +21,7 @@ using System.IO;
 namespace Flames.Games
 {
 
-    public sealed class Team
+    public class Team
     {
 
         public string Color, Name, Owner;

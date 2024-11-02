@@ -24,7 +24,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdZone : Command2
+    public class CmdZone : Command2
     {
         public override string name { get { return "Zone"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -50,7 +50,7 @@ namespace Flames.Commands.Moderation
             }
             string opt = args[0];
 
-            if (IsCreateCommand(opt))
+            if (IsCreateAction(opt))
             {
                 if (args.Length == 1)
                 {
@@ -59,7 +59,7 @@ namespace Flames.Commands.Moderation
                 }
                 CreateZone(p, args, data, 1);
             }
-            else if (IsDeleteCommand(opt))
+            else if (IsDeleteAction(opt))
             {
                 if (args.Length == 1)
                 {
@@ -244,7 +244,7 @@ namespace Flames.Commands.Moderation
         }
     }
 
-    public sealed class CmdZoneTest : Command2
+    public class CmdZoneTest : Command2
     {
         public override string name { get { return "ZoneTest"; } }
         public override string shortcut { get { return "ZTest"; } }
@@ -286,7 +286,7 @@ namespace Flames.Commands.Moderation
         }
     }
 
-    public sealed class CmdZoneList : Command2
+    public class CmdZoneList : Command
     {
         public override string name { get { return "ZoneList"; } }
         public override string shortcut { get { return "Zones"; } }
@@ -294,7 +294,7 @@ namespace Flames.Commands.Moderation
         public override bool SuperUseable { get { return false; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Zone[] zones = p.level.Zones.Items;
             Paginator.Output(p, zones, PrintZone,
@@ -315,7 +315,7 @@ namespace Flames.Commands.Moderation
         }
     }
 
-    public sealed class CmdZoneMark : Command2
+    public class CmdZoneMark : Command
     {
         public override string name { get { return "ZoneMark"; } }
         public override string shortcut { get { return "ZMark"; } }
@@ -326,7 +326,7 @@ namespace Flames.Commands.Moderation
             get { return new[] { new CommandAlias("zm") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             Zone z;
 

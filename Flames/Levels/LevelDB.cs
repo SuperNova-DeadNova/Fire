@@ -144,7 +144,8 @@ namespace Flames
             Logger.Log(LogType.BackgroundActivity, "Autodeleted {0} non-existent message blocks in {1}", deleted, level.name);
         }
 
-        public static ColumnDesc[] createPortals = new ColumnDesc[] {
+        public static ColumnDesc[] createPortals = new ColumnDesc[] 
+        {
             new ColumnDesc("EntryX", ColumnType.UInt16),
             new ColumnDesc("EntryY", ColumnType.UInt16),
             new ColumnDesc("EntryZ", ColumnType.UInt16),
@@ -154,7 +155,8 @@ namespace Flames
             new ColumnDesc("ExitZ", ColumnType.UInt16),
         };
 
-        public static ColumnDesc[] createMessages = new ColumnDesc[] {
+        public static ColumnDesc[] createMessages = new ColumnDesc[] 
+        {
             new ColumnDesc("X", ColumnType.UInt16),
             new ColumnDesc("Y", ColumnType.UInt16),
             new ColumnDesc("Z", ColumnType.UInt16),

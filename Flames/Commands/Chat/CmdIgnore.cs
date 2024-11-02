@@ -20,7 +20,7 @@
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdIgnore : Command2
+    public class CmdIgnore : Command
     {
         public override string name { get { return "Ignore"; } }
         public override string type { get { return CommandTypes.Chat; } }
@@ -31,7 +31,7 @@ namespace Flames.Commands.Chatting
             get { return new[] { new CommandAlias("Deafen", "all") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {
@@ -84,7 +84,7 @@ namespace Flames.Commands.Chatting
                 Toggle(p, ref p.Ignores.WorldChanges, "{0} ignoring world changes");
                 return;
             }
-            else if (IsListCommand(action))
+            else if (IsListAction(action))
             {
                 p.Ignores.Output(p);
                 return;

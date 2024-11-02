@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Drawing.Transforms
 {
-    public sealed class NoTransform : Transform
+    public class NoTransform : Transform
     {
         public override string Name { get { return "None"; } }
         public static NoTransform Instance = new NoTransform();
@@ -33,7 +33,7 @@ namespace Flames.Drawing.Transforms
         }
     }
 
-    public sealed class ScaleTransform : Transform
+    public class ScaleTransform : Transform
     {
         public override string Name { get { return "Scale"; } }
         public bool CentreOrigin;

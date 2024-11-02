@@ -17,14 +17,14 @@
 */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdBanEdit : Command2
+    public class CmdBanEdit : Command
     {
         public override string name { get { return "BanEdit"; } }
         public override string shortcut { get { return "be"; } }
         public override string type { get { return CommandTypes.Moderation; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces(2);
             if (args.Length < 2) 

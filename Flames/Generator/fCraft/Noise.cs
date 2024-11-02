@@ -15,7 +15,7 @@ namespace Flames.Generator.fCraft
 
 
     /// <summary> Class for generating and filtering 2D and 3D noise, extensively used by MapGenerator and Cloudy brush. </summary>
-    public sealed class Noise
+    public class Noise
     {
         public int Seed;
         public NoiseInterpolationMode InterpolationMode;
@@ -63,7 +63,7 @@ namespace Flames.Generator.fCraft
         }
 
 
-        public readonly float[,] points = new float[4, 4];
+        public float[,] points = new float[4, 4];
         public float InterpolatedNoise(float x, float y)
         {
             int xInt = (int)Math.Floor(x);

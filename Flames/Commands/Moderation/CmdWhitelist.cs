@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdWhitelist : Command2
+    public class CmdWhitelist : Command
     {
         public override string name { get { return "Whitelist"; } }
         public override string shortcut { get { return "w"; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Moderation
             get { return new[] { new CommandPerm(LevelPermission.Admin, "can enable/disable whitelisted only mode") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             string cmd = args[0];
@@ -65,7 +65,7 @@ namespace Flames.Commands.Moderation
                 }
                 Add(p, args[1]);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 if (args.Length < 2) 
                 { 
@@ -74,7 +74,7 @@ namespace Flames.Commands.Moderation
                 }
                 Remove(p, args[1]);
             }
-            else if (IsListCommand(cmd))
+            else if (IsListAction(cmd))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
                 List(p, modifier);

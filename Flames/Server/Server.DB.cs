@@ -22,7 +22,7 @@ using Flames.SQL;
 
 namespace Flames
 {
-    public sealed partial class Server
+    public partial class Server
     {
         public static ColumnDesc[] playersTable = new ColumnDesc[] 
         {

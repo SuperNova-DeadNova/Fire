@@ -17,7 +17,7 @@
 */
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdXban : Command2
+    public class CmdXban : Command2
     {
         public override string name { get { return "XBan"; } }
         public override string shortcut { get { return "BanX"; } }

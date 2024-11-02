@@ -17,13 +17,13 @@
 */
 namespace Flames.Commands.World
 {
-    public sealed class CmdUnload : Command2
+    public class CmdUnload : Command
     {
         public override string name { get { return "Unload"; } }
         public override string type { get { return CommandTypes.World; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (CheckSuper(p, message, "level name")) return;
 

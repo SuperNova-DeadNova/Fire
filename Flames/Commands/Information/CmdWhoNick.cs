@@ -18,14 +18,14 @@
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdWhoNick : Command2
+    public class CmdWhoNick : Command
     {
         public override string name { get { return "WhoNick"; } }
         public override string shortcut { get { return "RealName"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

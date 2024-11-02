@@ -129,7 +129,8 @@ namespace Flames.Eco
         }
 
 
-        public static List<Item> Items = new List<Item>() {
+        public static List<Item> Items = new List<Item>() 
+        {
             new ColorItem(), new TitleColorItem(), new TitleItem(),
             new RankItem(), new LevelItem(), new LoginMessageItem(),
             new LogoutMessageItem(), new NickItem(), new SnackItem()

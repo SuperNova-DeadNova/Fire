@@ -70,7 +70,7 @@ namespace Flames.Generator
 
     /// <summary> Map generators initialise the blocks in a level. </summary>
     /// <remarks> e.g. flatgrass generator, mountains theme generator, etc </remarks>
-    public sealed class MapGen
+    public class MapGen
     {
         public string Theme, Desc;
         public GenType Type;

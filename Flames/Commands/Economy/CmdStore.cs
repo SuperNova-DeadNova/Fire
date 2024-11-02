@@ -19,7 +19,7 @@ using Flames.Eco;
 
 namespace Flames.Commands.Eco
 {
-    public sealed class CmdStore : Command2
+    public class CmdStore : Command
     {
         public override string name { get { return "Store"; } }
         public override string shortcut { get { return "Shop"; } }
@@ -29,7 +29,7 @@ namespace Flames.Commands.Eco
             get { return new[] { new CommandAlias("Item") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (!Economy.CheckIsEnabled(p, this)) return;
 

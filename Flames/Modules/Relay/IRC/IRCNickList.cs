@@ -20,7 +20,7 @@ using System.Collections.Generic;
 namespace Flames.Modules.Relay.IRC
 {
     /// <summary> Manages a list of IRC nicks and asssociated permissions </summary>
-    public sealed class IRCNickList
+    public class IRCNickList
     {
         public Dictionary<string, List<string>> userMap = new Dictionary<string, List<string>>();
         public IRCBot bot;

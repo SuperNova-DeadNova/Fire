@@ -72,7 +72,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to gradually move to to a position. </summary>
-    public sealed class WalkInstruction : TeleportInstruction
+    public class WalkInstruction : TeleportInstruction
     {
         public WalkInstruction()
         {
@@ -106,7 +106,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to begin jumping. </summary>
-    public sealed class JumpInstruction : BotInstruction
+    public class JumpInstruction : BotInstruction
     {
         public JumpInstruction()
         {
@@ -130,7 +130,7 @@ namespace Flames.Bots
     }
 
     /// <summary> Causes the bot to change how fast it moves. </summary>
-    public sealed class SpeedInstruction : BotInstruction
+    public class SpeedInstruction : BotInstruction
     {
         public SpeedInstruction()
         {

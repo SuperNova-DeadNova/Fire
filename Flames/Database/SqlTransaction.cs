@@ -19,7 +19,7 @@ using System;
 
 namespace Flames.SQL
 {
-    public sealed class SqlTransaction : IDisposable
+    public class SqlTransaction : IDisposable
     {
         public ISqlConnection conn;
         public ISqlTransaction transaction;

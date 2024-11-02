@@ -255,7 +255,7 @@ namespace Flames
         public List<string> BuildBlacklist = new List<string>();
     }
 
-    public sealed class LevelConfig : AreaConfig
+    public class LevelConfig : AreaConfig
     {
         [ConfigBool("LoadOnGoto", "General", true)]
         public bool LoadOnGoto = true;

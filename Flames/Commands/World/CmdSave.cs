@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdSave : Command2
+    public class CmdSave : Command
     {
 
         public override string name { get { return "Save"; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.World
             get { return new[] { new CommandAlias("MapSave"), new CommandAlias("WSave"), new CommandAlias("WorldSave") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.CaselessEq("all"))
             {

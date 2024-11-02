@@ -47,7 +47,7 @@ namespace Flames.Commands.Info
             else
             {
                 return "  Player positions are updated &a" +
-                    (1000 / Server.Config.PositionUpdateInterval) + " &Stimes/second";
+                    (1000 / Server.Config.PositionUpdateInterval) + " &Stimes/second.";
             }
         }
         public override void Use(Player p, string message, CommandData data)
@@ -58,7 +58,7 @@ namespace Flames.Commands.Info
                       count, PlayerInfo.GetOnlineCanSee(p, data.Rank).Count, Group.BannedRank.Players.Count);
             p.Message("  &a{0} &Slevels total (&a{1} &Sloaded). Currency is &3{2}&S.",
                       LevelInfo.AllMapFiles().Length, LevelInfo.Loaded.Count, Server.Config.Currency);
-;
+            Server.UpTime = DateTime.UtcNow - Server.StartTime;
             p.Message("  Been up for &a{0}&S, running &b{1} &a{2} &f" + Updater.SourceURL,
                       Server.UpTime.Shorten(true), Server.SoftwareName, Server.Version);
             p.Message(UpdateIntervalMessage());

@@ -30,7 +30,16 @@ namespace Flames
 
     public static class Extensions
     {
-        public static char[] space = new char[] { ' ' };
+        public static string Reverse(this string value)
+        {
+            char[] charArray = value.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+        public static char[] space = new char[] 
+        { 
+            ' ' 
+        };
 
         /// <summary> Same as value.Split(' '), but doesn't allocate ' ' each time. </summary>
         /// <example> "abc def xyz".SplitSpaces() becomes "abc", "def", "xyz" </example>
@@ -85,10 +94,16 @@ namespace Flames
             }
 
             // If not enough split strings, set remaining to null
-            for (; i < split.Length; i++) { split[i] = null; }
+            for (; i < split.Length; i++) 
+            { 
+                split[i] = null; 
+            }
         }
 
-        public static char[] comma = new char[] { ',' };
+        public static char[] comma = new char[] 
+        { 
+            ',' 
+        };
         public static string[] emptyStrs = new string[0];
 
         /// <summary> Trims spaces then calls Split(','). However, returns an empty array on empty input, 

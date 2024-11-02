@@ -18,12 +18,12 @@
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdBounties : Command2
+    public class CmdBounties : Command
     {
         public override string name { get { return "Bounties"; } }
         public override string type { get { return CommandTypes.Games; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             BountyData[] bounties = BountyData.Bounties.Items;
             if (bounties.Length == 0)

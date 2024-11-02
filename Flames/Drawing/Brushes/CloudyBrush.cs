@@ -22,7 +22,7 @@ using Flames.Generator;
 
 namespace Flames.Drawing.Brushes
 {
-    public sealed class CloudyBrush : Brush
+    public class CloudyBrush : Brush
     {
         public ushort[] blocks;
         public int[] counts;

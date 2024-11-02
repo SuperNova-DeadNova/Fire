@@ -54,7 +54,7 @@ namespace Flames.Commands.World
             }
             bool checkExtraPerms = warps == WarpList.Global;
 
-            if (IsListCommand(cmd))
+            if (IsListAction(cmd))
             {
                 string modifier = args.Length > 1 ? args[1] : "";
                 Paginator.Output(p, warps.Items, PrintWarp,
@@ -69,7 +69,7 @@ namespace Flames.Commands.World
             }
 
             string name = args[1];
-            if (IsCreateCommand(cmd))
+            if (IsCreateAction(cmd))
             {
                 if (checkExtraPerms && !CheckExtraPerm(p, data, 1)) return;
                 if (warps.Exists(name)) 
@@ -81,7 +81,7 @@ namespace Flames.Commands.World
                 warps.Create(name, p);
                 p.Message("{0} {1} created.", group, name);
             }
-            else if (IsDeleteCommand(cmd))
+            else if (IsDeleteAction(cmd))
             {
                 if (checkExtraPerms && !CheckExtraPerm(p, data, 1)) return;
                 Warp warp = Matcher.FindWarps(p, warps, name);
@@ -90,7 +90,7 @@ namespace Flames.Commands.World
                 warps.Remove(warp, p);
                 p.Message("{0} {1} deleted.", group, warp.Name);
             }
-            else if (IsEditCommand(cmd))
+            else if (IsEditAction(cmd))
             {
                 if (checkExtraPerms && !CheckExtraPerm(p, data, 1)) return;
                 Warp warp = Matcher.FindWarps(p, warps, name);

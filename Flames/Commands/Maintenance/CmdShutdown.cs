@@ -1,6 +1,6 @@
 namespace Flames.Commands.Maintenance
 {
-    public sealed class CmdShutdown : Command2
+    public class CmdShutdown : Command
     {
         public override string name { get { return "Shutdown"; } }
         public override string type { get { return CommandTypes.Moderation; } }
@@ -8,7 +8,10 @@ namespace Flames.Commands.Maintenance
 
         public override void Use(Player p, string message)
         {
-            p.Message("Sorry, not shutting down today!");
+            if (p.IsFire)
+            {
+                p.Message("Sorry, not shutting down today!");
+            }
             p.Message("Command has been moved to /ShutdownTrue.");
             p.Message("This is to prevent automatic shut downs.");
         }

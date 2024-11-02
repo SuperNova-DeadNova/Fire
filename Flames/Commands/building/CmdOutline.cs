@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdOutline : DrawCmd
+    public class CmdOutline : DrawCmd
     {
         public override string name { get { return "Outline"; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }

@@ -20,7 +20,7 @@ using Flames.Maths;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdTp : Command2
+    public class CmdTp : Command2
     {
         public override string name { get { return "TP"; } }
         public override string shortcut { get { return "Move"; } }

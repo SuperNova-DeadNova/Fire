@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdClear : Command2
+    public class CmdClear : Command2
     {
         public override string name { get { return "Clear"; } }
         public override string shortcut { get { return "cls"; } }

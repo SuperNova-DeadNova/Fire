@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2015 MCGalaxy
+    Copyright 2015-2024 MCGalaxy
 
     Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -21,31 +21,62 @@ using System.Threading;
 
 namespace Flames.Games
 {
-    public class LevelPicker
+    public abstract class LevelPicker
     {
         public string QueuedMap;
         public List<string> RecentMaps = new List<string>();
-        public int VoteTime = 20;
         public bool Voting;
 
-        public string Candidate1 = "", Candidate2 = "", Candidate3 = "";
-        public int Votes1, Votes2, Votes3;
-        public const int MIN_MAPS = 3;
+        public abstract List<string> GetCandidateMaps(RoundsGame game);
 
-        public void AddRecentMap(string map)
+        public virtual string GetRandomMap(Random r, List<string> maps)
+        {
+            int i = r.Next(0, maps.Count);
+            string map = maps[i];
+            maps.RemoveAt(i);
+            return map;
+        }
+
+
+        public abstract string ChooseNextLevel(RoundsGame game);
+
+
+        public virtual void AddRecentMap(string map)
         {
             if (RecentMaps.Count >= 20)
                 RecentMaps.RemoveAt(0);
             RecentMaps.Add(map);
         }
 
-        public void Clear()
+        public virtual void Clear()
         {
             QueuedMap = null;
             RecentMaps.Clear();
         }
 
-        public string ChooseNextLevel(RoundsGame game)
+
+        public abstract bool HandlesMessage(Player p, string message);
+
+        public abstract void SendVoteMessage(Player p);
+
+        public abstract void ResetVoteMessage(Player p);
+    }
+
+    public class SimpleLevelPicker : LevelPicker
+    {
+        public int VoteTime = 20;
+
+        public string Candidate1 = "", Candidate2 = "", Candidate3 = "";
+        public int Votes1, Votes2, Votes3;
+        public const int MIN_MAPS = 3;
+
+        public override List<string> GetCandidateMaps(RoundsGame game)
+        {
+            return new List<string>(game.GetConfig().Maps);
+        }
+
+
+        public override string ChooseNextLevel(RoundsGame game)
         {
             if (QueuedMap != null) return QueuedMap;
 
@@ -60,9 +91,7 @@ namespace Flames.Games
                 if (maps == null) return null;
 
                 RemoveRecentLevels(maps);
-                Votes1 = 0; 
-                Votes2 = 0; 
-                Votes3 = 0;
+                Votes1 = 0; Votes2 = 0; Votes3 = 0;
 
                 Random r = new Random();
                 Candidate1 = GetRandomMap(r, maps);
@@ -162,20 +191,18 @@ namespace Flames.Games
             }
         }
 
-        public static string GetRandomMap(Random r, List<string> maps)
+
+        public override bool HandlesMessage(Player p, string message)
         {
-            int i = r.Next(0, maps.Count);
-            string map = maps[i];
-            maps.RemoveAt(i);
-            return map;
+            if (!Voting) return false;
+
+            return
+                Player.CheckVote(message, p, "1", "one", ref Votes1) ||
+                Player.CheckVote(message, p, "2", "two", ref Votes2) ||
+                Player.CheckVote(message, p, "3", "three", ref Votes3);
         }
 
-        public virtual List<string> GetCandidateMaps(RoundsGame game)
-        {
-            return new List<string>(game.GetConfig().Maps);
-        }
-
-        public void SendVoteMessage(Player p)
+        public override void SendVoteMessage(Player p)
         {
             const string line1 = "&eLevel vote - type &a1&e, &b2&e or &c3";
             string line2 = "&a" + Candidate1 + "&e, &b" + Candidate2 + "&e, &c" + Candidate3;
@@ -192,21 +219,11 @@ namespace Flames.Games
             }
         }
 
-        public void ResetVoteMessage(Player p)
+        public override void ResetVoteMessage(Player p)
         {
             p.SendCpeMessage(CpeMessageType.BottomRight3, "");
             p.SendCpeMessage(CpeMessageType.BottomRight2, "");
             p.SendCpeMessage(CpeMessageType.BottomRight1, "");
-        }
-
-        public bool HandlesMessage(Player p, string message)
-        {
-            if (!Voting) return false;
-
-            return
-                Player.CheckVote(message, p, "1", "one", ref Votes1) ||
-                Player.CheckVote(message, p, "2", "two", ref Votes2) ||
-                Player.CheckVote(message, p, "3", "three", ref Votes3);
         }
     }
 }

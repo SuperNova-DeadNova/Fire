@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Flames.Modules.Games.ZS
 {
-    public sealed class CmdInfected : Command2
+    public class CmdInfected : Command2
     {
         public override string name { get { return "Infected"; } }
         public override string shortcut { get { return "dead"; } }

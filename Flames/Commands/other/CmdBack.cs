@@ -17,13 +17,13 @@
 */
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdBack : Command2
+    public class CmdBack : Command
     {
         public override string name { get { return "Back"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (p.PreTeleportMap == null)
             {

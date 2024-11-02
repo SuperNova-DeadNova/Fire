@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdFakeRank : Command2
+    public class CmdFakeRank : Command2
     {
         public override string name { get { return "FakeRank"; } }
         public override string shortcut { get { return "frk"; } }

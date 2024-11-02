@@ -17,12 +17,12 @@
 */
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdFlipHead : Command2
+    public class CmdFlipHead : Command
     {
         public override string name { get { return "FlipHead"; } }
         public override string type { get { return CommandTypes.Other; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.flipHead = !p.flipHead;
             p.Message("Your head was {0}&S!", p.flipHead ? "&cbroken" : "&ahealed");

@@ -23,7 +23,7 @@ using Flames.SQL;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdAbout : Command2
+    public class CmdAbout : Command2
     {
         public override string name { get { return "About"; } }
         public override string shortcut { get { return "b"; } }

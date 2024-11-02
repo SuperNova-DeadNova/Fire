@@ -18,7 +18,7 @@
 namespace Flames.Commands.World
 {
 
-    public sealed class CmdLockdown : Command2
+    public class CmdLockdown : Command
     {
         public override string name { get { return "Lockdown"; } }
         public override string shortcut { get { return "ld"; } }
@@ -30,7 +30,7 @@ namespace Flames.Commands.World
             get { return new[] { new CommandAlias("WLock"), new CommandAlias("WUnlock") }; }
         }
 
-        public override void Use(Player p, string map, CommandData data)
+        public override void Use(Player p, string map)
         {
             if (map.Length == 0) 
             { 

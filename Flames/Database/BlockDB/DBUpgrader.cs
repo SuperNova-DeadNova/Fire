@@ -25,7 +25,8 @@ namespace Flames.DB
     public static class DBUpgrader
     {
         public static bool Upgrading = false;
-        public static string[] CompactMessages = new string[] {
+        public static string[] CompactMessages = new string[] 
+        {
             " If you are using SQLite, It is recommended that you compact the database by either:",
             "   a) doing VACUUM on the database (note that this will create a temp file as big as Flames.db)",
             "   b) doing /server backup litedb, shutting down the server, deleting Flames.db, then finally running /server import SQL",

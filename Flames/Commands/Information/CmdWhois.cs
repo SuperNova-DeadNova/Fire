@@ -19,7 +19,7 @@ using Flames.DB;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdWhois : Command2
+    public class CmdWhois : Command
     {
         public override string name { get { return "WhoIs"; } }
         public override string shortcut { get { return "WhoWas"; } }
@@ -34,7 +34,7 @@ namespace Flames.Commands.Info
             get { return new CommandAlias[] { new CommandAlias("Info"), new CommandAlias("i") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

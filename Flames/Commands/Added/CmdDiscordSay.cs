@@ -1,7 +1,7 @@
 ﻿using Flames.Modules.Relay.Discord;
 namespace Flames.Commands.Chatting
 {
-    public sealed class CmdSayDiscord : Command
+    public class CmdSayDiscord : Command
     {
         public override string name { get { return "SayDiscord"; } }
         public override string shortcut { get { return "DiscordBroadcast"; } }

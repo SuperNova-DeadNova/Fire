@@ -21,13 +21,13 @@ using Flames.Tasks;
 
 namespace Flames.Commands.Misc
 {
-    public sealed class CmdRide : Command2
+    public class CmdRide : Command
     {
         public override string name { get { return "Ride"; } }
         public override string type { get { return CommandTypes.Other; } }
         public override bool museumUsable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.onTrain = !p.onTrain;
             if (!p.onTrain) return;

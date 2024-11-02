@@ -19,7 +19,7 @@ using Flames.Drawing.Ops;
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdTriangle : DrawCmd
+    public class CmdTriangle : DrawCmd
     {
         public override string name { get { return "Triangle"; } }
         public override string shortcut { get { return "tri"; } }

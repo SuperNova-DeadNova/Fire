@@ -19,7 +19,7 @@ using Flames.Events.PlayerEvents;
 
 namespace Flames.Commands.Fun
 {
-    public sealed class CmdReferee : Command2
+    public class CmdReferee : Command
     {
         public override string name { get { return "Referee"; } }
         public override string shortcut { get { return "Ref"; } }
@@ -27,7 +27,7 @@ namespace Flames.Commands.Fun
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
         public override bool SuperUseable { get { return false; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (p.Game.Referee)
             {

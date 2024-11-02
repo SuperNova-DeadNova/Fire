@@ -35,7 +35,7 @@ namespace Flames
         Modified
     }
 
-    public sealed partial class Level : IDisposable
+    public partial class Level : IDisposable
     {
         public byte[] blocks;
         /// <summary> Lazily allocated 16x16x16 chunks that store extended tile IDs </summary>

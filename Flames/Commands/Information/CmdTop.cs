@@ -20,7 +20,7 @@ using Flames.DB;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdTop : Command2
+    public class CmdTop : Command
     {
         public override string name { get { return "Top"; } }
         public override string shortcut { get { return "Most"; } }
@@ -34,7 +34,7 @@ namespace Flames.Commands.Info
             }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             string[] args = message.SplitSpaces();
             if (args.Length < 2) 

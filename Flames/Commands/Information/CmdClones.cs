@@ -20,7 +20,7 @@ using Flames.Commands.Moderation;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdClones : Command2
+    public class CmdClones : Command
     {
         public override string name { get { return "Clones"; } }
         public override string shortcut { get { return "Alts"; } }
@@ -32,7 +32,7 @@ namespace Flames.Commands.Info
             get { return new[] { new CommandAlias("WhoIP") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {

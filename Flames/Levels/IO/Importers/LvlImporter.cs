@@ -25,7 +25,7 @@ namespace Flames.Levels.IO
 {
     //WARNING! DO NOT CHANGE THE WAY THE LEVEL IS SAVED/LOADED!
     //You MUST make it able to save and load as a new version other wise you will make old levels incompatible!
-    public unsafe sealed class LvlImporter : IMapImporter
+    public unsafe class LvlImporter : IMapImporter
     {
         public override string Extension { get { return ".lvl"; } }
         public override string Description { get { return "MCDzienny/MCForge/MCGalaxy map"; } }

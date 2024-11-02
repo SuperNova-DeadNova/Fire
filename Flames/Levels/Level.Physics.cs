@@ -28,7 +28,7 @@ namespace Flames
     { 
         Stopped, Warning, Other 
     }
-    public sealed partial class Level : IDisposable
+    public partial class Level : IDisposable
     {
         public object updateLock = new object();
         public object checkLock = new object();
@@ -55,11 +55,10 @@ namespace Flames
             {
                 if (physThread != null && physThread.ThreadState == ThreadState.Running) return;
                 if (ListCheck.Count == 0 || physThreadStarted) return;
-                physThread = new Thread(PhysicsLoop)
-                {
-                    Name = "Physics_" + name
-                };
-                physThread.Start();
+
+                Server.StartThread(out physThread, "Physics_" + name,
+                                   PhysicsLoop);
+                Utils.SetBackgroundMode(physThread);
                 physThreadStarted = true;
             }
         }

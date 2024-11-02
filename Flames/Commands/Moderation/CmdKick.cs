@@ -19,7 +19,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdKick : Command2
+    public class CmdKick : Command2
     {
         public override string name { get { return "Kick"; } }
         public override string shortcut { get { return "k"; } }

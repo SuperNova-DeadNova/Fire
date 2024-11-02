@@ -21,7 +21,7 @@ using Flames.Events;
 
 namespace Flames.Commands.Moderation
 {
-    public sealed class CmdBanip : Command2
+    public class CmdBanip : Command2
     {
         public override string name { get { return "BanIP"; } }
         public override string shortcut { get { return "bi"; } }

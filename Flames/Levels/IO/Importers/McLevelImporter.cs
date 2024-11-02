@@ -22,7 +22,7 @@ using Flames.Maths;
 
 namespace Flames.Levels.IO
 {
-    public sealed class McLevelImporter : IMapImporter
+    public class McLevelImporter : IMapImporter
     {
 
         public override string Extension { get { return ".mclevel"; } }

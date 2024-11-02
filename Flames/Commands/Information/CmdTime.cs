@@ -20,14 +20,14 @@ using Flames.Games;
 
 namespace Flames.Commands.Info
 {
-    public sealed class CmdTime : Command2
+    public class CmdTime : Command
     {
         public override string name { get { return "Time"; } }
         public override string shortcut { get { return "ti"; } }
         public override string type { get { return CommandTypes.Information; } }
         public override bool UseableWhenFrozen { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             p.Message("Server time: {0:HH:mm:ss} on {0:yyyy-MM-dd}", DateTime.Now);
             IGame game = IGame.GameOn(p.level);

@@ -335,6 +335,11 @@ namespace Flames.Commands.CPE
             {
                 p.Message("  Order: " + def.InventoryOrder);
             }
+            if (def.Brightness > 0)
+            {
+                string word = def.UseLampBrightness ? "LampLight" : "LavaLight";
+                p.Message("  {0}: {1}", word, def.Brightness);
+            }
         }
 
 
@@ -998,12 +1003,15 @@ namespace Flames.Commands.CPE
         }
 
 
-        public static string[] stepsHelp = new string[] {
+        public static string[] stepsHelp = new string[] 
+        {
             null, null, "name", "shape", "toptex", "sidetex", "bottomtex", "min", "max", "collide",
-            "speed", "blockslight", "sound", "fullbright", "blockdraw", "fogdensity", "fogcolor", "fallback" };
+            "speed", "blockslight", "sound", "fullbright", "blockdraw", "fogdensity", "fogcolor", "fallback" 
+        };
 
         public const string texLine = "Press F10 to see the numbers for each texture in terrain.png";
-        public static Dictionary<string, string[]> helpSections = new Dictionary<string, string[]>() {
+        public static Dictionary<string, string[]> helpSections = new Dictionary<string, string[]>() 
+        {
             { "name", new string[]  { "Type the name for the block." } },
             { "shape", new string[] { "Type '0' if the block is a cube, '1' if a sprite (e.g roses)." } },
             { "blockslight", new string[] { "Type 'yes' if the block casts a shadow, 'no' if it doesn't." } },
@@ -1103,7 +1111,7 @@ namespace Flames.Commands.CPE
         }
     }
 
-    public sealed class CmdGlobalBlock : Command2
+    public class CmdGlobalBlock : Command2
     {
         public override string name { get { return "GlobalBlock"; } }
         public override string shortcut { get { return "gb"; } }
@@ -1126,7 +1134,7 @@ namespace Flames.Commands.CPE
         }
     }
 
-    public sealed class CmdLevelBlock : Command2
+    public class CmdLevelBlock : Command2
     {
         public override string name { get { return "LevelBlock"; } }
         public override string shortcut { get { return "lb"; } }

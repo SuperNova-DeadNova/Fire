@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.World
 {
-    public sealed class CmdLoad : Command2
+    public class CmdLoad : Command
     {
         public override string name { get { return "Load"; } }
         public override string type { get { return CommandTypes.World; } }
@@ -28,7 +28,7 @@ namespace Flames.Commands.World
             get { return new[] { new CommandAlias("MapLoad"), new CommandAlias("WLoad") }; }
         }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0) 
             { 

@@ -18,7 +18,7 @@
 
 namespace Flames.Commands.Building
 {
-    public sealed class CmdCmdBind : Command2
+    public class CmdCmdBind : Command
     {
         public override string name { get { return "CmdBind"; } }
         public override string shortcut { get { return "cb"; } }
@@ -27,7 +27,7 @@ namespace Flames.Commands.Building
         public override bool SuperUseable { get { return false; } }
         public override bool MessageBlockRestricted { get { return true; } }
 
-        public override void Use(Player p, string message, CommandData data)
+        public override void Use(Player p, string message)
         {
             if (message.Length == 0)
             {
